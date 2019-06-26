@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -144,6 +144,7 @@
 		83666B5A225509D700B83B4C /* Vkontakte-GB-Result */ = {
 			isa = PBXGroup;
 			children = (
+				83C3EF4822C40267002F8553 /* News */,
 				83666B5B225509D700B83B4C /* AppDelegate.swift */,
 				83666B5D225509D700B83B4C /* VkoViewController.swift */,
 				839176C62284450E00A31713 /* VkoLoginWebViewController.swift */,
@@ -210,6 +211,13 @@
 				839176C222835B8800A31713 /* AlamofireSession.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		83C3EF4822C40267002F8553 /* News */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		83F6E2C122998F3900DEB419 /* RealmProvider */ = {
