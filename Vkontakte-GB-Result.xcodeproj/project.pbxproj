@@ -144,13 +144,13 @@
 		83666B5A225509D700B83B4C /* Vkontakte-GB-Result */ = {
 			isa = PBXGroup;
 			children = (
-				83C3EF4822C40267002F8553 /* News */,
 				83666B5B225509D700B83B4C /* AppDelegate.swift */,
 				83666B5D225509D700B83B4C /* VkoViewController.swift */,
 				839176C62284450E00A31713 /* VkoLoginWebViewController.swift */,
 				83F6E2C122998F3900DEB419 /* RealmProvider */,
 				8311E8F722888F3300344690 /* Model */,
 				839176BD227B533E00A31713 /* Network */,
+				83C3EF4822C40267002F8553 /* News */,
 				837DD843225D125A00A9A709 /* Friends */,
 				837DD842225D122100A9A709 /* Group */,
 				83666B5F225509D700B83B4C /* Main.storyboard */,

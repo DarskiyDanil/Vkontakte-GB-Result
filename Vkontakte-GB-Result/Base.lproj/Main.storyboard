@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2719" y="-405"/>
+            <point key="canvasLocation" x="2354" y="-976"/>
         </scene>
         <!--Vko Login Web View Controller-->
         <scene sceneID="5aR-8c-wP3">
@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCf-wf-aPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734.7826086956525" y="267.1875"/>
+            <point key="canvasLocation" x="2877" y="-188"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6xX-eV-ML7">
@@ -195,17 +195,47 @@
                     <connections>
                         <segue destination="maE-ec-5cI" kind="relationship" relationship="viewControllers" id="oqU-hk-8pE"/>
                         <segue destination="stm-U9-N3E" kind="relationship" relationship="viewControllers" id="v64-za-sR1"/>
+                        <segue destination="gPn-oI-jyE" kind="relationship" relationship="viewControllers" id="OnF-4L-ODX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoZ-ne-h1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3562.3188405797105" y="136.60714285714286"/>
+            <point key="canvasLocation" x="3680" y="-188"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="z96-cw-kTs">
+            <objects>
+                <tableViewController id="3RS-yR-r1N" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tyn-Cx-3te">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Mr5-JF-97G">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mr5-JF-97G" id="4uz-Rm-yzk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3RS-yR-r1N" id="1vz-Au-ZUh"/>
+                            <outlet property="delegate" destination="3RS-yR-r1N" id="Y6c-7A-trp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="2jS-d8-DCf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRs-Hw-aF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5389.8550724637689" y="-856.47321428571422"/>
         </scene>
         <!--ДРУЗЬЯ-->
         <scene sceneID="9b9-2g-gSf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="maE-ec-5cI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ДРУЗЬЯ" id="0Jj-3q-mxW"/>
+                    <tabBarItem key="tabBarItem" title="ДРУЗЬЯ" selectedImage="icons8-myspace-в-круге-filled-100" id="0Jj-3q-mxW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LQI-ln-P0E">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -343,7 +373,7 @@
         <scene sceneID="Hdy-eV-K5U">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="stm-U9-N3E" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ГРУППЫ" id="24Z-eY-wBY"/>
+                    <tabBarItem key="tabBarItem" title="ГРУППЫ" selectedImage="icons8-следить-filled-50 (2)" id="24Z-eY-wBY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oul-0m-Fg2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -498,9 +528,31 @@
             </objects>
             <point key="canvasLocation" x="6205.7971014492759" y="460.71428571428567"/>
         </scene>
+        <!--Новости-->
+        <scene sceneID="ckN-KD-A0I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gPn-oI-jyE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Новости" selectedImage="icons8-vk-в-круге-filled-101" id="RCm-Wv-w1V"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZbT-0H-7ZG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3RS-yR-r1N" kind="relationship" relationship="rootViewController" id="5Fy-95-AMB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OK0-ZT-cId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4479.7101449275369" y="-856.47321428571422"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background" width="414" height="896"/>
         <image name="Logo" width="133.33332824707031" height="133.33332824707031"/>
+        <image name="icons8-myspace-в-круге-filled-100" width="50" height="50"/>
+        <image name="icons8-vk-в-круге-filled-101" width="50" height="50"/>
+        <image name="icons8-следить-filled-50 (2)" width="50" height="50"/>
     </resources>
 </document>
