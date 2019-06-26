@@ -1,1 +1,0 @@
-# Vkontakte-GB-Result
