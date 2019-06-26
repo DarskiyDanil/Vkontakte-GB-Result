@@ -525,7 +525,11 @@ open class ImageCache {
         options: KingfisherParsedOptionsInfo) -> Image?
     {
         let computedKey = key.computedKey(with: options.processor.identifier)
-        return memoryStorage.value(forKey: computedKey, extendingExpiration: options.memoryCacheAccessExtendingExpiration)
+        do {
+            return try memoryStorage.value(forKey: computedKey)
+        } catch {
+            return nil
+        }
     }
 
     /// Gets an image for a given key from the memory storage.

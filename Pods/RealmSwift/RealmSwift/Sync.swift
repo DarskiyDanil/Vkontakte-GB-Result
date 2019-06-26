@@ -1117,6 +1117,7 @@ extension Results {
     }
 }
 
+#if swift(>=3.2)
 internal class KeyValueObservationNotificationToken: NotificationToken {
     public var observation: NSKeyValueObservation?
 
@@ -1129,6 +1130,7 @@ internal class KeyValueObservationNotificationToken: NotificationToken {
         self.observation = nil
     }
 }
+#endif // Swift >= 3.2
 
 // MARK: - Migration assistance
 
