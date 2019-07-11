@@ -30,6 +30,10 @@
 		839176C522842D0C00A31713 /* VkoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176C422842D0C00A31713 /* VkoService.swift */; };
 		839176C72284450E00A31713 /* VkoLoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176C62284450E00A31713 /* VkoLoginWebViewController.swift */; };
 		839176C92284766D00A31713 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839176C82284766C00A31713 /* WebKit.framework */; };
+		83C3EF4A22C40D7C002F8553 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF4922C40D7C002F8553 /* NewsTableViewController.swift */; };
+		83C3EF4D22C40DB2002F8553 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF4C22C40DB2002F8553 /* NewsCell.swift */; };
+		83C3EF5022C40E37002F8553 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF4F22C40E37002F8553 /* NewsService.swift */; };
+		83C3EF5222C41360002F8553 /* NewsRealmSwiftyJsone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF5122C41360002F8553 /* NewsRealmSwiftyJsone.swift */; };
 		83F6E2C022993B7600DEB419 /* AddGroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F6E2BF22993B7600DEB419 /* AddGroupRealm.swift */; };
 		83F6E2C322998F7400DEB419 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F6E2C222998F7400DEB419 /* RealmProvider.swift */; };
 		83F6E2C522A868C300DEB419 /* RealmChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F6E2C422A868C300DEB419 /* RealmChanges.swift */; };
@@ -67,6 +71,10 @@
 		839176C422842D0C00A31713 /* VkoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkoService.swift; sourceTree = "<group>"; };
 		839176C62284450E00A31713 /* VkoLoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkoLoginWebViewController.swift; sourceTree = "<group>"; };
 		839176C82284766C00A31713 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		83C3EF4922C40D7C002F8553 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		83C3EF4C22C40DB2002F8553 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		83C3EF4F22C40E37002F8553 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		83C3EF5122C41360002F8553 /* NewsRealmSwiftyJsone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRealmSwiftyJsone.swift; sourceTree = "<group>"; };
 		83F6E2BF22993B7600DEB419 /* AddGroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupRealm.swift; sourceTree = "<group>"; };
 		83F6E2C222998F7400DEB419 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		83F6E2C422A868C300DEB419 /* RealmChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChanges.swift; sourceTree = "<group>"; };
@@ -207,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				839176C422842D0C00A31713 /* VkoService.swift */,
+				83C3EF4F22C40E37002F8553 /* NewsService.swift */,
 				839176C0227EE64300A31713 /* NetworkService.swift */,
 				839176C222835B8800A31713 /* AlamofireSession.swift */,
 			);
@@ -216,8 +225,27 @@
 		83C3EF4822C40267002F8553 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				83C3EF4922C40D7C002F8553 /* NewsTableViewController.swift */,
+				83C3EF4E22C40DB9002F8553 /* NewsRealmSwiftyJSON */,
+				83C3EF4B22C40D86002F8553 /* NewsCell */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		83C3EF4B22C40D86002F8553 /* NewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				83C3EF4C22C40DB2002F8553 /* NewsCell.swift */,
+			);
+			path = NewsCell;
+			sourceTree = "<group>";
+		};
+		83C3EF4E22C40DB9002F8553 /* NewsRealmSwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				83C3EF5122C41360002F8553 /* NewsRealmSwiftyJsone.swift */,
+			);
+			path = NewsRealmSwiftyJSON;
 			sourceTree = "<group>";
 		};
 		83F6E2C122998F3900DEB419 /* RealmProvider */ = {
@@ -372,11 +400,15 @@
 				839176BF227B538700A31713 /* SessionSingletone.swift in Sources */,
 				839176BC227AE0EB00A31713 /* MyUIView.swift in Sources */,
 				837DD841225D120300A9A709 /* OneFriendCollectionViewController.swift in Sources */,
+				83C3EF5222C41360002F8553 /* NewsRealmSwiftyJsone.swift in Sources */,
 				83F6E2C522A868C300DEB419 /* RealmChanges.swift in Sources */,
 				83F6E2C322998F7400DEB419 /* RealmProvider.swift in Sources */,
+				83C3EF5022C40E37002F8553 /* NewsService.swift in Sources */,
+				83C3EF4A22C40D7C002F8553 /* NewsTableViewController.swift in Sources */,
 				83666B5C225509D700B83B4C /* AppDelegate.swift in Sources */,
 				839176C1227EE64300A31713 /* NetworkService.swift in Sources */,
 				837DD83B225BD23600A9A709 /* FriendsTableViewController.swift in Sources */,
+				83C3EF4D22C40DB2002F8553 /* NewsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

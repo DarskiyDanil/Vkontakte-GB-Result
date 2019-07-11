@@ -141,19 +141,6 @@ class FriendsTableViewController: UITableViewController {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func showLoginError() {
         // Создаем контроллер
         let alter = UIAlertController(title: "Ошибка сети", message: "данные неполучены, ковыряй код", preferredStyle: .alert)

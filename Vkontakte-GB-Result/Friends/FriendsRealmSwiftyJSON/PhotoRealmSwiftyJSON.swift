@@ -23,10 +23,11 @@ import RealmSwift
     // присваиваю переменным инициализаторы
     convenience init(json: JSON, ownerId: String) {
         self.init()
-        
-        self.ownerId = json["owner_id"].intValue
-        self.id = json["id"].intValue
-        self.imageUrl = json["sizes"][2]["url"].stringValue
+        DispatchQueue.global().async {
+            self.ownerId = json["owner_id"].intValue
+            self.id = json["id"].intValue
+            self.imageUrl = json["sizes"][2]["url"].stringValue
+        }
     }
     override static func primaryKey() -> String? {
         return "id"
@@ -59,7 +60,7 @@ extension PhotoRealmSwiftyJSON {
             realm.delete(oldPhotos)
             
             // сохраняем
-            realm.add(photoRealm, update: true)
+            realm.add(photoRealm, update: .all)
             //            завершение записи в хранилище
             try realm.commitWrite()
             

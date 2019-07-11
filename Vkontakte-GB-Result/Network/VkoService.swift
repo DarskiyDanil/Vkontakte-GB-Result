@@ -39,6 +39,7 @@ class VkoService {
                 let json = JSON(value)
                 let groups = json["response"]["items"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
                 //  при успешности волучам массив друзей и вместо ошибки nil
+                
                 completion?(groups, nil)
             case .failure(let error):
 //                print(error.localizedDescription)
