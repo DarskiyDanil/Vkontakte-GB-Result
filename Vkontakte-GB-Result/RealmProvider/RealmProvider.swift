@@ -17,14 +17,14 @@ class RealmProvider {
     }
     
     @discardableResult
-    static func saveToRealm<T: Object> (items: [T], update: Bool = true) -> Realm {
+    static func saveToRealm<T: Object> (items: [T]) -> Realm {
         
         let realm = try! Realm(configuration: RealmProvider.configuration)
         
         do {
             
             try realm.write {
-                realm.add(items, update: update)
+                realm.add(items, update: .all)
             }
         } catch  {
             print(error.localizedDescription)
