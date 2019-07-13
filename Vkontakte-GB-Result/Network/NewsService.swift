@@ -66,7 +66,7 @@ class NewsService {
                 let index = groups.firstIndex(where: { (item) -> Bool in
                     item.id == post.sourceId * -1
                 })
-                post.newsName = groups[index!].name
+                post.newsName = groups[(index ?? nil)!].name
                 post.newsPhoto = groups[index!].imageUrl
             }
         }

@@ -25,9 +25,9 @@ import RealmSwift
             self.imageUrl = json["sizes"][2]["url"].stringValue
         }
     }
-    override static func primaryKey() -> String? {
-        return "id"
-    }
+//    override static func primaryKey() -> String? {
+//        return "id"
+//    }
 }
 
 //MARK: CRUD metods
@@ -56,7 +56,7 @@ extension PhotoRealmSwiftyJSON {
             realm.delete(oldPhotos)
             
             // сохраняем
-            realm.add(photoRealm, update: .all)
+            realm.add(photoRealm/*, update: .all*/)
             //            завершение записи в хранилище
             try realm.commitWrite()
             

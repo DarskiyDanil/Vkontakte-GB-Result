@@ -18,9 +18,9 @@ class AddGroupRealm: Object {
         self.groupAdd = groupAdd
         self.id = groupId
     }
-    override class func primaryKey() -> String? {
-        return "id"
-    }
+//    override class func primaryKey() -> String? {
+//        return "id"
+//    }
     
 }
 extension AddGroupRealm {
