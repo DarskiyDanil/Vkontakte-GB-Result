@@ -16,10 +16,6 @@ import RealmSwift
     dynamic var id = 0
     dynamic var imageUrl = ""
     
-    //    override​​ static​ func primaryKey​()​​ ->​​ String​?​ {
-    //    return​​ "id"
-    //    }
-    
     // присваиваю переменным инициализаторы
     convenience init(json: JSON, ownerId: String) {
         self.init()
@@ -69,8 +65,6 @@ extension PhotoRealmSwiftyJSON {
         }
     }
 }
-
-
 
 
 //{

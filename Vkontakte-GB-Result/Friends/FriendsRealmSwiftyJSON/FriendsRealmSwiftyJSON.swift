@@ -15,7 +15,7 @@ import RealmSwift
     dynamic var id = 0
     dynamic var firstName = ""
     dynamic var lastName = ""
-    dynamic var imageAvatar = ""
+    dynamic var imageUrl = ""
 // присваиваю переменным инициализаторы
     convenience init(json: JSON) {
         self.init()
@@ -23,7 +23,7 @@ import RealmSwift
         self.id = json["id"].intValue
         self.firstName = json["first_name"].stringValue
         self.lastName = json["last_name"].stringValue
-        self.imageAvatar = json["photo_50"].stringValue
+        self.imageUrl = json["photo_50"].stringValue
     }
   
 }

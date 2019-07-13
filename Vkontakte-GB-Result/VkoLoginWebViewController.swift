@@ -78,9 +78,9 @@ extension VkoLoginWebViewController: WKNavigationDelegate {
         }
         Auth.auth().signInAnonymously() { (authResult, error) in
             if error != nil { print(error!.localizedDescription) }
-            let user = authResult!.user
-            let isAnonymous = user.isAnonymous  // true
-            let uid = user.uid
+//            let user = authResult!.user
+//            let isAnonymous = user.isAnonymous  // true
+//            let uid = user.uid
             
             
 //            let groupRef = self.ref.child(String(uid).lowercased())

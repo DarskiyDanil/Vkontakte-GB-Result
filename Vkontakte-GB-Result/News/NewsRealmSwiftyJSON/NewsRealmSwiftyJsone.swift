@@ -30,6 +30,7 @@ import RealmSwift
     // присваиваю переменным инициализаторы
     convenience init(json: JSON) {
         self.init()
+        
         DispatchQueue.global().async {
             self.sourceId = json["source_id"].intValue
             self.postId = json["post_id"].intValue
@@ -54,8 +55,6 @@ import RealmSwift
                     }
                 }
             }
-            
-            
         }
     }
 }

@@ -13,7 +13,9 @@ import SwiftyJSON
 class NewsService {
     
     static let newsService = NewsService()
-    
+    private var news = [NewsRealmSwiftyJsone]()
+    private var users = [FriendsRealmSwiftyJSON]()
+    private var groups = [GroupsRealmSwiftyJSON]()
     
     //    private var news = [NewsRealmSwiftyJsone]()
     var user_id = String(SessionSingletone.shared.userId)
@@ -23,13 +25,12 @@ class NewsService {
     func requestNewsAlamofire(completion: (([NewsRealmSwiftyJsone]?, Error?) -> Void)? = nil ) {
         let baseUrl = SessionSingletone.shared.baseUrl
         let path = "/method/newsfeed.get"
-        
         let parameters: Parameters = [
             //            "owner_id": ownerId,
             "access_token": SessionSingletone.shared.token,
             "filters": "post,photo",
             "max_photos": "1",
-            "count": "10",
+            "count": "50",
             "v": "5.92"/*SessionSingletone.shared.apiVersion*/
         ]
         
@@ -39,10 +40,13 @@ class NewsService {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let news = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
+                self.news = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
+                self.users = json["response"]["profiles"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
+                self.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
+                self.identifyNewsSource()
                 print(json)
                 //  при успешности волучам массив друзей и вместо ошибки nil
-                completion?(news, nil)
+                completion?(self.news, nil)
             case .failure(let error):
                 // иначе получаем ошибку
                 completion?(nil, error)
@@ -50,7 +54,23 @@ class NewsService {
         }
     }
     
-    
+    func identifyNewsSource() {
+        for post in self.news {
+            if post.sourceId > 0 {
+                let index = users.firstIndex(where: { (item) -> Bool in
+                    item.id == post.sourceId
+                })
+                post.newsName = "\(users[index!].firstName) \(users[index!].lastName)"
+                post.newsPhoto = users[index!].imageUrl
+            } else {
+                let index = groups.firstIndex(where: { (item) -> Bool in
+                    item.id == post.sourceId * -1
+                })
+                post.newsName = groups[index!].name
+                post.newsPhoto = groups[index!].imageUrl
+            }
+        }
+    }
     
     
     

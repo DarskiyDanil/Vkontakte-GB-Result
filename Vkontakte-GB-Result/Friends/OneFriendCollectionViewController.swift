@@ -118,8 +118,6 @@ class OneFriendCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    
-    
     //    вывод ошибки
     func showLoginError() {
         // Создаем контроллер
