@@ -27,7 +27,7 @@ class NewsService {
         let parameters: Parameters = [
             //            "owner_id": ownerId,
             "access_token": SessionSingletone.shared.token,
-            "filters": "post, photo",
+            "filters": "post,photo",
             "max_photos": "1",
             "count": "10",
             "v": "5.92"/*SessionSingletone.shared.apiVersion*/
