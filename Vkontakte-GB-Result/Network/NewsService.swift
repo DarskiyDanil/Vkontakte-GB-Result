@@ -34,19 +34,20 @@ class NewsService {
             "v": "5.92"/*SessionSingletone.shared.apiVersion*/
         ]
         
-        Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { [weak self] (response) in
             // здесь будет парсинг
             //  result  результат (успех или провал)
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.news = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
-                self.users = json["response"]["profiles"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
-                self.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
-                self.identifyNewsSource()
+                self?.news = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
+//                self?.users = json["response"]["profiles"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
+//                self?.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
+//                self?.news = (self?.news.filter { $0.text != "" || $0.imageURL != "" })!
+                self?.identifyNewsSource()
                 print(json)
                 //  при успешности волучам массив друзей и вместо ошибки nil
-                completion?(self.news, nil)
+                completion?(self?.news, nil)
             case .failure(let error):
                 // иначе получаем ошибку
                 completion?(nil, error)
@@ -66,7 +67,7 @@ class NewsService {
                 let index = groups.firstIndex(where: { (item) -> Bool in
                     item.id == post.sourceId * -1
                 })
-                post.newsName = groups[(index ?? nil)!].name
+                post.newsName = groups[index!].name
                 post.newsPhoto = groups[index!].imageUrl
             }
         }
