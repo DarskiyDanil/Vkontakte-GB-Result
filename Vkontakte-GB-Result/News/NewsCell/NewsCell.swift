@@ -16,28 +16,35 @@ protocol NewsCellDelegate: class {
 }
 
 class NewsCell: UITableViewCell {
-//
+
     public weak var delegate: NewsCellDelegate?
-//
+
+    
+    
     @IBOutlet weak var photoProfil: UIImageView!{
         didSet {
         }
     }
-//
+
     @IBOutlet weak var nameProfileUser: UILabel!
-//
+
     @IBOutlet weak var newNewsPost: UILabel!
-//
-//    @IBOutlet weak var newsImage: UIImageView!
-//
-//
-//
+
+    @IBOutlet weak var newsImage: UIImageView!{
+        didSet {
+        }
+    }
+    
+
     func configUser(with news: NewsRealmSwiftyJsone) {
         self.nameProfileUser.text = String(news.newsName)
         self.newNewsPost.text = String(news.textNews)
         
-        let url = URL(string: String(news.newsPhoto))
-        self.photoProfil.kf.setImage(with: url)
+        let url = URL(string: String(news.imageURL))
+        self.newsImage.kf.setImage(with: url)
+        
+        let url2 = URL(string: String(news.newsPhoto))
+        self.photoProfil.kf.setImage(with: url2)
     }
     
 //    func configUserName(with news: NewsRealmSwiftyJsone) {
