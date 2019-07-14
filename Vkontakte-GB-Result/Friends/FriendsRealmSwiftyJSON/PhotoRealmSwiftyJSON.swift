@@ -19,11 +19,11 @@ import RealmSwift
     // присваиваю переменным инициализаторы
     convenience init(json: JSON, ownerId: String) {
         self.init()
-        DispatchQueue.global().async {
+//        DispatchQueue.global().async {
             self.ownerId = json["owner_id"].intValue
             self.id = json["id"].intValue
             self.imageUrl = json["sizes"][2]["url"].stringValue
-        }
+//        }
     }
 //    override static func primaryKey() -> String? {
 //        return "id"

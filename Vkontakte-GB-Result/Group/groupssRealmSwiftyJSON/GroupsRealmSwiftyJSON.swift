@@ -22,14 +22,14 @@ import RealmSwift
     // присваиваю переменным инициализаторы
     convenience init(json: JSON) {
         self.init()
-    DispatchQueue.global().async {
+//    DispatchQueue.global().async {
         self.id = json["id"].intValue
         self.name = json["name"].stringValue
         self.imageUrl = json["photo_50"].stringValue
         self.membersCount = json["members_count"].intValue
         self.isClosed = json["is_closed"].boolValue
         self.isMember = json["is_member"].boolValue
-        }
+//        }
     }
       
 }

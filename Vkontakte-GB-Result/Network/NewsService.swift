@@ -41,8 +41,8 @@ class NewsService {
             case .success(let value):
                 let json = JSON(value)
                 self?.news = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
-//                self?.users = json["response"]["profiles"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
-//                self?.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
+                self?.users = json["response"]["profiles"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
+                self?.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
 //                self?.news = (self?.news.filter { $0.text != "" || $0.imageURL != "" })!
                 self?.identifyNewsSource()
                 print(json)

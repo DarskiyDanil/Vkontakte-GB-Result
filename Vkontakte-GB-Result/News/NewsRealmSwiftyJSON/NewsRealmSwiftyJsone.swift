@@ -31,7 +31,7 @@ import RealmSwift
     convenience init(json: JSON) {
         self.init()
         
-        DispatchQueue.global().async {
+//        DispatchQueue.global().async {
             self.sourceId = json["source_id"].intValue
             self.postId = json["post_id"].intValue
             self.newsName = json["name"].stringValue
@@ -55,7 +55,7 @@ import RealmSwift
                     }
                 }
             }
-        }
+//        }
     }
 }
 
