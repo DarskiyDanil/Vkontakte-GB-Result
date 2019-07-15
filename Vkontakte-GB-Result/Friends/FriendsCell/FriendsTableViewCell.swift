@@ -16,6 +16,13 @@ class FriendsTableViewCell: UITableViewCell {
 // ссылка на делегат
     public weak var delegate: FriendsTableViewCellDelegate?
     
+    
+    @IBOutlet weak var avatarFriend: UIImageView!{
+        didSet {
+            
+        }
+    }
+    
     @IBOutlet weak var FriendsNameLable: UILabel!
 //    {
 //        delegate?.FriendsNameLable(to: self.FriendsNameLable.text)
@@ -27,6 +34,9 @@ class FriendsTableViewCell: UITableViewCell {
      func configure(with friend: FriendsRealmSwiftyJSON) {
         self.FriendsNameLable.text = String(friend.firstName + " " + friend.lastName)
 
+        let url = URL(string: String(friend.imageUrl))
+        self.avatarFriend.kf.setImage(with: url)
+        
     }
     
     override func awakeFromNib() {

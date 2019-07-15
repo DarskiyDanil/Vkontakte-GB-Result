@@ -11,6 +11,13 @@ import UIKit
 class AllGroupTableViewCell: UITableViewCell {
     @IBOutlet weak var AllGroupNameLable: UILabel!
     
+    @IBOutlet weak var groupAvatar: UIImageView!{
+        didSet {
+            
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +25,9 @@ class AllGroupTableViewCell: UITableViewCell {
 
     func configure(with group: GroupsRealmSwiftyJSON) {
         self.AllGroupNameLable.text = String(group.name)
+        
+        let url = URL(string: String(group.imageUrl))
+        self.groupAvatar.kf.setImage(with: url)
         
     }
     
