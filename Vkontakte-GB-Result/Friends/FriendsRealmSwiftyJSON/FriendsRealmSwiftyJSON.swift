@@ -16,6 +16,7 @@ import RealmSwift
     dynamic var firstName = ""
     dynamic var lastName = ""
     dynamic var imageUrl = ""
+    let photos = List<PhotoRealmSwiftyJSON>()
 // присваиваю переменным инициализаторы
     convenience init(json: JSON) {
         self.init()

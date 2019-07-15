@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class NewsService {
     
@@ -39,12 +40,20 @@ class NewsService {
             //  result  результат (успех или провал)
             switch response.result {
             case .success(let value):
+
+//                guard let strongSelf = self else {
+//                    return
+//                }
+                
                 let json = JSON(value)
                 self?.news = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
                 self?.users = json["response"]["profiles"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
                 self?.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
                 self?.news = (self?.news.filter { $0.textNews != "" || $0.imageURL != "" })!
                 self?.identifyNewsSource()
+
+//                self?.saveUsersNewsList(strongSelf.news)
+                
                 print(json)
                 //  при успешности волучам массив друзей и вместо ошибки nil
                 completion?(self?.news, nil)
@@ -72,8 +81,19 @@ class NewsService {
             }
         }
     }
-    
-    
+//    ----------------------
+//    func saveUsersNewsList(_ news: [NewsRealmSwiftyJsone]) {
+//        do {
+//            let realm = try Realm()
+//            let oldUsersNewsList = realm.objects(NewsRealmSwiftyJsone.self)
+//            try realm.write {
+//                realm.delete(oldUsersNewsList)
+//                realm.add(news)
+//            }
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//    }
     
     
     

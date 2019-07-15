@@ -188,8 +188,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zzo-vE-gYX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
@@ -209,7 +209,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tyn-Cx-3te">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.79365284280000004" green="0.94805543420000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellIdentifier" rowHeight="527" id="Mr5-JF-97G" customClass="NewsCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="527"/>
@@ -227,15 +229,17 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelNameUser" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvW-xH-fKy">
-                                            <rect key="frame" x="96" y="38.333333333333336" width="290" height="21.666666666666664"/>
+                                            <rect key="frame" x="96" y="37.666666666666664" width="290" height="22.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rW-qB-hKj">
                                             <rect key="frame" x="28" y="87" width="358" height="39"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0k8-Ld-pyh">
                                             <rect key="frame" x="20" y="132" width="376" height="376"/>
@@ -245,6 +249,7 @@
                                             </constraints>
                                         </imageView>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" id="3eG-O5-SvT"/>
                                         <constraint firstAttribute="trailing" secondItem="0k8-Ld-pyh" secondAttribute="trailing" priority="999" constant="18" id="Bee-9P-z22"/>
@@ -261,6 +266,7 @@
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="top" secondItem="2rW-qB-hKj" secondAttribute="bottom" constant="6" id="z3Y-4k-Vyx"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="nameProfileUser" destination="bvW-xH-fKy" id="pig-1W-peC"/>
                                     <outlet property="newNewsPost" destination="2rW-qB-hKj" id="EKX-CA-xME"/>
@@ -316,10 +322,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mgZ-9p-KVX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" id="F6R-dJ-5lC" customClass="FriendsTableViewCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -343,7 +349,7 @@
                                         <constraint firstItem="uYA-Hq-7Oa" firstAttribute="centerY" secondItem="jj3-j9-Hfc" secondAttribute="centerY" id="rhq-SO-jFV"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="FriendsNameLable" destination="uYA-Hq-7Oa" id="P7c-3u-s5B"/>
                                     <segue destination="PET-fk-bOw" kind="show" identifier="PresentPhotoSegueIdentifier" id="Dce-Lt-K8X"/>
@@ -378,7 +384,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="JQ1-VK-dip">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="ukp-Ra-Rxo"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IF8-HE-Bxa">
                             <size key="itemSize" width="180" height="170"/>
@@ -455,10 +461,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rAs-Yh-3zw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupsCell" id="b0g-SY-C4J" customClass="GroupsCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -482,7 +488,7 @@
                                         <constraint firstAttribute="trailing" secondItem="28w-0y-77A" secondAttribute="trailing" constant="7" id="pon-ZH-w93"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="GroupsLable" destination="28w-0y-77A" id="SO3-wZ-6YV"/>
                                 </connections>
@@ -520,13 +526,14 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gJS-D4-nXy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.44178669339999999" green="0.9604676003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" red="0.44178669339999999" green="0.9604676003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="поиск по названию сообщества" translucent="NO" id="jcW-jK-hdl" userLabel="Search Bar Group">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.44178669339999999" green="0.9604676003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
@@ -552,7 +559,7 @@
                                         <constraint firstAttribute="trailing" secondItem="Wdx-Yj-IyB" secondAttribute="trailing" constant="7" id="wIQ-cK-NU6"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="AllGroupNameLable" destination="Wdx-Yj-IyB" id="FpS-r9-Yzu"/>
                                     <segue destination="OHk-ga-dOm" kind="unwind" identifier="AddGroupSegueIdentifier" unwindAction="unwindAndAddGroupWithSegue:" id="5BL-LK-nNy"/>
