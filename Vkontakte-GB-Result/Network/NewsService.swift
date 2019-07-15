@@ -24,42 +24,36 @@ class NewsService {
     
     //    фотографии друзей
     func requestNewsAlamofire(completion: (([NewsRealmSwiftyJsone]?, Error?) -> Void)? = nil ) {
-        let baseUrl = SessionSingletone.shared.baseUrl
-        let path = "/method/newsfeed.get"
-        let parameters: Parameters = [
-            //            "owner_id": ownerId,
-            "access_token": SessionSingletone.shared.token,
-            "filters": "post,photo",
-            "max_photos": "1",
-            "count": "50",
-            "v": "5.92"/*SessionSingletone.shared.apiVersion*/
-        ]
-        
-        Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { [weak self] (response) in
-            // здесь будет парсинг
-            //  result  результат (успех или провал)
-            switch response.result {
-            case .success(let value):
-
-//                guard let strongSelf = self else {
-//                    return
-//                }
-                
-                let json = JSON(value)
-                self?.news = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
-                self?.users = json["response"]["profiles"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
-                self?.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
-                self?.news = (self?.news.filter { $0.textNews != "" || $0.imageURL != "" })!
-                self?.identifyNewsSource()
-
-//                self?.saveUsersNewsList(strongSelf.news)
-                
-                print(json)
-                //  при успешности волучам массив друзей и вместо ошибки nil
-                completion?(self?.news, nil)
-            case .failure(let error):
-                // иначе получаем ошибку
-                completion?(nil, error)
+        DispatchQueue.global(qos: .userInteractive).async {
+            let baseUrl = SessionSingletone.shared.baseUrl
+            let path = "/method/newsfeed.get"
+            let parameters: Parameters = [
+                //            "owner_id": ownerId,
+                "access_token": SessionSingletone.shared.token,
+                "filters": "post,photo",
+                "max_photos": "1",
+                "count": "50",
+                "v": "5.92"/*SessionSingletone.shared.apiVersion*/
+            ]
+            
+            Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { [weak self] (response) in
+                // здесь будет парсинг
+                //  result  результат (успех или провал)
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    self?.news = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
+                    self?.users = json["response"]["profiles"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
+                    self?.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
+                    self?.news = (self?.news.filter { $0.textNews != "" || $0.imageURL != "" })!
+                    self?.identifyNewsSource()
+                    print(json)
+                    //  при успешности волучам массив друзей и вместо ошибки nil
+                    completion?(self?.news, nil)
+                case .failure(let error):
+                    // иначе получаем ошибку
+                    completion?(nil, error)
+                }
             }
         }
     }
@@ -81,19 +75,19 @@ class NewsService {
             }
         }
     }
-//    ----------------------
-//    func saveUsersNewsList(_ news: [NewsRealmSwiftyJsone]) {
-//        do {
-//            let realm = try Realm()
-//            let oldUsersNewsList = realm.objects(NewsRealmSwiftyJsone.self)
-//            try realm.write {
-//                realm.delete(oldUsersNewsList)
-//                realm.add(news)
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
+    //    ----------------------
+    //    func saveUsersNewsList(_ news: [NewsRealmSwiftyJsone]) {
+    //        do {
+    //            let realm = try Realm()
+    //            let oldUsersNewsList = realm.objects(NewsRealmSwiftyJsone.self)
+    //            try realm.write {
+    //                realm.delete(oldUsersNewsList)
+    //                realm.add(news)
+    //            }
+    //        } catch {
+    //            print(error.localizedDescription)
+    //        }
+    //    }
     
     
     
