@@ -16,6 +16,7 @@ import RealmSwift
     dynamic var firstName = ""
     dynamic var lastName = ""
     dynamic var imageUrl = ""
+    
     let photos = List<PhotoRealmSwiftyJSON>()
     
     override class func primaryKey() -> String? {
@@ -23,6 +24,7 @@ import RealmSwift
     }
     
 // присваиваю переменным инициализаторы
+// если глюканёт то снести , photos: [PhotoRealmSwiftyJSON] = []
     convenience init(json: JSON) {
         self.init()
         
@@ -30,6 +32,8 @@ import RealmSwift
         self.firstName = json["first_name"].stringValue
         self.lastName = json["last_name"].stringValue
         self.imageUrl = json["photo_50"].stringValue
+        
+        self.photos.append(objectsIn: photos)
     }
   
 }
@@ -61,8 +65,8 @@ extension FriendsRealmSwiftyJSON {
             // удаляем старые данные
             realm.delete(oldFriends)
             
-// сохраняем
-            realm.add(friendsRealm, update: .all)
+// сохраняем или update: .all
+            realm.add(friendsRealm, update: .modified)
             
 //  завершаем сохранение
             try realm.commitWrite()

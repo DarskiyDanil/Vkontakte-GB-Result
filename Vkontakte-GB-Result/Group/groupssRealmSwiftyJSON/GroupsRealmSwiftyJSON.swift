@@ -68,7 +68,7 @@ extension GroupsRealmSwiftyJSON {
             realm.delete(oldGroups)
             
             // сохраняем
-             realm.add(groupsRealm, update: .all)
+             realm.add(groupsRealm, update: .modified)
                 
             
 //  завершаем сохранение

@@ -91,7 +91,7 @@ extension NewsRealmSwiftyJsone {
             realm.delete(oldNews)
             
             // сохраняем
-            realm.add(newsRealm, update: .all)
+            realm.add(newsRealm, update: .modified)
             
             //  завершаем сохранение
             try realm.commitWrite()

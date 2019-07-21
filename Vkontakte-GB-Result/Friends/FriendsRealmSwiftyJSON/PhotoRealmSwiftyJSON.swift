@@ -15,7 +15,8 @@ import RealmSwift
     dynamic var ownerId = 0
     dynamic var id = 0
     dynamic var imageUrl = ""
-    let friends = LinkingObjects(fromType: FriendsRealmSwiftyJSON.self, property: "photos")
+    
+    let friends1 = LinkingObjects(fromType: FriendsRealmSwiftyJSON.self, property: "photos")
     
     // присваиваю переменным инициализаторы
     convenience init(json: JSON, ownerId: String) {
@@ -57,7 +58,7 @@ extension PhotoRealmSwiftyJSON {
             realm.delete(oldPhotos)
             
             // сохраняем
-            realm.add(photoRealm, update: .all)
+            realm.add(photoRealm, update: .modified)
             //            завершение записи в хранилище
             try realm.commitWrite()
             
