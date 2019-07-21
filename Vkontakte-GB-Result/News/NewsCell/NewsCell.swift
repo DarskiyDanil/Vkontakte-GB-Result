@@ -19,8 +19,6 @@ class NewsCell: UITableViewCell {
 
     public weak var delegate: NewsCellDelegate?
 
-    
-    
     @IBOutlet weak var photoProfil: UIImageView!{
         didSet {
         }
@@ -47,19 +45,6 @@ class NewsCell: UITableViewCell {
         self.photoProfil.kf.setImage(with: url2)
     }
     
-//    func configUserName(with news: NewsRealmSwiftyJsone) {
-//        self.nameProfileUser.text = String(news.newsName)
-//    }
-//
-//    func configTextNews(with news: NewsRealmSwiftyJsone) {
-//        self.newNewsPost.text = String(news.textNews)
-//    }
-    
-    // используем Kingfisher для кеширования картинок
-//    func configPhotoProfil(with news: NewsRealmSwiftyJsone ) {
-//        let url = URL(string: String(news.newsPhoto))
-//        self.photoProfil.kf.setImage(with: url)
-//    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

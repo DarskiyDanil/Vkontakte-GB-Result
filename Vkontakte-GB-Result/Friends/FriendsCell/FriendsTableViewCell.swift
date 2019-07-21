@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 //делегат FriendsNameLable
 protocol FriendsTableViewCellDelegate: class {
     func FriendsNameLable(to name: String?)

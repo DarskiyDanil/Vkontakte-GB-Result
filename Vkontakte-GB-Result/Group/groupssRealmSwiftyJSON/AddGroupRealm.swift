@@ -6,7 +6,9 @@
 //  Copyright © 2019 Danil Darskiy-GB-Result. All rights reserved.
 //
 
+import UIKit
 import Foundation
+import SwiftyJSON
 import RealmSwift
 
 class AddGroupRealm: Object {

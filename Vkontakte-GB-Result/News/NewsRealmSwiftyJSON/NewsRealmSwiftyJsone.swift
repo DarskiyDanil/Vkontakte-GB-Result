@@ -27,6 +27,11 @@ import RealmSwift
     dynamic var repostsCount = 0
     dynamic var userReposted = 0
     dynamic var views = 0
+    
+    override class func primaryKey() -> String? {
+        return "postId"
+    }
+    
     // присваиваю переменным инициализаторы
     convenience init(json: JSON) {
         self.init()
@@ -86,7 +91,7 @@ extension NewsRealmSwiftyJsone {
             realm.delete(oldNews)
             
             // сохраняем
-            realm.add(newsRealm)
+            realm.add(newsRealm, update: .all)
             
             //  завершаем сохранение
             try realm.commitWrite()

@@ -5,7 +5,7 @@
 //  Created by Danil Darskiy on 16.05.2019Thursday.
 //  Copyright © 2019 Danil Darskiy-GB-Result. All rights reserved.
 //
-
+import UIKit
 import Foundation
 import SwiftyJSON
 import RealmSwift
@@ -15,6 +15,7 @@ import RealmSwift
     dynamic var ownerId = 0
     dynamic var id = 0
     dynamic var imageUrl = ""
+    let friends = LinkingObjects(fromType: FriendsRealmSwiftyJSON.self, property: "photos")
     
     // присваиваю переменным инициализаторы
     convenience init(json: JSON, ownerId: String) {
@@ -25,9 +26,9 @@ import RealmSwift
             self.imageUrl = json["sizes"][2]["url"].stringValue
 //        }
     }
-//    override static func primaryKey() -> String? {
-//        return "id"
-//    }
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 //MARK: CRUD metods
@@ -56,7 +57,7 @@ extension PhotoRealmSwiftyJSON {
             realm.delete(oldPhotos)
             
             // сохраняем
-            realm.add(photoRealm/*, update: .all*/)
+            realm.add(photoRealm, update: .all)
             //            завершение записи в хранилище
             try realm.commitWrite()
             

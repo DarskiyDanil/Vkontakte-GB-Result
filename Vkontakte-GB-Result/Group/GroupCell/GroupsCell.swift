@@ -5,7 +5,7 @@
 //  Created by Danil Darskiy on 11.04.2019Thursday.
 //  Copyright © 2019 Danil Darskiy-GB-Result. All rights reserved.
 //
-
+import Kingfisher
 import UIKit
 
 class GroupsCell: UITableViewCell {

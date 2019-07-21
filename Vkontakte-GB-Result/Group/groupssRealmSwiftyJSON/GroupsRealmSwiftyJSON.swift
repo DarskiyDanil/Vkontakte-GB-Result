@@ -6,6 +6,7 @@
 //  Copyright © 2019 Danil Darskiy-GB-Result. All rights reserved.
 //
 
+import UIKit
 import Foundation
 import SwiftyJSON
 import RealmSwift
@@ -18,6 +19,10 @@ import RealmSwift
     dynamic var membersCount = 0
     dynamic var isClosed = false
     dynamic var isMember = false
+    
+        override class func primaryKey() -> String? {
+            return "id"
+        }
     
     // присваиваю переменным инициализаторы
     convenience init(json: JSON) {
@@ -63,7 +68,7 @@ extension GroupsRealmSwiftyJSON {
             realm.delete(oldGroups)
             
             // сохраняем
-             realm.add(groupsRealm)
+             realm.add(groupsRealm, update: .all)
                 
             
 //  завершаем сохранение
