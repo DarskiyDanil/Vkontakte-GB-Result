@@ -75,20 +75,6 @@ class NewsService {
             }
         }
     }
-    //    ----------------------
-    //    func saveUsersNewsList(_ news: [NewsRealmSwiftyJsone]) {
-    //        do {
-    //            let realm = try Realm()
-    //            let oldUsersNewsList = realm.objects(NewsRealmSwiftyJsone.self)
-    //            try realm.write {
-    //                realm.delete(oldUsersNewsList)
-    //                realm.add(news)
-    //            }
-    //        } catch {
-    //            print(error.localizedDescription)
-    //        }
-    //    }
-    
     
     
 }

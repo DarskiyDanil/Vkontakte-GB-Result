@@ -11,7 +11,11 @@ import RealmSwift
 
 class AllGroupsTableViewController: UITableViewController {
     
-    @IBOutlet weak var SearchBarGroup: UISearchBar!
+    @IBOutlet weak var SearchBarGroup: UISearchBar! {
+        didSet {
+            SearchBarGroup.delegate = self
+        }
+    }
     @IBOutlet weak var AllGroupsTableView: UITableView! {
         didSet {
             AllGroupsTableView.delegate = self
@@ -30,7 +34,7 @@ class AllGroupsTableViewController: UITableViewController {
         
         
         super.viewDidLoad()
-        SearchBarGroup.delegate = self
+//        SearchBarGroup.delegate = self
         requestSession()
 
     }
@@ -117,10 +121,6 @@ class AllGroupsTableViewController: UITableViewController {
         return cell
     }
     
-    
-    
-    
-    
     func showLoginError() {
         // Создаем контроллер
         let alter = UIAlertController(title: "Ошибка сети", message: "данные неполучены, ковыряй код", preferredStyle: .alert)
@@ -130,68 +130,24 @@ class AllGroupsTableViewController: UITableViewController {
         alter.addAction(action)
         // Показываем UIAlertController
         present(alter, animated: true, completion: nil)
-    }    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    }
 }
 
 extension AllGroupsTableViewController: UISearchBarDelegate {
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        // If text did change but there is still something to search for - execute search
 //        if searchText != "" {
-//            APIService.instance.searchGroupsByName(searchName: searchText) { [weak self] allGroups in
+//            VkoService.vkoService.searchGroupsNameAlamofire(searchName: searchText) { [weak self] allGroups in
 //                self?.allGroups = allGroups
 //                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //                    self?.tableView.reloadData()
 //                }
 //            }
 //        } else {
-//            self.allGroups.
+//            self.allGroups?.first?.name
 //            self.tableView.reloadData()
 //        }
 //    }
 }
+
 
 

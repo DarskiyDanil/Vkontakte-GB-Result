@@ -10,17 +10,17 @@ import Foundation
 import Alamofire
 
 class NetworkService {
-//    для запросов
+    //    для запросов
     func sendRequest() {
-// создаём URL
-//        let url = URL(string: "https://api.vk.com")
-//        разбиваем код на составляющие для избегания ошибок
+        // создаём URL
+        //        let url = URL(string: "https://api.vk.com")
+        //        разбиваем код на составляющие для избегания ошибок
         var urlConstuctor = URLComponents()
         urlConstuctor.scheme = "https"
         urlConstuctor.host = "api.vk.com"
-//        путь к желаемому результату
+        //        путь к желаемому результату
         urlConstuctor.path = "/authorize"
-//        параметры
+        //        параметры
         urlConstuctor.queryItems = [
             URLQueryItem(name: "client_id", value: "6646537"),
             URLQueryItem(name: "display", value: "mobile"),
@@ -29,56 +29,41 @@ class NetworkService {
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.95")
         ]
-//       при помощи стандартной session будем отправлять запрос
-//        var session = URLSession.shared
-
-//        создём и конфигурируем свою сессию
+        
+        //        создём и конфигурируем свою сессию
         let configuration = URLSessionConfiguration.default
         let session = URLSession.init(configuration: configuration)
         
-//        создаём реквест на базе urlConstuctor
+        //        создаём реквест на базе urlConstuctor
         let request = URLRequest(url: urlConstuctor.url!)
         
-//        создаём задачу для сервера и варианты ответа сервера
+        //        создаём задачу для сервера и варианты ответа сервера
         let task = session.dataTask(with: request) { (data, response, error) in
-//  варианты действий
+            //  варианты действий
             if let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) {
                 
-            print(json)
+                print(json)
             }
         }
-      task.resume()
+        task.resume()
     }
     
-    
-//   sendRequest на базе Alamofire
+    //   sendRequest на базе Alamofire
     func sendAlamofireRequest() {
         
-//        let config = URLSessionConfiguration.default
-//        config.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-//        let sessionManager = SessionManager(configuration: config)
-      
- AlamofireSession.sharedManager.request("http://samples.openweathermap.org/data/2.5/forecast?q=Moscow,DE&appid=b1b15e88fa797225412429c1c50c122a1").responseJSON { (response) in
-// получаем value
-//            если ответ не получен, возвращаем
+        AlamofireSession.sharedManager.request("http://samples.openweathermap.org/data/2.5/forecast?q=Moscow,DE&appid=b1b15e88fa797225412429c1c50c122a1").responseJSON { (response) in
+            // получаем value
+            //            если ответ не получен, возвращаем
             guard let value = response.value else { return }
-//если ответ есть
+            //если ответ есть
             print(value)
         }   
     }
     
-    
-//   post запрос на базе Alamofire
+    //   post запрос на базе Alamofire
     func sendAlamofireRequestPost() {
-        
         let urlString = "https://httpbin.org/post"
         AlamofireSession.sharedManager.request(urlString, method: .post, parameters: ["foo": "bar"]).responseJSON { (response) in
-//            //            если ответ не получен, возвращаем
-//            guard let value = response.value else { return }
-//            //если ответ есть
-//            print(value)
-            
-//  result  результат (успех или провал)
             switch response.result {
             case .success(let value):
                 print(value)
@@ -86,35 +71,9 @@ class NetworkService {
                 print(error.localizedDescription)
                 
             }
-            
-            
         }
-    
-    
     }
     
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
