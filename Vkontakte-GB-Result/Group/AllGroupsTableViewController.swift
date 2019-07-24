@@ -28,13 +28,9 @@ class AllGroupsTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-        //        SearchBarGroup.delegate = self
-        //        NotificationCenter.default.addObserver(self, selector: #selector(userHasJoinedGroup(_:)), name: NSNotification.Name("userHasJoinedGroup"), object: nil)
-        
-        
         
         super.viewDidLoad()
-        //        SearchBarGroup.delegate = self
+        SearchBarGroup.delegate = self
         requestSession()
         
     }
@@ -155,10 +151,9 @@ extension AllGroupsTableViewController: UISearchBarDelegate {
                 } catch {
                     print(error.localizedDescription)
                 }
-                
             }
-            
         } else {
+//            self.allGroups = try! GroupsRealmSwiftyJSON.getGroupsRealm()
             requestSession()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
