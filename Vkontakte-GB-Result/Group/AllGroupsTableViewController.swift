@@ -135,25 +135,36 @@ class AllGroupsTableViewController: UITableViewController {
 
 extension AllGroupsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //        if searchText != "" {
-        VkoService.vkoService.searchGroupsNameAlamofire(searchName: searchText) { [weak self] (allGroups, error) in
-            if error != nil {
-                self?.showLoginError()
-            }
-//            guard let allGroups = allGroups, let self = self else { return }
-            
-            do {
-                self?.allGroups = try GroupsRealmSwiftyJSON.getGroupsRealm()
-                
-                //  для асинхронности оборачииваем
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+        if searchText != "" {
+            VkoService.vkoService.searchGroupsNameAlamofire(searchName: searchText) { [weak self] (allGroups, error) in
+                if error != nil {
+                    self?.showLoginError()
                 }
-            } catch {
-                print(error.localizedDescription)
+                guard let allGroups = allGroups, let self = self else { return }
+                
+                //  сохраняем в хранилище
+                GroupsRealmSwiftyJSON.saveGroupsRealm(allGroups)
+                
+                do {
+                    self.allGroups = try GroupsRealmSwiftyJSON.getGroupsRealm()
+                    
+                    //  для асинхронности оборачииваем
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
             }
             
+        } else {
+            requestSession()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
+        
     }
 }
 
