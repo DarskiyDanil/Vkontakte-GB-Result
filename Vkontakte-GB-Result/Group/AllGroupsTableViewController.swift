@@ -28,25 +28,25 @@ class AllGroupsTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-//        SearchBarGroup.delegate = self
-//        NotificationCenter.default.addObserver(self, selector: #selector(userHasJoinedGroup(_:)), name: NSNotification.Name("userHasJoinedGroup"), object: nil)
-    
+        //        SearchBarGroup.delegate = self
+        //        NotificationCenter.default.addObserver(self, selector: #selector(userHasJoinedGroup(_:)), name: NSNotification.Name("userHasJoinedGroup"), object: nil)
+        
         
         
         super.viewDidLoad()
-//        SearchBarGroup.delegate = self
+        //        SearchBarGroup.delegate = self
         requestSession()
-
+        
     }
     
-//    @objc func userHasJoinedGroup(_ notification: Notification) {
-//        // TODO: Some pause to show updated information about groups right after subscription
-//        navigationController?.popViewController(animated: true)
-//    }
-
+    //    @objc func userHasJoinedGroup(_ notification: Notification) {
+    //        // TODO: Some pause to show updated information about groups right after subscription
+    //        navigationController?.popViewController(animated: true)
+    //    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
-//        уведомления
+        //        уведомления
         notificationAllGroupsToken = self.allGroups?.observe { [weak self] results in
             switch results {
             case .initial(_):
@@ -64,7 +64,7 @@ class AllGroupsTableViewController: UITableViewController {
         notificationAllGroupsToken?.invalidate()
     }
     
-// сетевой запрос
+    // сетевой запрос
     private func requestSession() {
         // [weak self] позволяет сделать ссылки на объект разрываемыми
         self.vkoService.requestUsersGroupsAlamofire() { [weak self] (groups, error) in
@@ -74,21 +74,21 @@ class AllGroupsTableViewController: UITableViewController {
             }
             // в guard можно вместо self? додобавить , let self =self
             guard let groups = groups, let self = self else { return}
-//            self?.allGroups = groups
-
+            //            self?.allGroups = groups
+            
             //  сохраняем в хранилище
             GroupsRealmSwiftyJSON.saveGroupsRealm(groups)
-
+            
             // достаём из хранилища
             do {
                 self.allGroups = try GroupsRealmSwiftyJSON.getGroupsRealm()
-
-            //  для асинхронности оборачииваем
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } catch {
-                    print(error.localizedDescription)
+                
+                //  для асинхронности оборачииваем
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print(error.localizedDescription)
             }
         }
     }
@@ -134,20 +134,29 @@ class AllGroupsTableViewController: UITableViewController {
 }
 
 extension AllGroupsTableViewController: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchText != "" {
-//            VkoService.vkoService.searchGroupsNameAlamofire(searchName: searchText) { [weak self] allGroups in
-//                self?.allGroups = allGroups
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                    self?.tableView.reloadData()
-//                }
-//            }
-//        } else {
-//            self.allGroups?.first?.name
-//            self.tableView.reloadData()
-//        }
-//    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //        if searchText != "" {
+        VkoService.vkoService.searchGroupsNameAlamofire(searchName: searchText) { [weak self] (allGroups, error) in
+            if error != nil {
+                self?.showLoginError()
+            }
+//            guard let allGroups = allGroups, let self = self else { return }
+            
+            do {
+                self?.allGroups = try GroupsRealmSwiftyJSON.getGroupsRealm()
+                
+                //  для асинхронности оборачииваем
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
 }
+
 
 
 
