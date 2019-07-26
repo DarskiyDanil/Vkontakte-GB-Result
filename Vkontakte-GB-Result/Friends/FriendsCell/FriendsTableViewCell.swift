@@ -17,7 +17,6 @@ class FriendsTableViewCell: UITableViewCell {
 // ссылка на делегат
     public weak var delegate: FriendsTableViewCellDelegate?
     
-    
     @IBOutlet weak var avatarFriend: UIImageView!{
         didSet {
             
@@ -51,7 +50,5 @@ class FriendsTableViewCell: UITableViewCell {
     //
     //        // Configure the view for the selected state
     //    }
-    
-
     
 }

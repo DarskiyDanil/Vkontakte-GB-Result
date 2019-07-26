@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Kingfisher
+import Alamofire
 import RealmSwift
 
 private let reuseIdentifier = "PhotoFriendCell"

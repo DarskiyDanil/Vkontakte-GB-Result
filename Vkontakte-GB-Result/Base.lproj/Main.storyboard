@@ -293,7 +293,7 @@
         <scene sceneID="9b9-2g-gSf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="maE-ec-5cI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ДРУЗЬЯ" selectedImage="icons8-myspace-в-круге-filled-100" id="0Jj-3q-mxW"/>
+                    <tabBarItem key="tabBarItem" title="ДРУЗЬЯ" image="icons8-myspace-в-круге-filled-100" id="0Jj-3q-mxW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LQI-ln-P0E">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -443,7 +443,7 @@
         <scene sceneID="Hdy-eV-K5U">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="stm-U9-N3E" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ГРУППЫ" selectedImage="icons8-следить-filled-50 (2)" id="24Z-eY-wBY"/>
+                    <tabBarItem key="tabBarItem" title="ГРУППЫ" image="icons8-следить-filled-50 (2)" id="24Z-eY-wBY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oul-0m-Fg2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -616,7 +616,7 @@
         <scene sceneID="ckN-KD-A0I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gPn-oI-jyE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Новости" selectedImage="icons8-vk-в-круге-filled-101" id="RCm-Wv-w1V"/>
+                    <tabBarItem key="tabBarItem" title="Новости" image="icons8-vk-в-круге-filled-101" id="RCm-Wv-w1V"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZbT-0H-7ZG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

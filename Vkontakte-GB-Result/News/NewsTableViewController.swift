@@ -25,11 +25,12 @@ class NewsTableViewController: UITableViewController {
     
     var newsService = NewsService()
     
-    //    свайп вниз
+    //   обновление новостей свайпом вниз
     private func addRefreshControl() {
         refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "обновляю")
+        refreshControl?.tintColor = .blue
         tableView.addSubview(refreshControl!)
-        
         refreshControl?.addTarget(self, action: #selector(refreshNewsList(_:)), for: .valueChanged)
     }
     @objc private func refreshNewsList(_ sender: Any) {
