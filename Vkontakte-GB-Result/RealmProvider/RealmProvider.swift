@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Realm
 import RealmSwift
 
 class RealmProvider {
@@ -16,11 +17,11 @@ class RealmProvider {
     }
     
     @discardableResult
-    static func saveToRealm<T: Object> (items: [T]) -> Realm {
+    static func saveToRealm<T: Object> (items: [T], update : Bool) -> Realm {
         let realm = try! Realm(configuration: RealmProvider.configuration)
         do {
             try realm.write {
-                realm.add(items, update: .all)
+                realm.add(items, update: .modified)
             }
         } catch  {
             print(error.localizedDescription)
@@ -28,27 +29,8 @@ class RealmProvider {
         return realm
     }
     
-    static func get<T: Object>(_ type: T.Type, in realm: Realm = try! Realm(configuration: RealmProvider.configuration)) -> Results<T> {
-        print(realm.configuration.fileURL!)
-        return realm.objects(type)
+    static func get<T: Object> (_ type: T.Type, in realm: Realm? = try? Realm(configuration: RealmProvider.configuration)) -> Results<T>? {
+//        print(realm.configuration.fileURL!)
+        return realm?.objects(type)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
