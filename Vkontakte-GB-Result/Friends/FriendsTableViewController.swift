@@ -47,15 +47,14 @@ class FriendsTableViewController: UITableViewController {
             }
             // в guard можно вместо self? додобавить , let self = self
             guard let friends = friends, let self = self else { return}
-//            self?.allFriend = friends
             
 //  сохраняем в хранилище
-            FriendsRealmSwiftyJSON.saveFriendsRealm(friends)
+            RealmProvider.saveToRealm(items: friends)
+//            FriendsRealmSwiftyJSON.saveFriendsRealm(friends)
 // достаём из хранилища
             do {
                 self.allFriend = try FriendsRealmSwiftyJSON.getFriendsRealm()
-            
-            
+//            
 //  для асинхронности оборачииваем
             DispatchQueue.main.async {
                 self.tableView.reloadData()

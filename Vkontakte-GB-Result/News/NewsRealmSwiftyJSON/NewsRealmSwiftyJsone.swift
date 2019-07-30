@@ -80,7 +80,7 @@ extension NewsRealmSwiftyJsone {
             // получаем доступ к хранилищу
             let realm = try Realm(/*configuration: config*/)
             
-            //            print(realm.configuration.fileURL!)
+                        print(realm.configuration.fileURL!)
             
             let oldNews = realm.objects(NewsRealmSwiftyJsone.self)
             
