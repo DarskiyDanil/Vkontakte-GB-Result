@@ -206,11 +206,11 @@
         <scene sceneID="z96-cw-kTs">
             <objects>
                 <tableViewController id="3RS-yR-r1N" customClass="NewsTableViewController" customModule="Vkontakte_GB_Result" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tyn-Cx-3te">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tyn-Cx-3te">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.79365284280000004" green="0.94805543420000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellIdentifier" rowHeight="527" id="Mr5-JF-97G" customClass="NewsCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
@@ -323,7 +323,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
@@ -473,7 +473,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
@@ -538,7 +538,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="поиск по названию сообщества" translucent="NO" id="jcW-jK-hdl" userLabel="Search Bar Group">

@@ -13,7 +13,7 @@ import RealmSwift
 import Firebase
 
 class UserInfoFirebase {
-    //     сущьность
+    //     сущность
     var id: Int
     var addGroups: String
     let ref: DatabaseReference?
@@ -27,13 +27,12 @@ class UserInfoFirebase {
     }
     
     // инициализация данных от Firebase
-    
     init?(snapshot: DataSnapshot) {
         guard
             let value = snapshot.value as? [String: Any],
             let id = value["id"] as? Int,
             let addGroups = value["addGroups"] as? String
-
+            
             else { return nil }
         self.ref = snapshot.ref
         self.id = id

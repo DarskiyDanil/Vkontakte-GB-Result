@@ -42,19 +42,7 @@ class GroupsTableViewController: UITableViewController {
 
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//        notificationToken = self.groups?.observe { [weak self] results in
-//            switch results {
-//            case .initial(_):
-//                self?.tableView.reloadData()
-//            case .update(_, let deletions, let insertions, let modifications):
-//                self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
-//            case .error(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
+
 //     отписываемся
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

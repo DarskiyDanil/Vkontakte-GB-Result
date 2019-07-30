@@ -13,16 +13,12 @@ class RealmProvider {
     
     static var configuration: Realm.Configuration {
         return Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-        
     }
     
     @discardableResult
     static func saveToRealm<T: Object> (items: [T]) -> Realm {
-        
         let realm = try! Realm(configuration: RealmProvider.configuration)
-        
         do {
-            
             try realm.write {
                 realm.add(items, update: .all)
             }
@@ -34,7 +30,6 @@ class RealmProvider {
     
     static func get<T: Object>(_ type: T.Type, in realm: Realm = try! Realm(configuration: RealmProvider.configuration)) -> Results<T> {
         print(realm.configuration.fileURL!)
-        
         return realm.objects(type)
     }
 }
