@@ -22,6 +22,7 @@ class RealmProvider {
         do {
             try realm.write {
                 realm.add(items, update: .modified)
+//                print(realm.configuration.fileURL!)
             }
         } catch  {
             print(error.localizedDescription)
@@ -30,7 +31,7 @@ class RealmProvider {
     }
     
     static func get<T: Object> (_ type: T.Type, in realm: Realm? = try? Realm(configuration: RealmProvider.configuration)) -> Results<T>? {
-//        print(realm.configuration.fileURL!)
+//        print(realm!.configuration.fileURL)
         return realm?.objects(type)
     }
 }

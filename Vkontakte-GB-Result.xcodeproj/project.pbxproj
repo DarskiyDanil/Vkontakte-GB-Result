@@ -304,7 +304,7 @@
 				};
 			};
 			buildConfigurationList = 83666B53225509D700B83B4C /* Build configuration list for PBXProject "Vkontakte-GB-Result" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
