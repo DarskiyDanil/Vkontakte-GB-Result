@@ -12,18 +12,8 @@ import Alamofire
 import Firebase
 import FirebaseFirestore
 
-
 class FriendsTableViewController: UITableViewController {
     var oneFriendCollectionViewController = OneFriendCollectionViewController()
-    
-//    @IBAction func logoutPressed(_ sender: AnyObject) {
-//        do {
-//            try Auth.auth().signOut()
-//            self.dismiss(animated: true, completion: nil)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
     
     @IBOutlet weak var PhotosFriendTableView: UITableView! {
         didSet {
@@ -38,7 +28,6 @@ class FriendsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // [weak self] позволяет сделать ссылки на объект разрываемыми
         self.vkoService.requestUsersFriendsAlamofire() { [weak self] (friends, error) in
             if error != nil {
@@ -48,16 +37,17 @@ class FriendsTableViewController: UITableViewController {
             // в guard можно вместо self? додобавить , let self = self
             guard let friends = friends, let self = self else { return}
             
-//  сохраняем в хранилище
-            RealmProvider.saveToRealm(items: friends)
-//            FriendsRealmSwiftyJSON.saveFriendsRealm(friends)
-// достаём из хранилища
+            //  сохраняем в хранилище
+           RealmProvider.saveToRealm(items: friends)
+//                       FriendsRealmSwiftyJSON.saveFriendsRealm(friends)
+            // достаём из хранилища
             do {
-                self.allFriend = try FriendsRealmSwiftyJSON.getFriendsRealm()
-//            
-//  для асинхронности оборачииваем
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+//                self.allFriend = try FriendsRealmSwiftyJSON.getFriendsRealm()
+//                 self.allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
+                self.allFriend = RealmProvider.get( FriendsRealmSwiftyJSON.self)
+                //  для асинхронности оборачииваем
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             } catch {
                 print(error.localizedDescription)
@@ -79,11 +69,11 @@ class FriendsTableViewController: UITableViewController {
         }
     }
     //     отписываемся
-        override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            notificationFriendToken?.invalidate()
-        }
-  
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        notificationFriendToken?.invalidate()
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -116,7 +106,7 @@ class FriendsTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PresentPhotoSegueIdentifier" {
-//            контроллер на который переходим
+            //            контроллер на который переходим
             let friendLablePhotoVC = segue.destination as! OneFriendCollectionViewController
             // при нажатии на ячейку, при помощи indexPathForSelectedRow отправляем данные из ячейки
             if let indexPath = PhotosFriendTableView.indexPathForSelectedRow {
@@ -125,16 +115,16 @@ class FriendsTableViewController: UITableViewController {
                 
                 let idFriend = String(allFriend![indexPath.row].id)
                 
-//                передаю id в функцию requestUsersPhotosAlamofire
-//                vkoService.requestUsersPhotosAlamofire(ownerId: idFriend)
+                //                передаю id в функцию requestUsersPhotosAlamofire
+                //                vkoService.requestUsersPhotosAlamofire(ownerId: idFriend)
                 SessionSingletone.shared.idFRIEND = idFriend
                 //  передаю в пустой массив выбранную ячейку из друзей
                 friendLablePhotoVC.photoFriendLable.append(friend)
-
+                
                 
                 //                }
-//               let friendPhotos = String(allFriendPhoto[indexPath.row].imageUrl)
-//                friendLablePhotoVC.photoFriend.append(friendPhotos)
+                //               let friendPhotos = String(allFriendPhoto[indexPath.row].imageUrl)
+                //                friendLablePhotoVC.photoFriend.append(friendPhotos)
             }
         }
     }

@@ -76,12 +76,12 @@ class NewsTableViewController: UITableViewController {
             //            self?.allGroups = groups
             
             //  сохраняем в хранилище
-            NewsRealmSwiftyJsone.saveNewsRealm(news)
-            
+//            NewsRealmSwiftyJsone.saveNewsRealm(news)
+            RealmProvider.saveToRealm(items: news)
             // достаём из хранилища
             do {
-                self.news = try NewsRealmSwiftyJsone.getNewsRealm()
-                
+//                self.news = try NewsRealmSwiftyJsone.getNewsRealm()
+                self.news = RealmProvider.get( NewsRealmSwiftyJsone.self)
                 //  для асинхронности оборачииваем
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

@@ -139,11 +139,11 @@ extension AllGroupsTableViewController: UISearchBarDelegate {
                 guard let allGroups = allGroups, let self = self else { return }
                 
                 //  сохраняем в хранилище
-                GroupsRealmSwiftyJSON.saveGroupsRealm(allGroups)
-                
+//                GroupsRealmSwiftyJSON.saveGroupsRealm(allGroups)
+                RealmProvider.saveToRealm(items: allGroups)
                 do {
-                    self.allGroups = try GroupsRealmSwiftyJSON.getGroupsRealm()
-                    
+//                    self.allGroups = try GroupsRealmSwiftyJSON.getGroupsRealm()
+                    self.allGroups = RealmProvider.get( GroupsRealmSwiftyJSON.self)
                     //  для асинхронности оборачииваем
                     DispatchQueue.main.async {
                         self.tableView.reloadData()

@@ -20,12 +20,9 @@ class GroupsTableViewController: UITableViewController {
 //    var groups = [String]()
     let userID = Auth.auth().currentUser?.uid
 //    private var groups: Results<AddGroupRealm>?
-    
 //    private var notificationToken: NotificationToken?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ref.child(userIdentification).observe(.value, with: { snapshot in
             var groups: [UserInfoFirebase] = []
             for child in snapshot.children {
@@ -37,9 +34,7 @@ class GroupsTableViewController: UITableViewController {
             self.groups = groups
             self.tableView.reloadData()
         })
-
 //        groups = RealmProvider.get(AddGroupRealm.self)
-
     }
 
 

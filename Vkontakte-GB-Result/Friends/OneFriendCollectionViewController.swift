@@ -43,10 +43,7 @@ class OneFriendCollectionViewController: UICollectionViewController {
             guard let photos = photos, let self = self else { return }
             
             //  сохраняем в хранилище
-            
-            //            photoFriend = RealmProvider.saveToRealm(items: [photos], update: true)
             PhotoRealmSwiftyJSON.savePhotoRealm(photos, ownerId: String(self.idPhoto))
-            
             //  достаём из хранилища
             do {
                 self.photoFriend = try PhotoRealmSwiftyJSON.gettPhotoFriendRealm(in: String(self.idPhoto))
