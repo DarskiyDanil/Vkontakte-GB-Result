@@ -19,8 +19,11 @@ class RealmProvider {
     @discardableResult
     static func saveToRealm<T: Object> (items: [T]) -> Realm {
         let realm = try! Realm(configuration: RealmProvider.configuration)
+        
         do {
             try realm.write {
+                let oldNews = realm.objects(T.self)
+                realm.delete(oldNews)
                 realm.add(items, update: .modified)
 //                print(realm.configuration.fileURL!)
             }

@@ -84,7 +84,7 @@ class VkoService {
                 "access_token": SessionSingletone.shared.token,
                 "album_id": "profile",
                 "rev": "0",
-                "count": "10",
+                "count": "50",
                 "v": SessionSingletone.shared.apiVersion
             ]
             

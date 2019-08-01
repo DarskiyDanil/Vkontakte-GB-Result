@@ -41,18 +41,17 @@ class OneFriendCollectionViewController: UICollectionViewController {
             }
             // в guard можно вместо self? додобавить , let self =self
             guard let photos = photos, let self = self else { return }
-            
             //  сохраняем в хранилище
+//            RealmProvider.saveToRealm(items: photos)
             PhotoRealmSwiftyJSON.savePhotoRealm(photos, ownerId: String(self.idPhoto))
             //  достаём из хранилища
             do {
                 self.photoFriend = try PhotoRealmSwiftyJSON.gettPhotoFriendRealm(in: String(self.idPhoto))
-                
+//                self.photoFriend = RealmProvider.get(PhotoRealmSwiftyJSON.self)
                 //  для асинхронности оборачииваем еслии работаем с url session
                 DispatchQueue.main.async {
                     self.collectionView?.reloadData()
                 }
-                
             } catch {
                 print(error.localizedDescription)
             }

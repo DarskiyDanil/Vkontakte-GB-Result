@@ -79,16 +79,16 @@ class NewsTableViewController: UITableViewController {
 //            NewsRealmSwiftyJsone.saveNewsRealm(news)
             RealmProvider.saveToRealm(items: news)
             // достаём из хранилища
-            do {
+//            do {
 //                self.news = try NewsRealmSwiftyJsone.getNewsRealm()
-                self.news = RealmProvider.get( NewsRealmSwiftyJsone.self)
+                self.news = RealmProvider.get(NewsRealmSwiftyJsone.self)
                 //  для асинхронности оборачииваем
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            } catch {
-                print(error.localizedDescription)
-            }
+//            } catch {
+//                print(error.localizedDescription)
+//            }
         }
     }
     
