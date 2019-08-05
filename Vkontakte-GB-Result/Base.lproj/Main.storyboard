@@ -242,23 +242,24 @@
                                             <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0k8-Ld-pyh">
-                                            <rect key="frame" x="20" y="114.33333333333334" width="376" height="395.66666666666663"/>
+                                            <rect key="frame" x="20" y="114.33333333333334" width="374" height="395.66666666666663"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" id="3eG-O5-SvT"/>
-                                        <constraint firstAttribute="trailing" secondItem="0k8-Ld-pyh" secondAttribute="trailing" constant="18" id="Bee-9P-z22"/>
+                                        <constraint firstItem="0k8-Ld-pyh" firstAttribute="centerX" secondItem="4uz-Rm-yzk" secondAttribute="centerX" id="7ue-Zj-LeH"/>
+                                        <constraint firstAttribute="trailing" secondItem="0k8-Ld-pyh" secondAttribute="trailing" priority="999" constant="18" id="Bee-9P-z22"/>
                                         <constraint firstItem="fDF-YN-CEX" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" constant="4" id="Fmx-r3-01j"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="bvW-xH-fKy" secondAttribute="trailing" constant="8" id="KTg-mf-d3e"/>
-                                        <constraint firstItem="bvW-xH-fKy" firstAttribute="centerY" secondItem="fDF-YN-CEX" secondAttribute="centerY" id="Roz-WF-GqM"/>
-                                        <constraint firstAttribute="trailing" secondItem="0k8-Ld-pyh" secondAttribute="trailing" priority="999" constant="700" id="boB-0j-Z96"/>
+                                        <constraint firstAttribute="trailing" secondItem="0k8-Ld-pyh" secondAttribute="trailing" priority="998" constant="700" id="boB-0j-Z96"/>
+                                        <constraint firstItem="bvW-xH-fKy" firstAttribute="top" secondItem="4uz-Rm-yzk" secondAttribute="topMargin" constant="26.670000000000002" id="eWu-tu-BR0"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="0k8-Ld-pyh" secondAttribute="bottom" constant="6" id="fIf-rw-VAd"/>
                                         <constraint firstItem="2rW-qB-hKj" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" constant="8" id="hh2-tn-WpV"/>
                                         <constraint firstItem="bvW-xH-fKy" firstAttribute="leading" secondItem="fDF-YN-CEX" secondAttribute="trailing" constant="8" id="hi4-bh-zzR"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="2rW-qB-hKj" secondAttribute="trailing" constant="8" id="vb9-Ho-OGo"/>
-                                        <constraint firstItem="2rW-qB-hKj" firstAttribute="top" secondItem="fDF-YN-CEX" secondAttribute="bottom" constant="8" id="wCv-ir-MtZ"/>
+                                        <constraint firstItem="2rW-qB-hKj" firstAttribute="top" secondItem="bvW-xH-fKy" secondAttribute="bottom" constant="26.666666666666671" id="wCv-ir-MtZ"/>
                                         <constraint firstItem="fDF-YN-CEX" firstAttribute="top" secondItem="4uz-Rm-yzk" secondAttribute="topMargin" constant="8" id="xKB-0W-Ltf"/>
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="top" secondItem="2rW-qB-hKj" secondAttribute="bottom" constant="6" id="z3Y-4k-Vyx"/>
                                     </constraints>

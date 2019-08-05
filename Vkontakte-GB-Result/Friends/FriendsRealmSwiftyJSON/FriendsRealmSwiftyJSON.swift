@@ -16,8 +16,9 @@ import RealmSwift
     dynamic var firstName = ""
     dynamic var lastName = ""
     dynamic var imageUrl = ""
-    
-    let photos = List<PhotoRealmSwiftyJSON>()
+
+
+//    let photos2 = List<PhotoRealmSwiftyJSON>()
     
     override class func primaryKey() -> String? {
         return "id"
@@ -33,9 +34,9 @@ import RealmSwift
         self.lastName = json["last_name"].stringValue
         self.imageUrl = json["photo_50"].stringValue
         
-        self.photos.append(objectsIn: photos)
+//        self.photos.append(objectsIn: photos)
     }
-  
+    let photos = LinkingObjects(fromType: PhotoRealmSwiftyJSON.self, property: "friends1")
 }
 
 //MARK: CRUD metods
@@ -51,9 +52,9 @@ extension FriendsRealmSwiftyJSON {
     static func saveFriendsRealm(_ friendsRealm: [FriendsRealmSwiftyJSON]) {
 //  обработка исключений
         do {
-//            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
 // получаем доступ к хранилищу
-            let realm = try Realm(/*configuration: config*/)
+            let realm = try Realm(configuration: config)
             
             print(realm.configuration.fileURL!)
             

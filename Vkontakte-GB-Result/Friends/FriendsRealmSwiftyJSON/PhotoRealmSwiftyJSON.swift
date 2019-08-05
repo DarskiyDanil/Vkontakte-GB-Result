@@ -16,47 +16,49 @@ import RealmSwift
     dynamic var id = 0
     dynamic var imageUrl = ""
     
-    let friends1 = LinkingObjects(fromType: FriendsRealmSwiftyJSON.self, property: "photos")
+    let friends1 = List<FriendsRealmSwiftyJSON>()
+//    let friends2 = LinkingObjects(fromType: FriendsRealmSwiftyJSON.self, property: "photos2")
     
     // присваиваю переменным инициализаторы
     convenience init(json: JSON, ownerId: String) {
         self.init()
-//        DispatchQueue.global().async {
-            self.ownerId = json["owner_id"].intValue
-            self.id = json["id"].intValue
-            self.imageUrl = json["sizes"][2]["url"].stringValue
-//        }
+        //        DispatchQueue.global().async {
+        self.ownerId = json["owner_id"].intValue
+        self.id = json["id"].intValue
+        self.imageUrl = json["sizes"][2]["url"].stringValue
+        //        }
     }
     override static func primaryKey() -> String? {
         return "id"
     }
 }
 
+//let friendsRealmSwiftyJSON = FriendsRealmSwiftyJSON()
+//let phot​ = PhotoRealmSwiftyJSON()
+//phot​.friends1 = friendsRealmSwiftyJSON
+
 //MARK: CRUD metods
 extension PhotoRealmSwiftyJSON {
     // метод запроса всех результатов из базы данных
     static func gettPhotoFriendRealm(in ownerId: String) throws -> Results<PhotoRealmSwiftyJSON> {
         let realm = try Realm()
-        return realm.objects(PhotoRealmSwiftyJSON.self)/*.filter("ownerId == %@", ownerId)*/
+        return realm.objects(PhotoRealmSwiftyJSON.self)
     }
     //    сохранение массива данных
     static func savePhotoRealm(_ photoRealm: [PhotoRealmSwiftyJSON], ownerId: String) {
         do {
-            //            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             
-            let realm = try Realm(/*configuration: config*/)
+            let realm = try Realm(configuration: config)
             
             let oldPhotos = realm.objects( PhotoRealmSwiftyJSON.self)
-            //            guard let oldPhotos = realm.object(ofType: PhotoRealmSwiftyJSON.self, forPrimaryKey: Int(ownerId)) else {
-            //                return
-            //            }
             
             // начало изменения хранилища
             realm.beginWrite()
             
             // удаляем старые данные
             realm.delete(oldPhotos)
-            
+           
             // сохраняем
             realm.add(photoRealm, update: .modified)
             //            завершение записи в хранилище

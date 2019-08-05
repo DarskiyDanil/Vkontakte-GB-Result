@@ -40,20 +40,28 @@ import RealmSwift
             self.sourceId = json["source_id"].intValue
             self.postId = json["post_id"].intValue
             self.newsName = json["name"].stringValue
-            self.newsPhoto = json["photo_50"].stringValue
+            self.newsPhoto = json["photo_100"].stringValue
             self.textNews = json["text"].stringValue
             
             if json["type"] == "post" {
                 for size in json["attachments"][0]["photo"]["sizes"].arrayValue {
-                    if size["type"].stringValue == "x" {
+                    if size["type"].stringValue == "y" {
+                        self.imageURL = size["url"].stringValue
+                        self.imageWidth = size["width"].intValue
+                        self.imageHeight = size["height"].intValue
+                    }
+                }
+            } else if json["type"] == "post" {
+                for size in json["copy_history"][0]["attachments"][0]["photo"]["sizes"][0].arrayValue {
+                    if size["type"].stringValue == "y" {
                         self.imageURL = size["url"].stringValue
                         self.imageWidth = size["width"].intValue
                         self.imageHeight = size["height"].intValue
                     }
                 }
             } else {
-                for size in json["photo"]["items"][0]["sizes"].arrayValue {
-                    if size["type"].stringValue == "x" {
+                for size in json["attachments"][0]["photo"]/*["items"][0]*/["sizes"].arrayValue {
+                    if size["type"].stringValue == "y" {
                         self.imageURL = size["url"].stringValue
                         self.imageWidth = size["width"].intValue
                         self.imageHeight = size["height"].intValue

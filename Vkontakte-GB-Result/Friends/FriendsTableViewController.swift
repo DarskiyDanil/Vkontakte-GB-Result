@@ -25,7 +25,7 @@ class FriendsTableViewController: UITableViewController {
     private var allFriendPhoto = [PhotoRealmSwiftyJSON]()
     private var allFriend: Results<FriendsRealmSwiftyJSON>?
     private let vkoService = VkoService()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // [weak self] позволяет сделать ссылки на объект разрываемыми
@@ -38,13 +38,15 @@ class FriendsTableViewController: UITableViewController {
             guard let friends = friends, let self = self else { return}
             
             //  сохраняем в хранилище
-           RealmProvider.saveToRealm(items: friends)
-//                       FriendsRealmSwiftyJSON.saveFriendsRealm(friends)
+//           RealmProvider.saveToRealm(items: friends)
+                       FriendsRealmSwiftyJSON.saveFriendsRealm(friends)
+            
             // достаём из хранилища
             do {
-//                self.allFriend = try FriendsRealmSwiftyJSON.getFriendsRealm()
+                self.allFriend = try FriendsRealmSwiftyJSON.getFriendsRealm()
 //                 self.allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
-                self.allFriend = RealmProvider.get( FriendsRealmSwiftyJSON.self)
+//                self.allFriend = RealmProvider.get( FriendsRealmSwiftyJSON.self)
+//                friendsRealmSwiftyJSON.photos2.append(UIImage)
                 //  для асинхронности оборачииваем
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
