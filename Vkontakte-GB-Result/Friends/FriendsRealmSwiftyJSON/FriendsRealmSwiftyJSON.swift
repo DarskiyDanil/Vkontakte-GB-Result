@@ -34,9 +34,9 @@ import RealmSwift
         self.lastName = json["last_name"].stringValue
         self.imageUrl = json["photo_50"].stringValue
         
-//        self.photos.append(objectsIn: photos)
+        
     }
-    let photos = LinkingObjects(fromType: PhotoRealmSwiftyJSON.self, property: "friends1")
+//    let photos = LinkingObjects(fromType: PhotoRealmSwiftyJSON.self, property: "friends1")
 }
 
 //MARK: CRUD metods

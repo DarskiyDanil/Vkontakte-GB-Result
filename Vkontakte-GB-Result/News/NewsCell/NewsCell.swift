@@ -43,7 +43,10 @@ class NewsCell: UITableViewCell {
         
         let url2 = URL(string: String(news.newsPhoto))
         self.photoProfil.kf.setImage(with: url2)
+
     }
+    
+    
     
 
     override func awakeFromNib() {

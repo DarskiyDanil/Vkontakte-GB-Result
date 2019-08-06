@@ -16,7 +16,7 @@ import RealmSwift
     dynamic var id = 0
     dynamic var imageUrl = ""
     
-    let friends1 = List<FriendsRealmSwiftyJSON>()
+//    let friends1 = List<FriendsRealmSwiftyJSON>()
 //    let friends2 = LinkingObjects(fromType: FriendsRealmSwiftyJSON.self, property: "photos2")
     
     // присваиваю переменным инициализаторы

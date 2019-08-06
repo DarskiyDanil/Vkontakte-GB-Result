@@ -45,29 +45,48 @@ import RealmSwift
             
             if json["type"] == "post" {
                 for size in json["attachments"][0]["photo"]["sizes"].arrayValue {
-                    if size["type"].stringValue == "y" {
-                        self.imageURL = size["url"].stringValue
-                        self.imageWidth = size["width"].intValue
-                        self.imageHeight = size["height"].intValue
-                    }
-                }
-            } else if json["type"] == "post" {
-                for size in json["copy_history"][0]["attachments"][0]["photo"]["sizes"][0].arrayValue {
-                    if size["type"].stringValue == "y" {
-                        self.imageURL = size["url"].stringValue
-                        self.imageWidth = size["width"].intValue
-                        self.imageHeight = size["height"].intValue
-                    }
-                }
-            } else {
-                for size in json["attachments"][0]["photo"]/*["items"][0]*/["sizes"].arrayValue {
-                    if size["type"].stringValue == "y" {
+                    if size["type"].stringValue == "x" {
                         self.imageURL = size["url"].stringValue
                         self.imageWidth = size["width"].intValue
                         self.imageHeight = size["height"].intValue
                     }
                 }
             }
+//            else if json["type"] == "post" {
+//                for size in json["copy_history"][0]["attachments"][0]["photo"]["sizes"][0].arrayValue {
+//                    if size["type"].stringValue == "x" {
+//                        self.imageURL = size["url"].stringValue
+//                        self.imageWidth = size["width"].intValue
+//                        self.imageHeight = size["height"].intValue
+//                    }
+//                }
+//            }
+//            else if json["type"] == "photo" {
+//                for size in json["attachments"][0]["photo"]["sizes"].arrayValue {
+//                    if size["type"].stringValue == "x" {
+//                        self.imageURL = size["url"].stringValue
+//                        self.imageWidth = size["width"].intValue
+//                        self.imageHeight = size["height"].intValue
+//                    }
+//                }
+//            }
+            else {
+                for size in json["attachments"][0]["photo"]/*["items"][0]*/["sizes"].arrayValue {
+                    if size["type"].stringValue == "x" {
+                        self.imageURL = size["url"].stringValue
+                        self.imageWidth = size["width"].intValue
+                        self.imageHeight = size["height"].intValue
+                    }
+                }
+            }
+            
+            self.likesCount = json["likes"]["count"].intValue
+            self.userLikes = json["likes"]["user_likes"].intValue
+            self.commentsCount = json["comments"]["count"].intValue
+            self.repostsCount = json["reposts"]["count"].intValue
+            self.userReposted = json["reposts"]["user_reposted"].intValue
+            self.views = json["views"]["count"].intValue
+            
         }
     }
 }
