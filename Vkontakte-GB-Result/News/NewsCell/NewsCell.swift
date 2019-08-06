@@ -39,7 +39,7 @@ class NewsCell: UITableViewCell {
         self.newNewsPost.text = String(news.textNews)
         
         let url = URL(string: String(news.imageURL))
-        self.newsImage.kf.setImage(with: url)
+        self.newsImage.kf.setImage(with: url, options: [.onlyLoadFirstFrame])
         
         let url2 = URL(string: String(news.newsPhoto))
         self.photoProfil.kf.setImage(with: url2)
