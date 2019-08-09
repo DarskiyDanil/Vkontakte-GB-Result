@@ -97,6 +97,8 @@ class NewsCell: UITableViewCell {
         
     }
     
+    
+//    настройка фреймы
     private let inset: CGFloat = 10.0
     
     private func setPhotoProfilFrame() {
