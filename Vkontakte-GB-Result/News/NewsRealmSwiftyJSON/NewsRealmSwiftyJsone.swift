@@ -51,27 +51,8 @@ import RealmSwift
                         self.imageHeight = size["height"].intValue
                     }
                 }
-            }
-//            else if json["type"] == "post" {
-//                for size in json["copy_history"][0]["attachments"][0]["photo"]["sizes"][0].arrayValue {
-//                    if size["type"].stringValue == "x" {
-//                        self.imageURL = size["url"].stringValue
-//                        self.imageWidth = size["width"].intValue
-//                        self.imageHeight = size["height"].intValue
-//                    }
-//                }
-//            }
-//            else if json["type"] == "photo" {
-//                for size in json["attachments"][0]["photo"]["sizes"].arrayValue {
-//                    if size["type"].stringValue == "x" {
-//                        self.imageURL = size["url"].stringValue
-//                        self.imageWidth = size["width"].intValue
-//                        self.imageHeight = size["height"].intValue
-//                    }
-//                }
-//            }
-            else {
-                for size in json["attachments"][0]["photo"]/*["items"][0]*/["sizes"].arrayValue {
+            } else {
+                for size in json/*["attachments"][0]*/["photos"]["items"][0]["sizes"].arrayValue {
                     if size["type"].stringValue == "x" {
                         self.imageURL = size["url"].stringValue
                         self.imageWidth = size["width"].intValue

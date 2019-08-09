@@ -4,7 +4,6 @@
 //
 //  Created by Danil Darskiy on 26.06.2019Wednesday.
 //  Copyright © 2019 Danil Darskiy-GB-Result. All rights reserved.
-//
 
 import UIKit
 import RealmSwift
@@ -42,6 +41,7 @@ class NewsTableViewController: UITableViewController {
         super.viewDidLoad()
         addRefreshControl()
         requestNewsSession()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,9 +52,11 @@ class NewsTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             case .update(_, let deletions, let insertions, let modifications):
                 self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
+                self?.tableView.reloadData()
             case .error(let error):
                 print(error.localizedDescription)
             }
+            self?.tableView.reloadData()
         }
     }
     //     отписываемся
@@ -76,23 +78,25 @@ class NewsTableViewController: UITableViewController {
             //            self?.allGroups = groups
             
             //  сохраняем в хранилище
-//            NewsRealmSwiftyJsone.saveNewsRealm(news)
+            //            NewsRealmSwiftyJsone.saveNewsRealm(news)
             RealmProvider.saveToRealm(items: news)
             // достаём из хранилища
-//            do {
-//                self.news = try NewsRealmSwiftyJsone.getNewsRealm()
-                self.news = RealmProvider.get(NewsRealmSwiftyJsone.self)
-                //  для асинхронности оборачииваем
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-//            } catch {
-//                print(error.localizedDescription)
-//            }
+            //            do {
+            //                self.news = try NewsRealmSwiftyJsone.getNewsRealm()
+            self.news = RealmProvider.get(NewsRealmSwiftyJsone.self)
+         
+            //  для асинхронности оборачииваем
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                
+            }
+            //            } catch {
+            //                print(error.localizedDescription)
+            //            }
         }
     }
     
-//    вывод ошибки
+    //    вывод ошибки
     func showLoginError() {
         // Создаем контроллер
         let alter = UIAlertController(title: "Ошибка сети", message: "данные неполучены, ковыряй код", preferredStyle: .alert)
@@ -105,19 +109,20 @@ class NewsTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return news?.count ?? 0
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCellIdentifier"/*, for: indexPath*/) as? NewsCell
-            else {
-                return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCellIdentifier", for: indexPath) as? NewsCell else {
+            return UITableViewCell()
         }
         /*if cell == nil {
          cell = UITableViewCell(style: .default, reuseIdentifier: "NewsCellIdentifier") as? NewsCell
@@ -126,7 +131,9 @@ class NewsTableViewController: UITableViewController {
             return cell
         }
         cell.configUser(with: news[indexPath.row])
+
         return cell
+        
     }
     
     
