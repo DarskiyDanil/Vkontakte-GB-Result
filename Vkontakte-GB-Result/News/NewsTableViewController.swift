@@ -39,8 +39,11 @@ class NewsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addRefreshControl()
+        
         requestNewsSession()
+        addRefreshControl()
+        
+
         
     }
     
