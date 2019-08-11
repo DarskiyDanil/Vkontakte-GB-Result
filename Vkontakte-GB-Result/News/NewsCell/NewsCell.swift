@@ -66,7 +66,9 @@ class NewsCell: UITableViewCell {
         //        }
         let url2 = URL(string: String(news.newsPhoto))
         self.photoProfil.kf.setImage(with: url2)
-        
+        self.commentButton.setTitle("\(news.commentsCount)", for: .normal)
+        self.repostButton.setTitle("\(news.repostsCount)", for: .normal)
+        self.viewsButton.setTitle("\(news.views)", for: .normal)
     }
     
     

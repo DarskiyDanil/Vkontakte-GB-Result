@@ -303,6 +303,7 @@
                                 <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="commentButton" destination="MXQ-4Y-TSL" id="1x4-1F-4ZG"/>
+                                    <outlet property="constraintNewsImage" destination="4UY-jY-ZUA" id="5Yx-On-99I"/>
                                     <outlet property="likesButton" destination="Bm6-FN-8Vf" id="ch5-TT-zdf"/>
                                     <outlet property="nameProfileUser" destination="bvW-xH-fKy" id="pig-1W-peC"/>
                                     <outlet property="newNewsPost" destination="2rW-qB-hKj" id="EKX-CA-xME"/>
