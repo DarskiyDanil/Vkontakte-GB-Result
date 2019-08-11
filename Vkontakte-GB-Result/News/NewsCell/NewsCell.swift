@@ -45,23 +45,28 @@ class NewsCell: UITableViewCell {
     
     @IBOutlet weak var constraintNewsImage: NSLayoutConstraint!
     
+    @IBOutlet weak var likesButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var repostButton: UIButton!
+    @IBOutlet weak var viewsButton: UIButton!
+    
+    
     
     func configUser(with news: NewsRealmSwiftyJsone) {
-        //        DispatchQueue.main.async {
+       
         self.nameProfileUser.text = String(news.newsName)
         self.newNewsPost.text = String(news.textNews)
         
         let url = URL(string: String(news.imageURL))
         //        if url == nil {
-        //            self.newsImage.layoutIfNeeded()
+//                    self.newsImage.layoutIfNeeded()
         //            self.animatedHeight()
         //        } else {
         self.newsImage.kf.setImage(with: url, options: [.onlyLoadFirstFrame])
         //        }
-        
         let url2 = URL(string: String(news.newsPhoto))
         self.photoProfil.kf.setImage(with: url2)
-        //        }
+        
     }
     
     

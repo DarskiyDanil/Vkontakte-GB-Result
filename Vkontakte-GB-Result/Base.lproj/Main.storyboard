@@ -213,11 +213,11 @@
                         <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellIdentifier" rowHeight="527" id="Mr5-JF-97G" customClass="NewsCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="527"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellIdentifier" rowHeight="580" id="Mr5-JF-97G" customClass="NewsCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mr5-JF-97G" id="4uz-Rm-yzk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="526.66666666666663"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="579.66666666666663"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDF-YN-CEX">
@@ -242,38 +242,74 @@
                                             <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0k8-Ld-pyh">
-                                            <rect key="frame" x="20" y="116.66666666666666" width="374" height="393.33333333333337"/>
+                                            <rect key="frame" x="20" y="115.66666666666666" width="374" height="413.33333333333337"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="393.33333333333337" id="eZS-ow-dhr"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="413.32999999999998" id="4UY-jY-ZUA"/>
                                             </constraints>
                                         </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WY1-TP-Ip5">
+                                            <rect key="frame" x="24" y="534" width="178" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm6-FN-8Vf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
+                                                    <state key="normal" title="222" image="likeIconNotSelected — копия">
+                                                        <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXQ-4Y-TSL">
+                                                    <rect key="frame" x="62" y="0.0" width="55" height="30"/>
+                                                    <state key="normal" title="555" image="commentIcon">
+                                                        <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FA-Ka-9cB">
+                                                    <rect key="frame" x="125" y="0.0" width="53" height="30"/>
+                                                    <state key="normal" title="777" image="repostsIcon">
+                                                        <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-Fd-MUa">
+                                            <rect key="frame" x="317" y="534" width="63.333333333333314" height="29.333333333333371"/>
+                                            <state key="normal" title="888" image="postViewsIcon — копия">
+                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
+                                        <constraint firstItem="RAX-Fd-MUa" firstAttribute="leading" secondItem="WY1-TP-Ip5" secondAttribute="trailing" constant="115" id="2IE-Pq-ZKt"/>
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" id="3eG-O5-SvT"/>
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="centerX" secondItem="4uz-Rm-yzk" secondAttribute="centerX" id="7ue-Zj-LeH"/>
+                                        <constraint firstItem="WY1-TP-Ip5" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" constant="4" id="Bcn-sl-LcK"/>
                                         <constraint firstAttribute="trailing" secondItem="0k8-Ld-pyh" secondAttribute="trailing" priority="999" constant="18" id="Bee-9P-z22"/>
                                         <constraint firstItem="fDF-YN-CEX" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" constant="4" id="Fmx-r3-01j"/>
+                                        <constraint firstItem="WY1-TP-Ip5" firstAttribute="top" secondItem="0k8-Ld-pyh" secondAttribute="bottom" constant="5" id="Jzg-lX-Hu1"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="bvW-xH-fKy" secondAttribute="trailing" constant="8" id="KTg-mf-d3e"/>
+                                        <constraint firstItem="RAX-Fd-MUa" firstAttribute="top" secondItem="0k8-Ld-pyh" secondAttribute="bottom" constant="5" id="LzY-tj-G1f"/>
                                         <constraint firstAttribute="trailing" secondItem="0k8-Ld-pyh" secondAttribute="trailing" priority="998" constant="700" id="boB-0j-Z96"/>
+                                        <constraint firstItem="0k8-Ld-pyh" firstAttribute="top" secondItem="2rW-qB-hKj" secondAttribute="bottom" constant="5" id="eRk-RJ-lhv"/>
                                         <constraint firstItem="bvW-xH-fKy" firstAttribute="top" secondItem="4uz-Rm-yzk" secondAttribute="topMargin" constant="26.670000000000002" id="eWu-tu-BR0"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="0k8-Ld-pyh" secondAttribute="bottom" constant="6" id="fIf-rw-VAd"/>
                                         <constraint firstItem="2rW-qB-hKj" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" constant="8" id="hh2-tn-WpV"/>
                                         <constraint firstItem="bvW-xH-fKy" firstAttribute="leading" secondItem="fDF-YN-CEX" secondAttribute="trailing" constant="8" id="hi4-bh-zzR"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="WY1-TP-Ip5" secondAttribute="bottom" constant="5" id="qmi-1z-J0t"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="2rW-qB-hKj" secondAttribute="trailing" constant="8" id="vb9-Ho-OGo"/>
                                         <constraint firstItem="2rW-qB-hKj" firstAttribute="top" secondItem="bvW-xH-fKy" secondAttribute="bottom" constant="26.666666666666671" id="wCv-ir-MtZ"/>
                                         <constraint firstItem="fDF-YN-CEX" firstAttribute="top" secondItem="4uz-Rm-yzk" secondAttribute="topMargin" constant="8" id="xKB-0W-Ltf"/>
-                                        <constraint firstItem="0k8-Ld-pyh" firstAttribute="top" secondItem="2rW-qB-hKj" secondAttribute="bottom" constant="6" id="z3Y-4k-Vyx"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <outlet property="constraintNewsImage" destination="eZS-ow-dhr" id="JKy-VK-idX"/>
+                                    <outlet property="commentButton" destination="MXQ-4Y-TSL" id="1x4-1F-4ZG"/>
+                                    <outlet property="likesButton" destination="Bm6-FN-8Vf" id="ch5-TT-zdf"/>
                                     <outlet property="nameProfileUser" destination="bvW-xH-fKy" id="pig-1W-peC"/>
                                     <outlet property="newNewsPost" destination="2rW-qB-hKj" id="EKX-CA-xME"/>
                                     <outlet property="newsImage" destination="0k8-Ld-pyh" id="I33-Pa-hPZ"/>
                                     <outlet property="photoProfil" destination="fDF-YN-CEX" id="bJE-s0-0V1"/>
+                                    <outlet property="repostButton" destination="3FA-Ka-9cB" id="Lra-Ce-Lvn"/>
+                                    <outlet property="viewsButton" destination="RAX-Fd-MUa" id="7AC-aj-fP3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -637,8 +673,12 @@
     <resources>
         <image name="Background" width="414" height="896"/>
         <image name="Logo" width="133.33332824707031" height="133.33332824707031"/>
+        <image name="commentIcon" width="22" height="22"/>
         <image name="icons8-myspace-в-круге-filled-100" width="50" height="50"/>
         <image name="icons8-vk-в-круге-filled-101" width="50" height="50"/>
         <image name="icons8-следить-filled-50 (2)" width="50" height="50"/>
+        <image name="likeIconNotSelected — копия" width="22" height="22"/>
+        <image name="postViewsIcon — копия" width="29.333333969116211" height="29.333333969116211"/>
+        <image name="repostsIcon" width="22" height="22"/>
     </resources>
 </document>

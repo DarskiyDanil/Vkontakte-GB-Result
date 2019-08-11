@@ -18,7 +18,7 @@ class NewsTableViewController: UITableViewController {
             newsTableView.dataSource = self
         }
     }
-    
+    var newsCell = NewsCell()
     private var notificationNewsToken: NotificationToken?
     var news: Results<NewsRealmSwiftyJsone>?
     
@@ -43,7 +43,7 @@ class NewsTableViewController: UITableViewController {
         requestNewsSession()
         addRefreshControl()
         
-
+        
         
     }
     
@@ -87,7 +87,7 @@ class NewsTableViewController: UITableViewController {
             //            do {
             //                self.news = try NewsRealmSwiftyJsone.getNewsRealm()
             self.news = RealmProvider.get(NewsRealmSwiftyJsone.self)
-         
+            
             //  для асинхронности оборачииваем
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -112,9 +112,9 @@ class NewsTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
+    //    override func numberOfSections(in tableView: UITableView) -> Int {
+    //        return 1
+    //    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -127,14 +127,13 @@ class NewsTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCellIdentifier", for: indexPath) as? NewsCell else {
             return UITableViewCell()
         }
-        /*if cell == nil {
-         cell = UITableViewCell(style: .default, reuseIdentifier: "NewsCellIdentifier") as? NewsCell
-         }*/
+        
         guard let news = news else {
             return cell
         }
-        cell.configUser(with: news[indexPath.row])
 
+            cell.configUser(with: news[indexPath.row])
+        
         return cell
         
     }

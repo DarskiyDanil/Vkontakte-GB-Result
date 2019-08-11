@@ -30,7 +30,7 @@ class NewsService {
             let parameters: Parameters = [
                 //            "owner_id": ownerId,
                 "access_token": SessionSingletone.shared.token,
-                "filters": "post,photo",
+                "filters": "post, photo",
                 "max_photos": "1",
                 "count": "50",
                 "v": "5.92"/*SessionSingletone.shared.apiVersion*/
@@ -75,6 +75,38 @@ class NewsService {
             }
         }
     }
+    
+    
+    //    фотографии друзей
+    func requestUsersPhotosAlamofire(_ id: Int, ownerId: String, action: String, completion: (([PhotoRealmSwiftyJSON]?, Error?) -> Void)? = nil ) {
+        DispatchQueue.global(qos: .userInteractive).async {
+            let baseUrl = SessionSingletone.shared.baseUrl
+            let path = "/method/photos.get"
+            let parameters: Parameters = [
+                "owner_id": ownerId,
+                "access_token": SessionSingletone.shared.token,
+                "album_id": "profile",
+                "rev": "0",
+                "count": "50",
+                "v": SessionSingletone.shared.apiVersion
+            ]
+            
+            Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    let photos = json["response"]["items"].arrayValue.map { PhotoRealmSwiftyJSON(json: $0, ownerId: ownerId)}
+                    
+                    //  при успешности волучам массив друзей и вместо ошибки nil
+                    completion?(photos, nil)
+                case .failure(let error):
+                    // иначе получаем ошибку
+                    completion?(nil, error)
+                }
+            }
+        }
+    }
+    
     
     
 }

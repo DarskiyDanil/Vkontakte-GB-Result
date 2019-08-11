@@ -51,9 +51,9 @@ extension AddGroupRealm {
     static func saveAddGroupsRealm(_ AddGroupsRealm: [AddGroupRealm]) {
         //  обработка исключений
         do {
-//            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             // получаем доступ к хранилищу
-            let realm = try Realm(/*configuration: config*/)
+            let realm = try Realm(configuration: config)
             //            print(realm.configuration.fileURL!)
             let oldAddGroups = realm.objects(AddGroupRealm.self)
             // начало работы с базой данных

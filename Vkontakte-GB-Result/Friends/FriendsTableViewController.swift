@@ -46,7 +46,7 @@ class FriendsTableViewController: UITableViewController {
                 self.allFriend = try FriendsRealmSwiftyJSON.getFriendsRealm()
 //                 self.allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
 //                self.allFriend = RealmProvider.get( FriendsRealmSwiftyJSON.self)
-//                friendsRealmSwiftyJSON.photos2.append(UIImage)
+
                 //  для асинхронности оборачииваем
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

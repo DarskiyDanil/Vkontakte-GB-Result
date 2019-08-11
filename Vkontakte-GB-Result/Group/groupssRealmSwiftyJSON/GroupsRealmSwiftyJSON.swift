@@ -55,9 +55,9 @@ extension GroupsRealmSwiftyJSON {
     //    сохранение массива данных
     static func saveGroupsRealm(_ groupsRealm: [GroupsRealmSwiftyJSON]) {
         do {
-//            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
  // получаем доступ к хранилищу
-            let realm = try Realm(/*configuration: config*/)
+            let realm = try Realm(configuration: config)
             
       let oldGroups = realm.objects(GroupsRealmSwiftyJSON.self)
             
