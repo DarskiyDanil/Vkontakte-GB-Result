@@ -34,6 +34,7 @@
 		83C3EF4D22C40DB2002F8553 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF4C22C40DB2002F8553 /* NewsCell.swift */; };
 		83C3EF5022C40E37002F8553 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF4F22C40E37002F8553 /* NewsService.swift */; };
 		83C3EF5222C41360002F8553 /* NewsRealmSwiftyJsone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF5122C41360002F8553 /* NewsRealmSwiftyJsone.swift */; };
+		83DCC1262300B472007ACEAA /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCC1252300B472007ACEAA /* CustomColors.swift */; };
 		83F6E2C022993B7600DEB419 /* AddGroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F6E2BF22993B7600DEB419 /* AddGroupRealm.swift */; };
 		83F6E2C322998F7400DEB419 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F6E2C222998F7400DEB419 /* RealmProvider.swift */; };
 		83F6E2C522A868C300DEB419 /* RealmChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F6E2C422A868C300DEB419 /* RealmChanges.swift */; };
@@ -75,6 +76,7 @@
 		83C3EF4C22C40DB2002F8553 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		83C3EF4F22C40E37002F8553 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		83C3EF5122C41360002F8553 /* NewsRealmSwiftyJsone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRealmSwiftyJsone.swift; sourceTree = "<group>"; };
+		83DCC1252300B472007ACEAA /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		83F6E2BF22993B7600DEB419 /* AddGroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupRealm.swift; sourceTree = "<group>"; };
 		83F6E2C222998F7400DEB419 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		83F6E2C422A868C300DEB419 /* RealmChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChanges.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				837DD843225D125A00A9A709 /* Friends */,
 				837DD842225D122100A9A709 /* Group */,
 				83666B5F225509D700B83B4C /* Main.storyboard */,
+				83DCC1252300B472007ACEAA /* CustomColors.swift */,
 				83666B64225509D800B83B4C /* LaunchScreen.storyboard */,
 				839176BB227AE0EB00A31713 /* MyUIView.swift */,
 				83666B6D2258EB6600B83B4C /* Assets.xcassets */,
@@ -384,6 +387,7 @@
 			files = (
 				839176C72284450E00A31713 /* VkoLoginWebViewController.swift in Sources */,
 				837DD849225FD6B000A9A709 /* FriendsTableViewCell.swift in Sources */,
+				83DCC1262300B472007ACEAA /* CustomColors.swift in Sources */,
 				8311E8FF228DB9C300344690 /* PhotoRealmSwiftyJSON.swift in Sources */,
 				839176C522842D0C00A31713 /* VkoService.swift in Sources */,
 				83666B5E225509D700B83B4C /* VkoViewController.swift in Sources */,

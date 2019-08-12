@@ -253,9 +253,12 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm6-FN-8Vf">
                                                     <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
-                                                    <state key="normal" title="222" image="likeIconNotSelected — копия">
+                                                    <state key="normal" title="222" image="likeIconNotSelected">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="likesButtonPressed:" destination="Mr5-JF-97G" eventType="touchUpInside" id="eNu-HJ-a6Y"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXQ-4Y-TSL">
                                                     <rect key="frame" x="62" y="0.0" width="55" height="30"/>
@@ -273,14 +276,14 @@
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-Fd-MUa">
                                             <rect key="frame" x="317" y="534" width="63.333333333333314" height="29.333333333333371"/>
-                                            <state key="normal" title="888" image="postViewsIcon — копия">
+                                            <state key="normal" title="888" image="postViewsIcon">
                                                 <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             </state>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstItem="RAX-Fd-MUa" firstAttribute="leading" secondItem="WY1-TP-Ip5" secondAttribute="trailing" constant="115" id="2IE-Pq-ZKt"/>
+                                        <constraint firstItem="RAX-Fd-MUa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WY1-TP-Ip5" secondAttribute="trailing" constant="8" symbolic="YES" id="2IE-Pq-ZKt"/>
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" id="3eG-O5-SvT"/>
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="centerX" secondItem="4uz-Rm-yzk" secondAttribute="centerX" id="7ue-Zj-LeH"/>
                                         <constraint firstItem="WY1-TP-Ip5" firstAttribute="leading" secondItem="4uz-Rm-yzk" secondAttribute="leadingMargin" constant="4" id="Bcn-sl-LcK"/>
@@ -289,6 +292,7 @@
                                         <constraint firstItem="WY1-TP-Ip5" firstAttribute="top" secondItem="0k8-Ld-pyh" secondAttribute="bottom" constant="5" id="Jzg-lX-Hu1"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="bvW-xH-fKy" secondAttribute="trailing" constant="8" id="KTg-mf-d3e"/>
                                         <constraint firstItem="RAX-Fd-MUa" firstAttribute="top" secondItem="0k8-Ld-pyh" secondAttribute="bottom" constant="5" id="LzY-tj-G1f"/>
+                                        <constraint firstAttribute="trailing" secondItem="RAX-Fd-MUa" secondAttribute="trailing" priority="998" constant="33.666666666666686" id="ZXD-9P-oJ6"/>
                                         <constraint firstAttribute="trailing" secondItem="0k8-Ld-pyh" secondAttribute="trailing" priority="998" constant="700" id="boB-0j-Z96"/>
                                         <constraint firstItem="0k8-Ld-pyh" firstAttribute="top" secondItem="2rW-qB-hKj" secondAttribute="bottom" constant="5" id="eRk-RJ-lhv"/>
                                         <constraint firstItem="bvW-xH-fKy" firstAttribute="top" secondItem="4uz-Rm-yzk" secondAttribute="topMargin" constant="26.670000000000002" id="eWu-tu-BR0"/>
@@ -678,8 +682,8 @@
         <image name="icons8-myspace-в-круге-filled-100" width="50" height="50"/>
         <image name="icons8-vk-в-круге-filled-101" width="50" height="50"/>
         <image name="icons8-следить-filled-50 (2)" width="50" height="50"/>
-        <image name="likeIconNotSelected — копия" width="22" height="22"/>
-        <image name="postViewsIcon — копия" width="29.333333969116211" height="29.333333969116211"/>
+        <image name="likeIconNotSelected" width="22" height="22"/>
+        <image name="postViewsIcon" width="29.333333969116211" height="29.333333969116211"/>
         <image name="repostsIcon" width="22" height="22"/>
     </resources>
 </document>

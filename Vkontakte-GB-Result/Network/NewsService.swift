@@ -76,18 +76,16 @@ class NewsService {
         }
     }
     
-    
-    //    фотографии друзей
-    func requestUsersPhotosAlamofire(_ id: Int, ownerId: String, action: String, completion: (([PhotoRealmSwiftyJSON]?, Error?) -> Void)? = nil ) {
+    //     действия с лайками
+    func requestLikesNewsAlamofire(_ id: Int, ownerId: String, action: String, completion: (([NewsRealmSwiftyJsone]?, Error?) -> Void)? = nil ) {
         DispatchQueue.global(qos: .userInteractive).async {
             let baseUrl = SessionSingletone.shared.baseUrl
-            let path = "/method/photos.get"
+            let path = "/method/likes.\(action)"
             let parameters: Parameters = [
+                "type": "post",
+                "item_id": id,
                 "owner_id": ownerId,
                 "access_token": SessionSingletone.shared.token,
-                "album_id": "profile",
-                "rev": "0",
-                "count": "50",
                 "v": SessionSingletone.shared.apiVersion
             ]
             
@@ -95,10 +93,12 @@ class NewsService {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    let photos = json["response"]["items"].arrayValue.map { PhotoRealmSwiftyJSON(json: $0, ownerId: ownerId)}
-                    
+                    let like = json["response"]["items"].arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
+                    print(json)
+
                     //  при успешности волучам массив друзей и вместо ошибки nil
-                    completion?(photos, nil)
+                    completion?(like, nil)
+                    
                 case .failure(let error):
                     // иначе получаем ошибку
                     completion?(nil, error)

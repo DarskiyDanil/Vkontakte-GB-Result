@@ -18,6 +18,8 @@ protocol NewsCellDelegate: class {
 class NewsCell: UITableViewCell {
     
     public weak var delegate: NewsCellDelegate?
+    private var post_id: Int!
+    private var owner_id: String!
     
     @IBOutlet weak var photoProfil: UIImageView!{
         didSet {
@@ -49,6 +51,18 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var repostButton: UIButton!
     @IBOutlet weak var viewsButton: UIButton!
+    @IBAction func likesButtonPressed(_ sender: Any) {
+        if likesButton.titleColor(for: .normal) == UIColor.likedIconColor {
+            NewsService.newsService.requestLikesNewsAlamofire(post_id, ownerId: owner_id, action: "delete")
+
+            likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
+            likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
+        } else {
+            NewsService.newsService.requestLikesNewsAlamofire(post_id, ownerId: owner_id, action: "add")
+            likesButton.setImage(#imageLiteral(resourceName: "likeIconSelected"), for: .normal)
+            likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
+        }
+    }
     
     
     
@@ -69,7 +83,22 @@ class NewsCell: UITableViewCell {
         self.commentButton.setTitle("\(news.commentsCount)", for: .normal)
         self.repostButton.setTitle("\(news.repostsCount)", for: .normal)
         self.viewsButton.setTitle("\(news.views)", for: .normal)
+        self.likesButton.setTitle("\(news.likesCount)", for: .normal)
+        if news.userLikes == 1 {
+            likesButton.setImage(#imageLiteral(resourceName: "likeIconSelected"), for: .normal)
+            likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
+        }
+        post_id = news.postId
+        owner_id = String(news.sourceId)
+        
     }
+    
+    override func prepareForReuse() {
+        likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
+        likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
+        likesButton.setTitle("", for: .normal)
+    }
+    
     
     
     func animatedHeight() {
@@ -155,6 +184,10 @@ class NewsCell: UITableViewCell {
         
         return size
     }
+    
+    
+
+    
     
     
     

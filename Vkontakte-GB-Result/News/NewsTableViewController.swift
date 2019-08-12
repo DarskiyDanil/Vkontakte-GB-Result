@@ -77,27 +77,28 @@ class NewsTableViewController: UITableViewController {
                 self?.showLoginError()
             }
             // в guard можно вместо self? додобавить , let self =self
-            guard let news = news, let self = self else { return}
+            guard let news = news, let self = self else { return }
             //            self?.allGroups = groups
             
             //  сохраняем в хранилище
-            //            NewsRealmSwiftyJsone.saveNewsRealm(news)
-            RealmProvider.saveToRealm(items: news)
+            NewsRealmSwiftyJsone.saveNewsRealm(news)
+            //            RealmProvider.saveToRealm(items: news)
             // достаём из хранилища
-            //            do {
-            //                self.news = try NewsRealmSwiftyJsone.getNewsRealm()
-            self.news = RealmProvider.get(NewsRealmSwiftyJsone.self)
-            
-            //  для асинхронности оборачииваем
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            do {
+                self.news = try NewsRealmSwiftyJsone.getNewsRealm()
+                //                self.news = RealmProvider.get(NewsRealmSwiftyJsone.self)
                 
+                //  для асинхронности оборачииваем
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    
+                }
+            } catch {
+                print(error.localizedDescription)
             }
-            //            } catch {
-            //                print(error.localizedDescription)
-            //            }
         }
     }
+    
     
     //    вывод ошибки
     func showLoginError() {
@@ -131,8 +132,8 @@ class NewsTableViewController: UITableViewController {
         guard let news = news else {
             return cell
         }
-
-            cell.configUser(with: news[indexPath.row])
+        
+        cell.configUser(with: news[indexPath.row])
         
         return cell
         
