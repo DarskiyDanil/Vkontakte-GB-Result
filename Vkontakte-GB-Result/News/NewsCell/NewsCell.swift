@@ -72,12 +72,9 @@ class NewsCell: UITableViewCell {
         self.newNewsPost.text = String(news.textNews)
         
         let url = URL(string: String(news.imageURL))
-        //        if url == nil {
-//                    self.newsImage.layoutIfNeeded()
-        //            self.animatedHeight()
-        //        } else {
+
         self.newsImage.kf.setImage(with: url, options: [.onlyLoadFirstFrame])
-        //        }
+
         let url2 = URL(string: String(news.newsPhoto))
         self.photoProfil.kf.setImage(with: url2)
         self.commentButton.setTitle("\(news.commentsCount)", for: .normal)
