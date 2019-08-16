@@ -44,24 +44,33 @@ class NewsTableViewController: UITableViewController {
         addRefreshControl()
         
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //        уведомления
+        pairTableAndRealm()
+        
+    }
+    
+    //        уведомления
+    func pairTableAndRealm() {
+//        guard let realm = try? Realm() else {
+//            return
+//        }
+//        news = realm.objects(NewsRealmSwiftyJsone.self)
         notificationNewsToken = self.news?.observe { [weak self] results in
             switch results {
             case .initial(_):
                 self?.tableView.reloadData()
             case .update(_, let deletions, let insertions, let modifications):
                 self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
-                self?.tableView.reloadData()
+            //                            self?.tableView.reloadData()
             case .error(let error):
                 print(error.localizedDescription)
             }
             self?.tableView.reloadData()
         }
     }
+    
     //     отписываемся
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

@@ -25,7 +25,7 @@ class FriendsTableViewController: UITableViewController {
     private var allFriendPhoto = [PhotoRealmSwiftyJSON]()
     private var allFriend: Results<FriendsRealmSwiftyJSON>?
     private let vkoService = VkoService()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // [weak self] позволяет сделать ссылки на объект разрываемыми
@@ -38,15 +38,15 @@ class FriendsTableViewController: UITableViewController {
             guard let friends = friends, let self = self else { return}
             
             //  сохраняем в хранилище
-//           RealmProvider.saveToRealm(items: friends)
-                       FriendsRealmSwiftyJSON.saveFriendsRealm(friends)
+            //           RealmProvider.saveToRealm(items: friends)
+            FriendsRealmSwiftyJSON.saveFriendsRealm(friends)
             
             // достаём из хранилища
             do {
                 self.allFriend = try FriendsRealmSwiftyJSON.getFriendsRealm()
-//                 self.allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
-//                self.allFriend = RealmProvider.get( FriendsRealmSwiftyJSON.self)
-
+                //                 self.allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
+                //                self.allFriend = RealmProvider.get( FriendsRealmSwiftyJSON.self)
+                
                 //  для асинхронности оборачииваем
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -55,21 +55,32 @@ class FriendsTableViewController: UITableViewController {
                 print(error.localizedDescription)
             }
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        pairTableAndRealm()
+    }
+    
+    func pairTableAndRealm() {
+//        guard let realm = try? Realm() else {
+//            return
+//        }
+//        allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
         
-        notificationFriendToken = self.allFriend?.observe { [weak self] results in
+        notificationFriendToken = self.allFriend?.observe { [weak self] (results: RealmCollectionChange) in
             switch results {
             case .initial(_):
                 self?.tableView.reloadData()
             case .update(_, let deletions, let insertions, let modifications):
                 self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
+                self?.tableView.reloadData()
             case .error(let error):
                 print(error.localizedDescription)
             }
         }
     }
+    
     //     отписываемся
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -78,10 +89,10 @@ class FriendsTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

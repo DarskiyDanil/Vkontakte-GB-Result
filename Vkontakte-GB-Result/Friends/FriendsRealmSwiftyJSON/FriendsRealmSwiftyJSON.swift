@@ -18,7 +18,7 @@ import RealmSwift
     dynamic var imageUrl = ""
 
 
-//    let photos2 = List<PhotoRealmSwiftyJSON>()
+    let photoRealmSwiftyJSON = List<PhotoRealmSwiftyJSON>()
     
     override class func primaryKey() -> String? {
         return "id"
