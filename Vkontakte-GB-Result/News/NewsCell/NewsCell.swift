@@ -24,6 +24,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var photoProfil: UIImageView!{
         didSet {
             photoProfil.translatesAutoresizingMaskIntoConstraints = false
+            photoProfil.layer.cornerRadius = photoProfil.frame.size.height/4
         }
     }
     

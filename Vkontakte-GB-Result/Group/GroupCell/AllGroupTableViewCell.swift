@@ -11,9 +11,9 @@ import UIKit
 class AllGroupTableViewCell: UITableViewCell {
     @IBOutlet weak var AllGroupNameLable: UILabel!
     
-    @IBOutlet weak var groupAvatar: UIImageView!{
+    @IBOutlet weak var groupAvatar: UIImageView! {
         didSet {
-            
+            groupAvatar.layer.cornerRadius = groupAvatar.frame.size.height/4
         }
     }
     

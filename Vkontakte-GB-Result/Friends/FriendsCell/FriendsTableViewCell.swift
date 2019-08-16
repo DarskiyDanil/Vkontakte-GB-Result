@@ -17,9 +17,9 @@ class FriendsTableViewCell: UITableViewCell {
 // ссылка на делегат
     public weak var delegate: FriendsTableViewCellDelegate?
     
-    @IBOutlet weak var avatarFriend: UIImageView!{
+    @IBOutlet weak var avatarFriend: UIImageView! {
         didSet {
-            
+            avatarFriend.layer.cornerRadius = avatarFriend.frame.size.height/4
         }
     }
     

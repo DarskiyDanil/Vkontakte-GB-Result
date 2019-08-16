@@ -82,26 +82,18 @@ extension VkoLoginWebViewController: WKNavigationDelegate {
 //            let isAnonymous = user.isAnonymous  // true
 //            let uid = user.uid
             
-            
 //            let groupRef = self.ref.child(String(uid).lowercased())
 //            groupRef.setValue(user)
 
-            
             self.performSegue(withIdentifier: "VkoLoginSegue", sender: nil)
             }
         
-
-
 //        let userID = Auth.auth().currentUser?.uid
-
         
         //   сохранение токена
         SessionSingletone.shared.token = tokenAccess
         SessionSingletone.shared.IdUser = userID
         
-        
-
- 
                 //  объединённый сетевой запрос
                 //    connectUserData()
                 
@@ -109,9 +101,6 @@ extension VkoLoginWebViewController: WKNavigationDelegate {
                 //  переход по сеге
         
     }
-    
-    
-    
     
     // объединённые запросы
     private func connectUserData() {
