@@ -23,30 +23,31 @@ class NewsCell: UITableViewCell {
     
     @IBOutlet weak var photoProfil: UIImageView!{
         didSet {
-            photoProfil.translatesAutoresizingMaskIntoConstraints = false
+//            photoProfil.translatesAutoresizingMaskIntoConstraints = false
             photoProfil.layer.cornerRadius = photoProfil.frame.size.height/4
         }
     }
     
     @IBOutlet weak var nameProfileUser: UILabel!{
         didSet {
-            nameProfileUser.translatesAutoresizingMaskIntoConstraints = false
+//            nameProfileUser.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
     @IBOutlet weak var newNewsPost: UILabel!{
         didSet {
-            newNewsPost.translatesAutoresizingMaskIntoConstraints = false
+//            newNewsPost.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
     @IBOutlet weak var newsImage: UIImageView!{
         didSet {
-            newsImage.translatesAutoresizingMaskIntoConstraints = false
+//            newsImage.translatesAutoresizingMaskIntoConstraints = false
         }
     }
+    @IBOutlet weak var newsImageHeight: NSLayoutConstraint!
+    @IBOutlet weak var newsImageWidth: NSLayoutConstraint!
     
-    @IBOutlet weak var constraintNewsImage: NSLayoutConstraint!
     
     @IBOutlet weak var likesButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
@@ -55,7 +56,7 @@ class NewsCell: UITableViewCell {
     @IBAction func likesButtonPressed(_ sender: Any) {
         if likesButton.titleColor(for: .normal) == UIColor.likedIconColor {
             NewsService.newsService.requestLikesNewsAlamofire(post_id, ownerId: owner_id, action: "delete")
-
+            
             likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
             likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
         } else {
@@ -68,16 +69,23 @@ class NewsCell: UITableViewCell {
     
     
     func configUser(with news: NewsRealmSwiftyJsone) {
-       
+        
         self.nameProfileUser.text = String(news.newsName)
         self.newNewsPost.text = String(news.textNews)
+//        setNameProfileUser(text: String(news.newsName))
+//        setNewsPost(text: String(news.textNews))
+        
+        let screenSize = UIScreen.main.bounds
+        newsImageWidth.constant = screenSize.width - 30
+        let aspectRatio = newsImageWidth.constant / CGFloat(news.imageWidth)
+        newsImageHeight.constant = CGFloat(news.imageHeight) * aspectRatio
         
         let url = URL(string: String(news.imageURL))
-
         self.newsImage.kf.setImage(with: url, options: [.onlyLoadFirstFrame])
-
+        
         let url2 = URL(string: String(news.newsPhoto))
         self.photoProfil.kf.setImage(with: url2)
+        
         self.commentButton.setTitle("\(news.commentsCount)", for: .normal)
         self.repostButton.setTitle("\(news.repostsCount)", for: .normal)
         self.viewsButton.setTitle("\(news.views)", for: .normal)
@@ -97,21 +105,22 @@ class NewsCell: UITableViewCell {
         likesButton.setTitle("", for: .normal)
     }
     
-    
-    
-    func animatedHeight() {
-        self.newsImage.layoutIfNeeded()
-        UIView.animate(withDuration: 0.0){
-            self.newsImage.layoutIfNeeded()
-            self.constraintNewsImage.constant = 0
-        }
-    }
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
+    
+    
+    
+    
+    //    func animatedHeight() {
+    //        self.newsImage.layoutIfNeeded()
+    //        UIView.animate(withDuration: 0.0){
+    //            self.newsImage.layoutIfNeeded()
+    //            self.constraintNewsImage.constant = 0
+    //        }
+    //    }
+    
     
     //    override func setSelected(_ selected: Bool, animated: Bool) {
     //        super.setSelected(selected, animated: animated)
@@ -119,72 +128,78 @@ class NewsCell: UITableViewCell {
     //        // Configure the view for the selected state
     //    }
     
+//
+//
+//    //  переопределяю метод расчёта позиции
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        PhotoProfilFrame()
+//        NameProfileUserFrame()
+//        NewsPostFrame()
+//        NewsImageFrame()
+//    }
+//    func setNameProfileUser(text: String) {
+//        nameProfileUser.text = text
+//        NameProfileUserFrame()
+//    }
+//    func setNewsPost (text: String) {
+//        newNewsPost.text = text
+//        NewsPostFrame()
+//    }
+//
+//
+//
+//    //    настройка фреймы
+//    private let inset: CGFloat = 10.0
+//
+//    private func PhotoProfilFrame() {
+//        let photoProfilWidth: CGFloat = 50
+//        let photoProfilSize = CGSize(width: photoProfilWidth, height: photoProfilWidth)
+//        let photoProfilOrigin = CGPoint(x: bounds.midX - photoProfilWidth / 2,
+//                                        y: bounds.midY - photoProfilWidth / 2)
+//        photoProfil.frame = CGRect(origin: photoProfilOrigin, size: photoProfilSize)
+//    }
+//    //    имя публикующего
+//    private func NameProfileUserFrame() {
+//        // получаем размер текста, передавая сам текст и шрифт
+//        let nameProfileUserSize = countLableSize(text: nameProfileUser.text!, font: nameProfileUser.font)
+//        // координата по оси X
+//        let nameProfileUserX = (bounds.width - nameProfileUserSize.width) / 2
+//        // получаем точку верхнего левого угла надписи
+//        let nameProfileUserFrameOrigin = CGPoint(x: nameProfileUserX, y: inset)
+//        // получаем фрейм и устанавливаем его UILabel
+//        nameProfileUser.frame = CGRect(origin: nameProfileUserFrameOrigin, size: nameProfileUserSize)
+//    }
+//    //    текст публикации
+//    private func NewsPostFrame() {
+//        let newsPostSize = countLableSize(text: newNewsPost.text!, font: newNewsPost.font)
+//        let newNewsPostX = (bounds.width - newsPostSize.width) / 2
+//        let newNewsPostY =  bounds.height - newsPostSize.height - inset
+//
+//        let newNewsPostFrameOrigin = CGPoint(x: newNewsPostX, y: newNewsPostY)
+//        newNewsPost.frame = CGRect(origin: newNewsPostFrameOrigin, size: newsPostSize)
+//    }
+//
+//    private func NewsImageFrame() {
+//        let newsImageWidth: CGFloat = 375
+//        let newsImageSize = CGSize(width: newsImageWidth, height: newsImageWidth)
+//        let newsImageOrigin = CGPoint(x: bounds.midX - newsImageWidth / 2,
+//                                      y: bounds.midY - newsImageWidth / 2)
+//        newsImage.frame = CGRect(origin: newsImageOrigin, size: newsImageSize)
+//    }
+//    //     размер прямогуольника текстом
+//    private func countLableSize(text: String, font: UIFont)-> CGSize {
+//        let maxWidth = bounds.width - 2 * inset
+//        let textBlock = CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude)
+//        let rect = text.boundingRect(with: textBlock, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : font], context: nil)
+//        let width = Double(rect.size.width)
+//        let height = Double(rect.size.height)
+//        let size = CGSize(width: ceil(width), height: ceil(height))
+//        return size
+//    }
     
     
-    //   отвечает за геометрию
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setPhotoProfilFrame()
-        setNameProfileUserFrame()
-        setNewsPostFrame()
-        setNewsImageFrame()
-    }
     
-    
-    //    настройка фреймы
-    private let inset: CGFloat = 10.0
-    
-    private func setPhotoProfilFrame() {
-        let photoProfilWidth: CGFloat = 50
-        let photoProfilSize = CGSize(width: photoProfilWidth, height: photoProfilWidth)
-        let photoProfilOrigin = CGPoint(x: bounds.midX - photoProfilWidth / 2,
-                                        y: bounds.midY - photoProfilWidth / 2)
-        photoProfil.frame = CGRect(origin: photoProfilOrigin, size: photoProfilSize)
-    }
-    
-    private func setNameProfileUserFrame() {
-        let nameProfileUserSize = countLableSize(text: nameProfileUser.text!, font: nameProfileUser.font)
-        let nameProfileUserX = (bounds.width - nameProfileUserSize.width) / 2
-        let nameProfileUserFrameOrigin = CGPoint(x: nameProfileUserX, y: inset)
-        nameProfileUser.frame = CGRect(origin: nameProfileUserFrameOrigin, size: nameProfileUserSize)
-    }
-    
-    private func setNewsPostFrame() {
-        let newsPostSize = countLableSize(text: newNewsPost.text!, font: newNewsPost.font)
-        let newNewsPostX = (bounds.width - newsPostSize.width) / 2
-        let newNewsPostY =  bounds.height - newsPostSize.height - inset
-        
-        let newNewsPostFrameOrigin = CGPoint(x: newNewsPostX, y: newNewsPostY)
-        newNewsPost.frame = CGRect(origin: newNewsPostFrameOrigin, size: newsPostSize)
-    }
-    
-    private func setNewsImageFrame() {
-        let newsImageWidth: CGFloat = 375
-        let newsImageSize = CGSize(width: newsImageWidth, height: newsImageWidth)
-        let newsImageOrigin = CGPoint(x: bounds.midX - newsImageWidth / 2,
-                                      y: bounds.midY - newsImageWidth / 2)
-        newsImage.frame = CGRect(origin: newsImageOrigin, size: newsImageSize)
-        
-        
-        
-    }
-    
-    private func countLableSize(text: String, font: UIFont)-> CGSize {
-        let maxWidth = bounds.width - 2 * inset
-        let textBlock = CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude)
-        let rect = text.boundingRect(with: textBlock, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : font], context: nil)
-        
-        let width = rect.size.width
-        let height = rect.size.height
-        
-        let size = CGSize(width: ceil(Double(width)), height: ceil(Double(height)))
-        
-        return size
-    }
-    
-    
-
     
     
     

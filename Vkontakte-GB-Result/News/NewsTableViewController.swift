@@ -21,15 +21,18 @@ class NewsTableViewController: UITableViewController {
     var newsCell = NewsCell()
     private var notificationNewsToken: NotificationToken?
     var news: Results<NewsRealmSwiftyJsone>?
+    //    идентификаторы ячеек
+    var cellWithPhotoAndText = "NewsCellIdentifier"
+    var cellWithText = "NewsCellTextIdentifier"
     
     var newsService = NewsService()
     
     //   обновление новостей свайпом вниз
     private func addRefreshControl() {
         refreshControl = UIRefreshControl()
+        tableView.addSubview(refreshControl!)
         refreshControl?.attributedTitle = NSAttributedString(string: "обновляю")
         refreshControl?.tintColor = .blue
-        tableView.addSubview(refreshControl!)
         refreshControl?.addTarget(self, action: #selector(refreshNewsList(_:)), for: .valueChanged)
     }
     @objc private func refreshNewsList(_ sender: Any) {
@@ -40,9 +43,10 @@ class NewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        requestNewsSession()
-        addRefreshControl()
+        tableView.rowHeight = UITableView.automaticDimension
         
+        addRefreshControl()
+        requestNewsSession()
         
     }
     
@@ -53,10 +57,10 @@ class NewsTableViewController: UITableViewController {
     
     //        уведомления
     func pairTableAndRealm() {
-//        guard let realm = try? Realm() else {
-//            return
-//        }
-//        news = realm.objects(NewsRealmSwiftyJsone.self)
+        //        guard let realm = try? Realm() else {
+        //            return
+        //        }
+        //        news = realm.objects(NewsRealmSwiftyJsone.self)
         notificationNewsToken = self.news?.observe { [weak self] results in
             switch results {
             case .initial(_):
@@ -128,24 +132,42 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return news?.count ?? 0
         
+        if news?.count == 0 {
+            tableView.separatorStyle = .none
+        } else {
+            tableView.separatorStyle = .singleLine
+        }
+        return news?.count ?? 0
         
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCellIdentifier", for: indexPath) as? NewsCell else {
+        guard let news = news else {
             return UITableViewCell()
         }
-        
-        guard let news = news else {
+        if news[indexPath.row].imageURL.isEmpty  {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellWithText) as? NewsCellText else { return UITableViewCell() }
+            
+//            guard let news = news else {
+//                return cell
+//            }
+            
+            cell.configUser(with: news[indexPath.row])
+            return cell
+            
+        } else {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellWithPhotoAndText) as? NewsCell else { return UITableViewCell() }
+            
+//            guard let news = news else {
+//                return cell
+//            }
+            
+            cell.configUser(with: news[indexPath.row])
             return cell
         }
-        
-        cell.configUser(with: news[indexPath.row])
-        
-        return cell
-        
     }
     
     

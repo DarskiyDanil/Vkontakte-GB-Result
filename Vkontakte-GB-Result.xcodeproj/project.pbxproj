@@ -30,6 +30,7 @@
 		839176C522842D0C00A31713 /* VkoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176C422842D0C00A31713 /* VkoService.swift */; };
 		839176C72284450E00A31713 /* VkoLoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176C62284450E00A31713 /* VkoLoginWebViewController.swift */; };
 		839176C92284766D00A31713 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839176C82284766C00A31713 /* WebKit.framework */; };
+		83B935EE230B238900F3A84A /* NewsCellText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B935ED230B238900F3A84A /* NewsCellText.swift */; };
 		83C3EF4A22C40D7C002F8553 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF4922C40D7C002F8553 /* NewsTableViewController.swift */; };
 		83C3EF4D22C40DB2002F8553 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF4C22C40DB2002F8553 /* NewsCell.swift */; };
 		83C3EF5022C40E37002F8553 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3EF4F22C40E37002F8553 /* NewsService.swift */; };
@@ -72,6 +73,7 @@
 		839176C422842D0C00A31713 /* VkoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkoService.swift; sourceTree = "<group>"; };
 		839176C62284450E00A31713 /* VkoLoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkoLoginWebViewController.swift; sourceTree = "<group>"; };
 		839176C82284766C00A31713 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		83B935ED230B238900F3A84A /* NewsCellText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellText.swift; sourceTree = "<group>"; };
 		83C3EF4922C40D7C002F8553 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		83C3EF4C22C40DB2002F8553 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		83C3EF4F22C40E37002F8553 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				83C3EF4C22C40DB2002F8553 /* NewsCell.swift */,
+				83B935ED230B238900F3A84A /* NewsCellText.swift */,
 			);
 			path = NewsCell;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				839176C72284450E00A31713 /* VkoLoginWebViewController.swift in Sources */,
 				837DD849225FD6B000A9A709 /* FriendsTableViewCell.swift in Sources */,
 				83DCC1262300B472007ACEAA /* CustomColors.swift in Sources */,
+				83B935EE230B238900F3A84A /* NewsCellText.swift in Sources */,
 				8311E8FF228DB9C300344690 /* PhotoRealmSwiftyJSON.swift in Sources */,
 				839176C522842D0C00A31713 /* VkoService.swift in Sources */,
 				83666B5E225509D700B83B4C /* VkoViewController.swift in Sources */,
