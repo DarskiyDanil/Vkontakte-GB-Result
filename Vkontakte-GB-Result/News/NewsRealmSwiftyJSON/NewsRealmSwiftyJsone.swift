@@ -113,7 +113,8 @@ extension NewsRealmSwiftyJsone {
     
     func saveNumberOfLikes(for newsPost: Int, newLikesCount: Int, action: String) {
         do {
-            let realm = try Realm()
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            let realm = try Realm(configuration: config)
             let postToLike = realm.objects(NewsRealmSwiftyJsone.self).filter("postId = %@", newsPost)
             guard let post = postToLike.first else {
                 return

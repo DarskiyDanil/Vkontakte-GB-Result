@@ -60,6 +60,7 @@ class NewsCellText: UITableViewCell {
             NewsService.newsService.requestLikesNewsAlamofire(post_id, ownerId: owner_id, action: "add")
             likesButton.setImage(#imageLiteral(resourceName: "likeIconSelected"), for: .normal)
             likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
+            
         }
     }
     
@@ -88,6 +89,7 @@ class NewsCellText: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
         likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
         likesButton.setTitle("", for: .normal)

@@ -64,6 +64,7 @@ class NewsCell: UITableViewCell {
             likesButton.setImage(#imageLiteral(resourceName: "likeIconSelected"), for: .normal)
             likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
         }
+        
     }
     
     
@@ -100,6 +101,7 @@ class NewsCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
         likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
         likesButton.setTitle("", for: .normal)

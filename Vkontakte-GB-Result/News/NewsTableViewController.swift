@@ -92,7 +92,6 @@ class NewsTableViewController: UITableViewController {
             // в guard можно вместо self? додобавить , let self =self
             guard let news = news, let self = self else { return }
             //            self?.allGroups = groups
-            
             //  сохраняем в хранилище
             NewsRealmSwiftyJsone.saveNewsRealm(news)
             //            RealmProvider.saveToRealm(items: news)
@@ -100,18 +99,15 @@ class NewsTableViewController: UITableViewController {
             do {
                 self.news = try NewsRealmSwiftyJsone.getNewsRealm()
                 //                self.news = RealmProvider.get(NewsRealmSwiftyJsone.self)
-                
                 //  для асинхронности оборачииваем
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    
                 }
             } catch {
                 print(error.localizedDescription)
             }
         }
     }
-    
     
     //    вывод ошибки
     func showLoginError() {
@@ -132,7 +128,6 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
         if news?.count == 0 {
             tableView.separatorStyle = .none
         } else {
@@ -147,24 +142,17 @@ class NewsTableViewController: UITableViewController {
             return UITableViewCell()
         }
         if news[indexPath.row].imageURL.isEmpty  {
-            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellWithText) as? NewsCellText else { return UITableViewCell() }
-            
 //            guard let news = news else {
 //                return cell
 //            }
-            
             cell.configUser(with: news[indexPath.row])
             return cell
-            
         } else {
-            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellWithPhotoAndText) as? NewsCell else { return UITableViewCell() }
-            
 //            guard let news = news else {
 //                return cell
 //            }
-            
             cell.configUser(with: news[indexPath.row])
             return cell
         }
