@@ -32,16 +32,10 @@ class AllGroupsTableViewController: UITableViewController {
         super.viewDidLoad()
         SearchBarGroup.delegate = self
         requestSession()
-        
     }
     
-    //    @objc func userHasJoinedGroup(_ notification: Notification) {
-    //        // TODO: Some pause to show updated information about groups right after subscription
-    //        navigationController?.popViewController(animated: true)
-    //    }
-    
-    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         //        уведомления
         notificationAllGroupsToken = self.allGroups?.observe { [weak self] results in
             switch results {
@@ -54,10 +48,17 @@ class AllGroupsTableViewController: UITableViewController {
             }
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
+    
+    
     //     отписываемся
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         notificationAllGroupsToken?.invalidate()
+        
     }
     
     // сетевой запрос

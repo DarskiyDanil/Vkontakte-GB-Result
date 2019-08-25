@@ -62,6 +62,10 @@ class FriendsTableViewController: UITableViewController {
         pairTableAndRealm()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     func pairTableAndRealm() {
 //        guard let realm = try? Realm() else {
 //            return

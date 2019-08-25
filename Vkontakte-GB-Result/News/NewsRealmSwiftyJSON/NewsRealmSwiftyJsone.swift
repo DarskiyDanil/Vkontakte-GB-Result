@@ -12,6 +12,7 @@ import SwiftyJSON
 import RealmSwift
 
 @objcMembers class NewsRealmSwiftyJsone: Object {
+    
     // переменные которые будут хранить данные из JSON
     dynamic var sourceId = 0
     dynamic var postId = 0
@@ -74,6 +75,7 @@ import RealmSwift
 
 //MARK: CRUD metods
 extension NewsRealmSwiftyJsone {
+    static let newsRealmSwiftyJsone = NewsRealmSwiftyJsone()
     
     // метод запроса всех результатов из базы данных
     static func getNewsRealm() throws -> Results<NewsRealmSwiftyJsone> {
@@ -120,6 +122,9 @@ extension NewsRealmSwiftyJsone {
                 return
             }
             try realm.write {
+                
+//                realm.add(update: .modified)
+                
                 post.likesCount = newLikesCount
                 if action == "add" {
                     post.userLikes = 1

@@ -179,8 +179,8 @@
 		837DD842225D122100A9A709 /* Group */ = {
 			isa = PBXGroup;
 			children = (
-				837DD83E225D118A00A9A709 /* AllGroupsTableViewController.swift */,
 				837DD83C225BD26D00A9A709 /* GroupsTableViewController.swift */,
+				837DD83E225D118A00A9A709 /* AllGroupsTableViewController.swift */,
 				8311E8FB228C9F8D00344690 /* groupssRealmSwiftyJSON */,
 				837DD84C225FD8CE00A9A709 /* GroupCell */,
 			);

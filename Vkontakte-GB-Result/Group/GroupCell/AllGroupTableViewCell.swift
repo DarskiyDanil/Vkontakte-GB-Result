@@ -36,5 +36,17 @@ class AllGroupTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
+    func animationAllGroup() {
+        UIView.animate(withDuration: 1, /*время анимации*/
+            delay: 1,                           /*задержка*/
+            options: [.autoreverse], /*распределение времени*/
+            animations: {
+                self.AllGroupNameLable.alpha = 0.5
+        }, /**/
+            completion: nil) /*действия после завершения анимации*/
+    }
 
 }

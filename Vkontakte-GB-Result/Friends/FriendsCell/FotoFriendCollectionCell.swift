@@ -29,20 +29,17 @@ class FotoFriendCollectionCell: UICollectionViewCell {
             let url = URL(string: String(photo.imageUrl))
             self.PhotoImageFriend.kf.setImage(with: url)        
     }
-//    func configure(with photo: [PhotoRealmSwiftyJSON] ) {
-//        //        var photos = OneFriendCollectionViewController.shared.photoFriend
-//        for i in photo {
-//            let url = URL(string: String(i.imageUrl))
-//            self.PhotoImageFriend.kf.setImage(with: url)
-//        }
+
+
+//     func animation1() {
+//        UIView.animate(withDuration: 1, /*время анимации*/
+//            delay: 1,                           /*задержка*/
+//            options: [.overrideInheritedCurve, .autoreverse], /*распределение времени*/
+//            animations: {
+//                self.PhotoImageFriend.alpha = 0
+//        }, /**/
+//            completion: nil) /*действия после завершения анимации*/
 //    }
-    //    func configure(with photo: Results<PhotoRealmSwiftyJSON>?) {
-    //        for i in photo! {
-    //
-    //
-    //        self.PhotoImageFriend.image = UIImage(named: String(i.imageUrl))
-    //        }
-    //    }
     
     
 }

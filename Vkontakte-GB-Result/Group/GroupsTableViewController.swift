@@ -12,6 +12,7 @@ import Firebase
 import FirebaseAuth
 
 class GroupsTableViewController: UITableViewController {
+//    var allGroupTableViewCell = AllGroupTableViewCell()
 //     ссылка на корневую ветку в Firebase
 //    var ref: DatabaseReference!
     var userIdentification = String(SessionSingletone.shared.IdUser)
@@ -88,6 +89,7 @@ class GroupsTableViewController: UITableViewController {
                 let groupRef = self.ref.child(userIdentification).child(String(group.id).lowercased())
                 groupRef.setValue(group.toAnyObject())
                 
+               
 //                let group = AddGroupRealm(groupAdd: allGroupsVC.allGroups![indexPath.row].name, groupId: allGroupsVC.allGroups![indexPath.row].id)
                 
 //                встроенная проверка на повторяемость

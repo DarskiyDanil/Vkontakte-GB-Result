@@ -18,8 +18,8 @@ protocol NewsCellDelegate: class {
 class NewsCell: UITableViewCell {
     
     public weak var delegate: NewsCellDelegate?
-    private var post_id: Int!
-    private var owner_id: String!
+     var post_id: Int!
+     var owner_id: String!
     
     @IBOutlet weak var photoProfil: UIImageView!{
         didSet {
@@ -53,24 +53,32 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var repostButton: UIButton!
     @IBOutlet weak var viewsButton: UIButton!
+
     @IBAction func likesButtonPressed(_ sender: Any) {
         if likesButton.titleColor(for: .normal) == UIColor.likedIconColor {
-            NewsService.newsService.requestLikesNewsAlamofire(post_id, ownerId: owner_id, action: "delete")
-            
+            NewsService.newsService.changeNumberOfLikesNews(post_id, ownerId: owner_id, action: "delete")
+//            {
+//                [weak self] (news, error) in
+//                if error != nil {
+//                    //   передал функцию сообщающую ошибку
+//                    print("error")
+//                }
             likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
             likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
+     
         } else {
-            NewsService.newsService.requestLikesNewsAlamofire(post_id, ownerId: owner_id, action: "add")
+            NewsService.newsService.changeNumberOfLikesNews(post_id, ownerId: owner_id, action: "add")
             likesButton.setImage(#imageLiteral(resourceName: "likeIconSelected"), for: .normal)
             likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
+//            lnewsRealmSwiftyJsoneikesButton.setTitle("\(newsRealmSwiftyJsone.likesCount)", for: .normal)
         }
-        
+
     }
     
-    
-    
+    var newsRealmSwiftyJsone = NewsRealmSwiftyJsone()
+
     func configUser(with news: NewsRealmSwiftyJsone) {
-        
+    
         self.nameProfileUser.text = String(news.newsName)
         self.newNewsPost.text = String(news.textNews)
 //        setNameProfileUser(text: String(news.newsName))
@@ -97,14 +105,14 @@ class NewsCell: UITableViewCell {
         }
         post_id = news.postId
         owner_id = String(news.sourceId)
-        
+       
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
         likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
-        likesButton.setTitle("", for: .normal)
+        likesButton.setTitle("\(newsRealmSwiftyJsone.likesCount)", for: .normal)
     }
     
     override func awakeFromNib() {
@@ -114,14 +122,8 @@ class NewsCell: UITableViewCell {
     
     
     
-    
-    //    func animatedHeight() {
-    //        self.newsImage.layoutIfNeeded()
-    //        UIView.animate(withDuration: 0.0){
-    //            self.newsImage.layoutIfNeeded()
-    //            self.constraintNewsImage.constant = 0
-    //        }
-    //    }
+
+   
     
     
     //    override func setSelected(_ selected: Bool, animated: Bool) {

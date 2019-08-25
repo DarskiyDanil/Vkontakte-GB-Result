@@ -47,11 +47,19 @@ class NewsTableViewController: UITableViewController {
         
         addRefreshControl()
         requestNewsSession()
+//        pairTableAndRealm()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         pairTableAndRealm()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        pairTableAndRealm()
         
     }
     
@@ -146,6 +154,7 @@ class NewsTableViewController: UITableViewController {
 //            guard let news = news else {
 //                return cell
 //            }
+           
             cell.configUser(with: news[indexPath.row])
             return cell
         } else {
@@ -153,9 +162,12 @@ class NewsTableViewController: UITableViewController {
 //            guard let news = news else {
 //                return cell
 //            }
+           
             cell.configUser(with: news[indexPath.row])
             return cell
+            
         }
+        
     }
     
     

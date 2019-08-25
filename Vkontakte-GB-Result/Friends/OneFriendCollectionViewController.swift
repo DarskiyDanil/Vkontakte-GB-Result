@@ -74,6 +74,9 @@ class OneFriendCollectionViewController: UICollectionViewController {
             }
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -105,7 +108,7 @@ class OneFriendCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    //    вывод ошибки
+    //   метод вывода ошибки
     func showLoginError() {
         // Создаем контроллер
         let alter = UIAlertController(title: "Ошибка сети", message: "данные тю-тю, ковыряй код", preferredStyle: .alert)
