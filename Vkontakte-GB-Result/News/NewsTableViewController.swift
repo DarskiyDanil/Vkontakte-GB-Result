@@ -53,13 +53,13 @@ class NewsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pairTableAndRealm()
+//        pairTableAndRealm()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        pairTableAndRealm()
+        pairTableAndRealm()
         
     }
     

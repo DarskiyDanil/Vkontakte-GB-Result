@@ -20,7 +20,7 @@ class VkoService {
     
     // группы пользователя
     func requestUsersGroupsAlamofire(completion: (([GroupsRealmSwiftyJSON]?, Error?) -> Void)? = nil ) {
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .utility).async {
             let baseUrl = SessionSingletone.shared.baseUrl
             let path = "/method/groups.get"
             let parameters: Parameters = [
@@ -47,7 +47,7 @@ class VkoService {
     }
     //  друзья
     func requestUsersFriendsAlamofire(completion: (([FriendsRealmSwiftyJSON]?, Error?) -> Void)? = nil ) {
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .utility).async {
             let baseUrl = SessionSingletone.shared.baseUrl
             let path = "/method/friends.get"
             let parameters: Parameters = [
@@ -58,7 +58,7 @@ class VkoService {
                 "fields": "nickname, photo_50",
                 "v": SessionSingletone.shared.apiVersion
             ]
-            
+//            преобразуем полученные данные в JSON
             Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { (response) in
                 switch response.result {
                 case .success(let value):
@@ -76,7 +76,7 @@ class VkoService {
     }
     //    фотографии друзей
     func requestUsersPhotosAlamofire(ownerId: String, completion: (([PhotoRealmSwiftyJSON]?, Error?) -> Void)? = nil ) {
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .utility).async {
             let baseUrl = SessionSingletone.shared.baseUrl
             let path = "/method/photos.get"
             let parameters: Parameters = [
@@ -106,6 +106,7 @@ class VkoService {
     
     // поиск по гуппам
     func searchGroupsNameAlamofire(searchName: String, completion: (([ GroupsRealmSwiftyJSON]?, Error?) -> Void)? = nil) {
+        DispatchQueue.global(qos: .utility).async {
         let baseUrl = SessionSingletone.shared.baseUrl
         let path = "/method/groups.search"
         
@@ -131,6 +132,7 @@ class VkoService {
                 print(error.localizedDescription)
             }
         }
+    }
     }
     
     

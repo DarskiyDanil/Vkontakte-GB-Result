@@ -24,7 +24,7 @@ class NewsService {
     
     //    новости друзей и групп
     func requestNewsAlamofire(completion: (([NewsRealmSwiftyJsone]?, Error?) -> Void)? = nil ) {
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .utility).async {
             let baseUrl = SessionSingletone.shared.baseUrl
             let path = "/method/newsfeed.get"
             let parameters: Parameters = [
@@ -78,7 +78,7 @@ class NewsService {
     
     //     действия с лайками
     func changeNumberOfLikesNews(_ id: Int, ownerId: String, action: String, completion: (([NewsRealmSwiftyJsone]?, Error?) -> Void)? = nil ) {
-        DispatchQueue.global(qos: .userInteractive).async {
+         DispatchQueue.global(qos: .utility).async {
             let baseUrl = SessionSingletone.shared.baseUrl
             let path = "/method/likes.\(action)"
             let parameters: Parameters = [
@@ -107,6 +107,7 @@ class NewsService {
                     //                    completion?(like, nil)
                     
                     //  при успешности волучам массив друзей и вместо ошибки nil
+                    
                 }
                 catch {
                     print(error.localizedDescription)
@@ -114,7 +115,7 @@ class NewsService {
                     //                    // иначе получаем ошибку
                     //                    completion?(nil, error)
                 }
-                }.resume()
+                }
         }
     }
     

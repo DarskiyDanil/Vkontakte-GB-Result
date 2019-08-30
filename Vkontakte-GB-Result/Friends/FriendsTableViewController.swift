@@ -59,11 +59,13 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         pairTableAndRealm()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        super.viewDidAppear(animated)
+        animatePhoto()
     }
     
     func pairTableAndRealm() {
@@ -158,9 +160,7 @@ class FriendsTableViewController: UITableViewController {
         present(alter, animated: true, completion: nil)
     }
     
-    
-    
-    
+   
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -207,13 +207,25 @@ class FriendsTableViewController: UITableViewController {
      */
     
     //}
-    //func shouldPerformSegue(withIdentifier identifier: "PresentPhotoSegueIdentifier", sender: Any?) -> Bool {
-    //    // Проверяем данные
-    //
-    //
-    //    // Вернем результат
-    //    return true
-    //}
+    
+//    let friendsNameLable = FriendsTableViewCell.friendsTableViewCell.FriendsNameLable.self
+    func animatePhoto() {
+        
+        FriendsTableViewCell.friendsTableViewCell.self.FriendsNameLable.self?.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height/2)
+        UIView.animate(withDuration: 3,
+                       delay: 1,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0.5,
+                       options: .curveEaseOut,
+                       animations: {
+                        FriendsTableViewCell.friendsTableViewCell.self.FriendsNameLable.self?.transform = .identity
+        },
+                       completion: nil)
+    }
+    
+//     в стадии проблемной анимации которая не работает
+    
+    
     
 }
 

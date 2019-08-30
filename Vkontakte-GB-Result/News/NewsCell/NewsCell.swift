@@ -85,20 +85,30 @@ class NewsCell: UITableViewCell {
 //        setNewsPost(text: String(news.textNews))
         
         let screenSize = UIScreen.main.bounds
-        newsImageWidth.constant = screenSize.width - 30
+        newsImageWidth.constant = screenSize.width - 20
         let aspectRatio = newsImageWidth.constant / CGFloat(news.imageWidth)
         newsImageHeight.constant = CGFloat(news.imageHeight) * aspectRatio
         
-        let url = URL(string: String(news.imageURL))
-        self.newsImage.kf.setImage(with: url, options: [.onlyLoadFirstFrame])
         
-        let url2 = URL(string: String(news.newsPhoto))
-        self.photoProfil.kf.setImage(with: url2)
+        
+            let url = URL(string: String(news.imageURL))
+            
+                self.newsImage.kf.setImage(with: url, options: [.onlyLoadFirstFrame])
+        
+        
+        
+        
+        
+            let url2 = URL(string: String(news.newsPhoto))
+            
+                self.photoProfil.kf.setImage(with: url2)
+        
         
         self.commentButton.setTitle("\(news.commentsCount)", for: .normal)
         self.repostButton.setTitle("\(news.repostsCount)", for: .normal)
         self.viewsButton.setTitle("\(news.views)", for: .normal)
         self.likesButton.setTitle("\(news.likesCount)", for: .normal)
+        
         if news.userLikes == 1 {
             likesButton.setImage(#imageLiteral(resourceName: "likeIconSelected"), for: .normal)
             likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
@@ -106,8 +116,8 @@ class NewsCell: UITableViewCell {
         post_id = news.postId
         owner_id = String(news.sourceId)
        
-    }
     
+    }
     override func prepareForReuse() {
         super.prepareForReuse()
         likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)

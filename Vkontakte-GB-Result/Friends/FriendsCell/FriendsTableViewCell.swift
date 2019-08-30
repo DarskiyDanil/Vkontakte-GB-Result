@@ -14,6 +14,7 @@ protocol FriendsTableViewCellDelegate: class {
 }
 
 class FriendsTableViewCell: UITableViewCell {
+    static let friendsTableViewCell = FriendsTableViewCell()
 // ссылка на делегат
     public weak var delegate: FriendsTableViewCellDelegate?
     
@@ -23,7 +24,11 @@ class FriendsTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var FriendsNameLable: UILabel!
+    @IBOutlet weak var FriendsNameLable: UILabel!{
+        didSet {
+            
+        }
+    }
 //    {
 //        delegate?.FriendsNameLable(to: self.FriendsNameLable.text)
 //    }
