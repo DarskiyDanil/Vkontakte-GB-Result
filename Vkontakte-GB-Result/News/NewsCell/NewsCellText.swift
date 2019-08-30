@@ -65,8 +65,7 @@ class NewsCellText: UITableViewCell {
             
         }
     }
-    
-    
+
     var newsRealmSwiftyJsone = NewsRealmSwiftyJsone()
     func configUser(with news: NewsRealmSwiftyJsone) {
         
