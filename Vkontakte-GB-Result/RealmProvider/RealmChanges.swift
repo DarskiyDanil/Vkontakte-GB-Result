@@ -25,12 +25,4 @@ extension UITableView {
     }
 }
 
-//extension UICollectionView {
-//    func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {
-//        Update()
-//        deleteRows(at: deletions.map(IndexPath.fromRow), with: .automatic)
-//        insertRows(at: insertions.map(IndexPath.fromRow), with: .automatic)
-//        reloadRows(at: updates.map(IndexPath.fromRow), with: .automatic)
-//        endUpdates()
-//    }
-//}
+

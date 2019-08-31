@@ -69,17 +69,39 @@ class NewsTableViewController: UITableViewController {
         //            return
         //        }
         //        news = realm.objects(NewsRealmSwiftyJsone.self)
-        notificationNewsToken = self.news?.observe { [weak self] results in
+        
+        guard let realm = try? Realm() else {return}
+        news = realm.objects(NewsRealmSwiftyJsone.self)
+        
+        notificationNewsToken = self.news?.observe { [weak self] (results: RealmCollectionChange) in
+
+            guard let tableView = self?.tableView else{return}
+            
             switch results {
-            case .initial(_):
-                self?.tableView.reloadData()
-            case .update(_, let deletions, let insertions, let modifications):
-                self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
-            //                            self?.tableView.reloadData()
+//            case .initial(_):
+//                self?.tableView.reloadData()
+//            case .update(_, let deletions, let insertions, let modifications):
+//                self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
+//            //                            self?.tableView.reloadData()
+//            case .error(let error):
+//                print(error.localizedDescription)
+//            }
+//            self?.tableView.reloadData()
+               
+//                ---------------------------------------
+            case .initial:
+                tableView.reloadData()
+            case.update(_, let deletions, let insertions, let modifications):
+                self?.tableView.beginUpdates()
+                self?.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0)}), with:  .automatic)
+                self?.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
+                self?.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0)}),  with: .automatic)
+                self?.tableView.endUpdates()
             case .error(let error):
                 print(error.localizedDescription)
             }
-            self?.tableView.reloadData()
+//            tableView.reloadData()
+//            -----------------------------------------------
         }
     }
     
