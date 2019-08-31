@@ -9,18 +9,12 @@
 import Foundation
 import UIKit
 
-extension IndexPath {
-    static func fromRow(_ row: Int) -> IndexPath {
-        return IndexPath(row: row, section: 0)
-    }
-}
-
 extension UITableView {
     func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {
         beginUpdates()
-        deleteRows(at: deletions.map(IndexPath.fromRow), with: .automatic)
-        insertRows(at: insertions.map(IndexPath.fromRow), with: .automatic)
-        reloadRows(at: updates.map(IndexPath.fromRow), with: .automatic)
+        deleteRows(at: deletions.map({IndexPath(row: $0, section: 0)}), with: .automatic)
+        insertRows(at: insertions.map({IndexPath(row: $0, section: 0)}), with: .automatic)
+        reloadRows(at: updates.map({IndexPath(row: $0, section: 0)}), with: .automatic)
         endUpdates()
     }
 }

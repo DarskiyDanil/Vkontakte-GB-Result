@@ -47,7 +47,7 @@ class NewsService {
                     self?.groups = json["response"]["groups"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
                     self?.news = (self?.news.filter { $0.textNews != "" || $0.imageURL != "" })!
                     self?.identifyNewsSource()
-//                                        print(json)
+                    //                                        print(json)
                     //  при успешности волучам массив друзей и вместо ошибки nil
                     completion?(self?.news, nil)
                 case .failure(let error):
@@ -78,7 +78,7 @@ class NewsService {
     
     //     действия с лайками
     func changeNumberOfLikesNews(_ id: Int, ownerId: String, action: String, completion: (([NewsRealmSwiftyJsone]?, Error?) -> Void)? = nil ) {
-         DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .utility).async {
             let baseUrl = SessionSingletone.shared.baseUrl
             let path = "/method/likes.\(action)"
             let parameters: Parameters = [
@@ -115,7 +115,7 @@ class NewsService {
                     //                    // иначе получаем ошибку
                     //                    completion?(nil, error)
                 }
-                }
+            }
         }
     }
     

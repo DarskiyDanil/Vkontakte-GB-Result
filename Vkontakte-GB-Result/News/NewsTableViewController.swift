@@ -63,7 +63,7 @@ class NewsTableViewController: UITableViewController {
         
     }
     
-    //        уведомления
+    //        обновление
     func pairTableAndRealm() {
         //        guard let realm = try? Realm() else {
         //            return
@@ -78,30 +78,28 @@ class NewsTableViewController: UITableViewController {
             guard let tableView = self?.tableView else{return}
             
             switch results {
-//            case .initial(_):
-//                self?.tableView.reloadData()
-//            case .update(_, let deletions, let insertions, let modifications):
-//                self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
-//            //                            self?.tableView.reloadData()
-//            case .error(let error):
-//                print(error.localizedDescription)
-//            }
-//            self?.tableView.reloadData()
-               
-//                ---------------------------------------
-            case .initial:
+            case .initial(_):
                 tableView.reloadData()
-            case.update(_, let deletions, let insertions, let modifications):
-                self?.tableView.beginUpdates()
-                self?.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0)}), with:  .automatic)
-                self?.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
-                self?.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0)}),  with: .automatic)
-                self?.tableView.endUpdates()
+            case .update(_, let deletions, let insertions, let modifications):
+                self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
             case .error(let error):
                 print(error.localizedDescription)
+            
+
+//                ---------------------------------------
+//            case .initial:
+//                tableView.reloadData()
+//            case.update(_, let deletions, let insertions, let modifications):
+//                self?.tableView.beginUpdates()
+//                self?.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0)}), with:  .automatic)
+//                self?.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
+//                self?.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0)}),  with: .automatic)
+//                self?.tableView.endUpdates()
+//            case .error(let error):
+//                print(error.localizedDescription)
+                //            -----------------------------------------------
             }
-//            tableView.reloadData()
-//            -----------------------------------------------
+
         }
     }
     
