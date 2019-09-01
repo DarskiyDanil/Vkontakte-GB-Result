@@ -30,7 +30,7 @@ class AllGroupsTableViewController: UITableViewController {
         super.viewDidLoad()
         SearchBarGroup.delegate = self
         requestSession()
-        pairTableAndRealm()
+//        pairTableAndRealm()
     }
     
     //        обновление
@@ -53,10 +53,12 @@ class AllGroupsTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
     }
     
     //     отписываемся

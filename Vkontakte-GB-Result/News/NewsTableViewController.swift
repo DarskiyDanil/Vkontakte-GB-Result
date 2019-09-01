@@ -47,7 +47,7 @@ class NewsTableViewController: UITableViewController {
         
         addRefreshControl()
         requestNewsSession()
-        pairTableAndRealm()
+//        pairTableAndRealm()
         
     }
     
@@ -57,7 +57,7 @@ class NewsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //        pairTableAndRealm()
+                pairTableAndRealm()
     }
     
     //        обновление
