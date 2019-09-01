@@ -25,8 +25,6 @@
 		837DD84B225FD82C00A9A709 /* GroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837DD84A225FD82C00A9A709 /* GroupsCell.swift */; };
 		839176BC227AE0EB00A31713 /* MyUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176BB227AE0EB00A31713 /* MyUIView.swift */; };
 		839176BF227B538700A31713 /* SessionSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176BE227B538700A31713 /* SessionSingletone.swift */; };
-		839176C1227EE64300A31713 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176C0227EE64300A31713 /* NetworkService.swift */; };
-		839176C322835B8800A31713 /* AlamofireSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176C222835B8800A31713 /* AlamofireSession.swift */; };
 		839176C522842D0C00A31713 /* VkoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176C422842D0C00A31713 /* VkoService.swift */; };
 		839176C72284450E00A31713 /* VkoLoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839176C62284450E00A31713 /* VkoLoginWebViewController.swift */; };
 		839176C92284766D00A31713 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839176C82284766C00A31713 /* WebKit.framework */; };
@@ -68,8 +66,6 @@
 		837DD84A225FD82C00A9A709 /* GroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCell.swift; sourceTree = "<group>"; };
 		839176BB227AE0EB00A31713 /* MyUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUIView.swift; sourceTree = "<group>"; };
 		839176BE227B538700A31713 /* SessionSingletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSingletone.swift; sourceTree = "<group>"; };
-		839176C0227EE64300A31713 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		839176C222835B8800A31713 /* AlamofireSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireSession.swift; sourceTree = "<group>"; };
 		839176C422842D0C00A31713 /* VkoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkoService.swift; sourceTree = "<group>"; };
 		839176C62284450E00A31713 /* VkoLoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkoLoginWebViewController.swift; sourceTree = "<group>"; };
 		839176C82284766C00A31713 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -221,8 +217,6 @@
 			children = (
 				839176C422842D0C00A31713 /* VkoService.swift */,
 				83C3EF4F22C40E37002F8553 /* NewsService.swift */,
-				839176C0227EE64300A31713 /* NetworkService.swift */,
-				839176C222835B8800A31713 /* AlamofireSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -401,7 +395,6 @@
 				83F6E2CB22AD1A3E00DEB419 /* UserInfoFirebase.swift in Sources */,
 				837DD83F225D118A00A9A709 /* AllGroupsTableViewController.swift in Sources */,
 				8311E8F922888F7200344690 /* FriendsRealmSwiftyJSON.swift in Sources */,
-				839176C322835B8800A31713 /* AlamofireSession.swift in Sources */,
 				8311E8FD228C9FC900344690 /* GroupsRealmSwiftyJSON.swift in Sources */,
 				837DD84B225FD82C00A9A709 /* GroupsCell.swift in Sources */,
 				837DD847225FC14A00A9A709 /* FotoFriendCollectionCell.swift in Sources */,
@@ -414,7 +407,6 @@
 				83C3EF5022C40E37002F8553 /* NewsService.swift in Sources */,
 				83C3EF4A22C40D7C002F8553 /* NewsTableViewController.swift in Sources */,
 				83666B5C225509D700B83B4C /* AppDelegate.swift in Sources */,
-				839176C1227EE64300A31713 /* NetworkService.swift in Sources */,
 				837DD83B225BD23600A9A709 /* FriendsTableViewController.swift in Sources */,
 				83C3EF4D22C40DB2002F8553 /* NewsCell.swift in Sources */,
 			);

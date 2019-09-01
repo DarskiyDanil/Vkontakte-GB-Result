@@ -24,22 +24,22 @@ class FotoFriendCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-// используем Kingfisher для кеширования картинок
+    // используем Kingfisher для кеширования картинок
     func configure(with photo: PhotoRealmSwiftyJSON ) {
-            let url = URL(string: String(photo.imageUrl))
-            self.PhotoImageFriend.kf.setImage(with: url)        
+        let url = URL(string: String(photo.imageUrl))
+        self.PhotoImageFriend.kf.setImage(with: url)
     }
-
-
-//     func animation1() {
-//        UIView.animate(withDuration: 1, /*время анимации*/
-//            delay: 1,                           /*задержка*/
-//            options: [.overrideInheritedCurve, .autoreverse], /*распределение времени*/
-//            animations: {
-//                self.PhotoImageFriend.alpha = 0
-//        }, /**/
-//            completion: nil) /*действия после завершения анимации*/
-//    }
+    
+    
+    //     func animation1() {
+    //        UIView.animate(withDuration: 1, /*время анимации*/
+    //            delay: 1,                           /*задержка*/
+    //            options: [.overrideInheritedCurve, .autoreverse], /*распределение времени*/
+    //            animations: {
+    //                self.PhotoImageFriend.alpha = 0
+    //        }, /**/
+    //            completion: nil) /*действия после завершения анимации*/
+    //    }
     
     
 }

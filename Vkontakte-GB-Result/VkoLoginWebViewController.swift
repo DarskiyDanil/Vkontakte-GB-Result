@@ -7,7 +7,6 @@
 
 import UIKit
 import WebKit
-
 import Alamofire
 import Firebase
 import FirebaseFirestore
@@ -19,7 +18,7 @@ class VkoLoginWebViewController: UIViewController {
             webView.navigationDelegate = self
         }
     }
-//private let ref = Database.database().reference(withPath: "User")
+    //private let ref = Database.database().reference(withPath: "User")
     
     var userInfo = [String].self
     //  запрос инициализации
@@ -43,13 +42,8 @@ class VkoLoginWebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //  авторизация
         requestLogin()
-       
-
-        
-
     }
 }
 
@@ -76,38 +70,22 @@ extension VkoLoginWebViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
+        
         Auth.auth().signInAnonymously() { (authResult, error) in
             if error != nil { print(error!.localizedDescription) }
-//            let user = authResult!.user
-//            let isAnonymous = user.isAnonymous  // true
-//            let uid = user.uid
-            
-//            let groupRef = self.ref.child(String(uid).lowercased())
-//            groupRef.setValue(user)
-
+            //            let user = authResult!.user
+            //            let isAnonymous = user.isAnonymous  // true
+            //            let uid = user.uid
+            //            let groupRef = self.ref.child(String(uid).lowercased())
+            //            groupRef.setValue(user)
             self.performSegue(withIdentifier: "VkoLoginSegue", sender: nil)
-            }
+        }
         
-//        let userID = Auth.auth().currentUser?.uid
-        
+        //        let userID = Auth.auth().currentUser?.uid
         //   сохранение токена
         SessionSingletone.shared.token = tokenAccess
         SessionSingletone.shared.IdUser = userID
-        
-                //  объединённый сетевой запрос
-                //    connectUserData()
-                
         decisionHandler(.cancel)
-                //  переход по сеге
-        
     }
-    
-    // объединённые запросы
-    private func connectUserData() {
-        //      VkoService.vkoService.requestUsersGroupsAlamofire()
-        //      VkoService.vkoService.requestUsersFriendsAlamofire()
-        //        VkoService.vkoService.requestUsersPhotosAlamofire(ownerId: "")
-    }
-    
     
 }

@@ -17,7 +17,6 @@ class NewsService {
     private var news = [NewsRealmSwiftyJsone]()
     private var users = [FriendsRealmSwiftyJSON]()
     private var groups = [GroupsRealmSwiftyJSON]()
-    
     //    private var news = [NewsRealmSwiftyJsone]()
     var user_id = String(SessionSingletone.shared.userId)
     var token = SessionSingletone.shared.token
@@ -102,12 +101,9 @@ class NewsService {
                     print(json)
                     //==============================================================================
                     NewsRealmSwiftyJsone.newsRealmSwiftyJsone.saveNumberOfLikes(for: id, newLikesCount: like, action: action)
-                    
                     //==============================================================================
                     //                    completion?(like, nil)
-                    
                     //  при успешности волучам массив друзей и вместо ошибки nil
-                    
                 }
                 catch {
                     print(error.localizedDescription)
@@ -118,7 +114,5 @@ class NewsService {
             }
         }
     }
-    
-    
     
 }

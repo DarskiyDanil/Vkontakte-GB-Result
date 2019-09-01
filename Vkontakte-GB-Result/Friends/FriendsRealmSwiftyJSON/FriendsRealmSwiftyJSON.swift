@@ -11,21 +11,21 @@ import SwiftyJSON
 import RealmSwift
 
 @objcMembers class FriendsRealmSwiftyJSON: Object {
-// переменные которые будут хранить данные из JSON
+    // переменные которые будут хранить данные из JSON
     dynamic var id = 0
     dynamic var firstName = ""
     dynamic var lastName = ""
     dynamic var imageUrl = ""
-
-
+    
+    
     let photoRealmSwiftyJSON = List<PhotoRealmSwiftyJSON>()
     
     override class func primaryKey() -> String? {
         return "id"
     }
     
-// присваиваю переменным инициализаторы
-// если глюканёт то снести , photos: [PhotoRealmSwiftyJSON] = []
+    // присваиваю переменным инициализаторы
+    // если глюканёт то снести , photos: [PhotoRealmSwiftyJSON] = []
     convenience init(json: JSON) {
         self.init()
         
@@ -36,44 +36,44 @@ import RealmSwift
         
         
     }
-//    let photos = LinkingObjects(fromType: PhotoRealmSwiftyJSON.self, property: "friends1")
+    //    let photos = LinkingObjects(fromType: PhotoRealmSwiftyJSON.self, property: "friends1")
 }
 
 //MARK: CRUD metods
 extension FriendsRealmSwiftyJSON {
     
-// метод запроса всех результатов из базы данных
+    // метод запроса всех результатов из базы данных
     static func getFriendsRealm() throws -> Results<FriendsRealmSwiftyJSON> {
         let realm = try Realm()
         return realm.objects(FriendsRealmSwiftyJSON.self)
     }
     
-//    сохранение массива данных
+    //    сохранение массива данных
     static func saveFriendsRealm(_ friendsRealm: [FriendsRealmSwiftyJSON]) {
-//  обработка исключений
+        //  обработка исключений
         do {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-// получаем доступ к хранилищу
+            // получаем доступ к хранилищу
             let realm = try Realm(configuration: config)
             
             print(realm.configuration.fileURL!)
             
             let oldFriends = realm.objects(FriendsRealmSwiftyJSON.self)
             
-// начало работы с базой данных
+            // начало работы с базой данных
             realm.beginWrite()
             
             // удаляем старые данные
             realm.delete(oldFriends)
             
-// сохраняем или update: .all
+            // сохраняем или update: .all
             realm.add(friendsRealm, update: .modified)
             
-//  завершаем сохранение
+            //  завершаем сохранение
             try realm.commitWrite()
             
         } catch {
-// иначе выводим ошибку
+            // иначе выводим ошибку
             print(error.localizedDescription)
         }
     }

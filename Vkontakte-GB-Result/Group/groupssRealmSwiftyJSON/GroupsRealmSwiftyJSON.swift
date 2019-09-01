@@ -20,23 +20,23 @@ import RealmSwift
     dynamic var isClosed = false
     dynamic var isMember = false
     
-        override class func primaryKey() -> String? {
-            return "id"
-        }
+    override class func primaryKey() -> String? {
+        return "id"
+    }
     
     // присваиваю переменным инициализаторы
     convenience init(json: JSON) {
         self.init()
-//    DispatchQueue.global().async {
+        //    DispatchQueue.global().async {
         self.id = json["id"].intValue
         self.name = json["name"].stringValue
         self.imageUrl = json["photo_50"].stringValue
         self.membersCount = json["members_count"].intValue
         self.isClosed = json["is_closed"].boolValue
         self.isMember = json["is_member"].boolValue
-//        }
+        //        }
     }
-      
+    
 }
 
 //extension GroupsRealmSwiftyJSON {
@@ -56,22 +56,21 @@ extension GroupsRealmSwiftyJSON {
     static func saveGroupsRealm(_ groupsRealm: [GroupsRealmSwiftyJSON]) {
         do {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
- // получаем доступ к хранилищу
+            // получаем доступ к хранилищу
             let realm = try Realm(configuration: config)
             
-      let oldGroups = realm.objects(GroupsRealmSwiftyJSON.self)
+            let oldGroups = realm.objects(GroupsRealmSwiftyJSON.self)
             
             // начало работы с базой данных
             realm.beginWrite()
-           
+            
             // удаляем старые данные
             realm.delete(oldGroups)
             
             // сохраняем
-             realm.add(groupsRealm, update: .modified)
-                
+            realm.add(groupsRealm, update: .modified)
             
-//  завершаем сохранение
+            //  завершаем сохранение
             try realm.commitWrite()
             
         } catch {
@@ -85,24 +84,4 @@ extension GroupsRealmSwiftyJSON {
 //        return "\(name) \(membersCount)"
 //    }
 //}
-//{
-//    response =     {
-//        count = 18;
-//        items =         (
-//            {
-//                id = 58269125;
-//                "is_admin" = 0;
-//                "is_advertiser" = 0;
-//                "is_closed" = 0;
-//                "is_member" = 0;
-//                name = "\U041e\U0442\U0442\U0440\U0430\U0445\U0430\U043d\U044b\U0435 \U0448\U043b\U044e\U0445\U0438";
-//                "photo_100" = "https://EYZYeY.jpg?ava=1";
-//                "photo_200" = "https://sunU.jpg?ava=1";
-//                "photo_50" = "https://sun1-84.useva=1";
-//                "screen_name" = iporns;
-//                type = page;
-//        },
 
-//        );
-//    };
-//}

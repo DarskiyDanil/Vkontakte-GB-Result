@@ -65,7 +65,7 @@ class NewsCellText: UITableViewCell {
             
         }
     }
-
+    
     var newsRealmSwiftyJsone = NewsRealmSwiftyJsone()
     func configUser(with news: NewsRealmSwiftyJsone) {
         
@@ -93,7 +93,7 @@ class NewsCellText: UITableViewCell {
         super.prepareForReuse()
         likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
         likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
-//        likesButton.setTitle("\(newsRealmSwiftyJsone.likesCount)", for: .normal)
+        //        likesButton.setTitle("\(newsRealmSwiftyJsone.likesCount)", for: .normal)
     }
     
     override func awakeFromNib() {

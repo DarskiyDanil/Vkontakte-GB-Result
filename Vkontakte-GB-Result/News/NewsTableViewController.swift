@@ -57,7 +57,7 @@ class NewsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        pairTableAndRealm()
+        //        pairTableAndRealm()
     }
     
     //        обновление
@@ -154,5 +154,5 @@ class NewsTableViewController: UITableViewController {
             return cell
         }
     }
- 
+    
 }

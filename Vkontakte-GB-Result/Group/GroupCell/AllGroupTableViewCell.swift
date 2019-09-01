@@ -17,27 +17,23 @@ class AllGroupTableViewCell: UITableViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     func configure(with group: GroupsRealmSwiftyJSON) {
         self.AllGroupNameLable.text = String(group.name)
         
         let url = URL(string: String(group.imageUrl))
         self.groupAvatar.kf.setImage(with: url)
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-    
-    
     
     func animationAllGroup() {
         UIView.animate(withDuration: 1, /*время анимации*/
@@ -48,5 +44,5 @@ class AllGroupTableViewCell: UITableViewCell {
         }, /**/
             completion: nil) /*действия после завершения анимации*/
     }
-
+    
 }

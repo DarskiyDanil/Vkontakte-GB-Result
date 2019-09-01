@@ -70,7 +70,6 @@ class NewsCell: UITableViewCell {
             likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
             //            lnewsRealmSwiftyJsoneikesButton.setTitle("\(newsRealmSwiftyJsone.likesCount)", for: .normal)
         }
-        
     }
     
     var newsRealmSwiftyJsone = NewsRealmSwiftyJsone()
@@ -86,13 +85,13 @@ class NewsCell: UITableViewCell {
         newsImageWidth.constant = screenSize.width - 20
         let aspectRatio = newsImageWidth.constant / CGFloat(news.imageWidth)
         newsImageHeight.constant = CGFloat(news.imageHeight) * aspectRatio
-
+        
         let url = URL(string: String(news.imageURL))
         self.newsImage.kf.setImage(with: url, options: [.onlyLoadFirstFrame])
-
+        
         let url2 = URL(string: String(news.newsPhoto))
         self.photoProfil.kf.setImage(with: url2)
-
+        
         self.commentButton.setTitle("\(news.commentsCount)", for: .normal)
         self.repostButton.setTitle("\(news.repostsCount)", for: .normal)
         self.viewsButton.setTitle("\(news.views)", for: .normal)
@@ -104,7 +103,7 @@ class NewsCell: UITableViewCell {
         }
         post_id = news.postId
         owner_id = String(news.sourceId)
- 
+        
     }
     override func prepareForReuse() {
         super.prepareForReuse()

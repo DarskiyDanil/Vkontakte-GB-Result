@@ -14,7 +14,6 @@ class VkoService {
     
     static let vkoService = VkoService()
     //    private init() {}
-    
     var user_id = String(SessionSingletone.shared.userId)
     var token = SessionSingletone.shared.token
     
@@ -58,7 +57,7 @@ class VkoService {
                 "fields": "nickname, photo_50",
                 "v": SessionSingletone.shared.apiVersion
             ]
-//            преобразуем полученные данные в JSON
+            //            преобразуем полученные данные в JSON
             Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { (response) in
                 switch response.result {
                 case .success(let value):
@@ -66,7 +65,6 @@ class VkoService {
                     let friends = json["response"]["items"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
                     //  при успешности волучам массив друзей и вместо ошибки nil
                     completion?(friends, nil)
-                    
                 case .failure(let error):
                     // иначе получаем ошибку
                     completion?(nil, error)
@@ -93,7 +91,6 @@ class VkoService {
                 case .success(let value):
                     let json = JSON(value)
                     let photos = json["response"]["items"].arrayValue.map { PhotoRealmSwiftyJSON(json: $0, ownerId: ownerId)}
-                    
                     //  при успешности волучам массив друзей и вместо ошибки nil
                     completion?(photos, nil)
                 case .failure(let error):
@@ -107,33 +104,29 @@ class VkoService {
     // поиск по гуппам
     func searchGroupsNameAlamofire(searchName: String, completion: (([ GroupsRealmSwiftyJSON]?, Error?) -> Void)? = nil) {
         DispatchQueue.global(qos: .utility).async {
-        let baseUrl = SessionSingletone.shared.baseUrl
-        let path = "/method/groups.search"
-        
-        let parameters: Parameters = [
-            "user_id": SessionSingletone.shared.userId,
-            "access_token": SessionSingletone.shared.token,
-            "q": searchName,
-            "count": "50",
-            "v": SessionSingletone.shared.apiVersion
-        ]
-        
-        Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { (response) in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                let search = json["response"]["items"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
-                
-                //  при успешности волучам массив друзей и вместо ошибки nil
-                completion?(search, nil)
-                
-                
-            case .failure(let error):
-                print(error.localizedDescription)
+            let baseUrl = SessionSingletone.shared.baseUrl
+            let path = "/method/groups.search"
+            let parameters: Parameters = [
+                "user_id": SessionSingletone.shared.userId,
+                "access_token": SessionSingletone.shared.token,
+                "q": searchName,
+                "count": "50",
+                "v": SessionSingletone.shared.apiVersion
+            ]
+            
+            Alamofire.request(baseUrl + path, method: .get, parameters: parameters).responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    let search = json["response"]["items"].arrayValue.map { GroupsRealmSwiftyJSON(json: $0)}
+                    //  при успешности волучам массив друзей и вместо ошибки nil
+                    completion?(search, nil)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
-    }
-    
     
 }

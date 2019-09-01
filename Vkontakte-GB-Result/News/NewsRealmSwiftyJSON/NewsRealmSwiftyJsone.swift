@@ -91,7 +91,7 @@ extension NewsRealmSwiftyJsone {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             let realm = try Realm(configuration: config)
             
-                        print(realm.configuration.fileURL!)
+            print(realm.configuration.fileURL!)
             
             let oldNews = realm.objects(NewsRealmSwiftyJsone.self)
             
@@ -123,7 +123,7 @@ extension NewsRealmSwiftyJsone {
             }
             try realm.write {
                 
-//                realm.add(update: .modified)
+                //                realm.add(update: .modified)
                 
                 post.likesCount = newLikesCount
                 if action == "add" {

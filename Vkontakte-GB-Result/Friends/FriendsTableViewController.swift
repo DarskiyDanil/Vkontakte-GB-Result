@@ -75,7 +75,7 @@ class FriendsTableViewController: UITableViewController {
     func pairTableAndRealm() {
         guard let realm = try? Realm() else {return}
         allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
-
+        
         notificationFriendToken = self.allFriend?.observe { [weak self] (results: RealmCollectionChange) in
             guard let tableView = self?.tableView else{return}
             switch results {
@@ -98,10 +98,10 @@ class FriendsTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
+    //    override func numberOfSections(in tableView: UITableView) -> Int {
+    //        // #warning Incomplete implementation, return the number of sections
+    //        return 1
+    //    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -124,8 +124,8 @@ class FriendsTableViewController: UITableViewController {
         
         return cell
     }
-    // MARK: - передача информации по сеге при нажатии ---
     
+    // MARK: - передача информации по сеге при нажатии ---
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PresentPhotoSegueIdentifier" {
             //            контроллер на который переходим
@@ -151,7 +151,6 @@ class FriendsTableViewController: UITableViewController {
         }
     }
     
-    
     func showLoginError() {
         // Создаем контроллер
         let alter = UIAlertController(title: "Ошибка сети", message: "данные неполучены, ковыряй код", preferredStyle: .alert)
@@ -163,7 +162,7 @@ class FriendsTableViewController: UITableViewController {
         present(alter, animated: true, completion: nil)
     }
     
-   
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -211,7 +210,7 @@ class FriendsTableViewController: UITableViewController {
     
     //}
     
-//    let friendsNameLable = FriendsTableViewCell.friendsTableViewCell.FriendsNameLable.self
+    //    let friendsNameLable = FriendsTableViewCell.friendsTableViewCell.FriendsNameLable.self
     func animatePhoto() {
         
         FriendsTableViewCell.friendsTableViewCell.self.FriendsNameLable.self?.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height/2)
@@ -225,8 +224,7 @@ class FriendsTableViewController: UITableViewController {
         },
                        completion: nil)
     }
-    
-//     в стадии проблемной анимации которая не работает
+    //     в стадии проблемной анимации которая не работает
     
     
     

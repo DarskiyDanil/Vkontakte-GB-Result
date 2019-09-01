@@ -19,7 +19,6 @@ class UserInfoFirebase {
     let ref: DatabaseReference?
     
     //    инициализация
-    
     init(id: Int, addGroups: String) {
         self.id = id
         self.addGroups = addGroups
@@ -43,8 +42,6 @@ class UserInfoFirebase {
         return [
             "addGroups": addGroups,
             "id": id]
-        
-        
     }
     
 }
