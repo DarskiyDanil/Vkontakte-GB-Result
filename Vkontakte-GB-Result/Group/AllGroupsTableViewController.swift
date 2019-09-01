@@ -26,21 +26,24 @@ class AllGroupsTableViewController: UITableViewController {
     var vkoService = VkoService()
     var allGroups: Results<GroupsRealmSwiftyJSON>?
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         SearchBarGroup.delegate = self
         requestSession()
+        pairTableAndRealm()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //        уведомления
-        notificationAllGroupsToken = self.allGroups?.observe { [weak self] results in
+    //        обновление
+    func pairTableAndRealm() {
+        guard let realm = try? Realm() else {return}
+        allGroups = realm.objects(GroupsRealmSwiftyJSON.self)
+        
+        notificationAllGroupsToken = self.allGroups?.observe { [weak self] (results: RealmCollectionChange) in
+            guard let tableView = self?.tableView else{return}
+            
             switch results {
             case .initial(_):
-                self?.tableView.reloadData()
+                tableView.reloadData()
             case .update(_, let deletions, let insertions, let modifications):
                 self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
             case .error(let error):
@@ -48,17 +51,18 @@ class AllGroupsTableViewController: UITableViewController {
             }
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
     
     //     отписываемся
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         notificationAllGroupsToken?.invalidate()
-        
     }
     
     // сетевой запрос
@@ -72,14 +76,11 @@ class AllGroupsTableViewController: UITableViewController {
             // в guard можно вместо self? додобавить , let self =self
             guard let groups = groups, let self = self else { return}
             //            self?.allGroups = groups
-            
             //  сохраняем в хранилище
             GroupsRealmSwiftyJSON.saveGroupsRealm(groups)
-            
             // достаём из хранилища
             do {
                 self.allGroups = try GroupsRealmSwiftyJSON.getGroupsRealm()
-                
                 //  для асинхронности оборачииваем
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -90,10 +91,7 @@ class AllGroupsTableViewController: UITableViewController {
         }
     }
     
-    
     // MARK: - Table view data source
-    
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -101,20 +99,18 @@ class AllGroupsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allGroups?.count ?? 0
     }
-    
     //    проверка: если может в ячейку по идентифаеру то передаёт, иначе возвращает пустую ячейку
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupCell", for: indexPath) as? AllGroupTableViewCell else {
             return UITableViewCell()
         }
         //        обращаясь к имени ячейки и параметру текст, передаём в неё города из массива
-        // избавился от ?
+        // избавился от "?"
         guard let allGroups = allGroups else {
             return cell
         }
         cell.configure(with: allGroups[indexPath.row])
         // Configure the cell...
-        
         return cell
     }
     
@@ -131,7 +127,6 @@ class AllGroupsTableViewController: UITableViewController {
 }
 
 extension AllGroupsTableViewController: UISearchBarDelegate {
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             VkoService.vkoService.searchGroupsNameAlamofire(searchName: searchText) { [weak self] (allGroups, error) in
@@ -139,7 +134,6 @@ extension AllGroupsTableViewController: UISearchBarDelegate {
                     self?.showLoginError()
                 }
                 guard let allGroups = allGroups, let self = self else { return }
-                
                 //  сохраняем в хранилище
                 //                GroupsRealmSwiftyJSON.saveGroupsRealm(allGroups)
                 RealmProvider.saveToRealm(items: allGroups)
@@ -161,8 +155,8 @@ extension AllGroupsTableViewController: UISearchBarDelegate {
                 self.tableView.reloadData()
             }
         }
-        
     }
+    
 }
 
 

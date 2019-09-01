@@ -47,34 +47,25 @@ class NewsTableViewController: UITableViewController {
         
         addRefreshControl()
         requestNewsSession()
-//        pairTableAndRealm()
+        pairTableAndRealm()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        pairTableAndRealm()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        pairTableAndRealm()
-        
+//        pairTableAndRealm()
     }
     
     //        обновление
     func pairTableAndRealm() {
-        //        guard let realm = try? Realm() else {
-        //            return
-        //        }
-        //        news = realm.objects(NewsRealmSwiftyJsone.self)
-        
         guard let realm = try? Realm() else {return}
         news = realm.objects(NewsRealmSwiftyJsone.self)
         
         notificationNewsToken = self.news?.observe { [weak self] (results: RealmCollectionChange) in
-
             guard let tableView = self?.tableView else{return}
             
             switch results {
@@ -84,22 +75,7 @@ class NewsTableViewController: UITableViewController {
                 self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
             case .error(let error):
                 print(error.localizedDescription)
-            
-
-//                ---------------------------------------
-//            case .initial:
-//                tableView.reloadData()
-//            case.update(_, let deletions, let insertions, let modifications):
-//                self?.tableView.beginUpdates()
-//                self?.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0)}), with:  .automatic)
-//                self?.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
-//                self?.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0)}),  with: .automatic)
-//                self?.tableView.endUpdates()
-//            case .error(let error):
-//                print(error.localizedDescription)
-                //            -----------------------------------------------
             }
-
         }
     }
     
@@ -162,7 +138,6 @@ class NewsTableViewController: UITableViewController {
             tableView.separatorStyle = .singleLine
         }
         return news?.count ?? 0
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -171,25 +146,13 @@ class NewsTableViewController: UITableViewController {
         }
         if news[indexPath.row].imageURL.isEmpty  {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellWithText) as? NewsCellText else { return UITableViewCell() }
-//            guard let news = news else {
-//                return cell
-//            }
-           
             cell.configUser(with: news[indexPath.row])
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellWithPhotoAndText) as? NewsCell else { return UITableViewCell() }
-//            guard let news = news else {
-//                return cell
-//            }
-           
             cell.configUser(with: news[indexPath.row])
             return cell
-            
         }
-        
     }
-    
-    
-    
+ 
 }

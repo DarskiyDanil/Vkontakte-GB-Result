@@ -28,6 +28,11 @@ class FriendsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestUsersFriendsSession()
+        pairTableAndRealm()
+    }
+    
+    private func requestUsersFriendsSession() {
         // [weak self] позволяет сделать ссылки на объект разрываемыми
         self.vkoService.requestUsersFriendsAlamofire() { [weak self] (friends, error) in
             if error != nil {
@@ -55,12 +60,11 @@ class FriendsTableViewController: UITableViewController {
                 print(error.localizedDescription)
             }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pairTableAndRealm()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,15 +73,14 @@ class FriendsTableViewController: UITableViewController {
     }
     
     func pairTableAndRealm() {
-//        guard let realm = try? Realm() else {
-//            return
-//        }
-//        allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
-        
+        guard let realm = try? Realm() else {return}
+        allFriend = realm.objects(FriendsRealmSwiftyJSON.self)
+
         notificationFriendToken = self.allFriend?.observe { [weak self] (results: RealmCollectionChange) in
+            guard let tableView = self?.tableView else{return}
             switch results {
             case .initial(_):
-                self?.tableView.reloadData()
+                tableView.reloadData()
             case .update(_, let deletions, let insertions, let modifications):
                 self?.tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
                 self?.tableView.reloadData()

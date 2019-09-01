@@ -15,14 +15,11 @@ private let reuseIdentifier = "PhotoFriendCell"
 
 class OneFriendCollectionViewController: UICollectionViewController {
     
-//    private var token: NotificationToken?
+    //    private var token: NotificationToken?
     private var tokenPhoto: NotificationToken?
     private var realm = try! Realm()
-    
     static let shared = OneFriendCollectionViewController()
-    
     let photoRealmSwiftyJSON = PhotoRealmSwiftyJSON()
-    
     var vkoService = VkoService()
     var photoFriendLable = [String]()
     public var photoFriend: Results<PhotoRealmSwiftyJSON>?
@@ -30,10 +27,13 @@ class OneFriendCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        requestphotoFriendSession()
+        pairTableAndRealm()
+    }
+    
+    private func requestphotoFriendSession() {
         guard photoFriendLable == photoFriendLable else {return}
         self.title = String(photoFriendLable.first!)
-        
         self.vkoService.requestUsersPhotosAlamofire(ownerId: SessionSingletone.shared.idFRIEND) { [weak self] (photos, error) in
             if error != nil {
                 //   передал функцию сообщающую ошибку
@@ -42,13 +42,12 @@ class OneFriendCollectionViewController: UICollectionViewController {
             // в guard можно вместо self? додобавить , let self =self
             guard let photos = photos, let self = self else { return }
             //  сохраняем в хранилище
-//            RealmProvider.saveToRealm(items: photos)
-            
+            //            RealmProvider.saveToRealm(items: photos)
             PhotoRealmSwiftyJSON.savePhotoRealm(photos, ownerId: String(self.idPhoto))
             //  достаём из хранилища
             do {
                 self.photoFriend = try PhotoRealmSwiftyJSON.gettPhotoFriendRealm(in: String(self.idPhoto))
-//                self.photoFriend = RealmProvider.get(PhotoRealmSwiftyJSON.self)
+                //                self.photoFriend = RealmProvider.get(PhotoRealmSwiftyJSON.self)
                 //  для асинхронности оборачииваем еслии работаем с url session
                 DispatchQueue.main.async {
                     self.collectionView?.reloadData()
@@ -59,23 +58,29 @@ class OneFriendCollectionViewController: UICollectionViewController {
         }
     }
     
-    //   подписка на уведомления!!!!!!!!!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    //   подписка на уведомления об обновлении!
+    func pairTableAndRealm() {
+        guard let realm = try? Realm() else {return}
+        photoFriend = realm.objects(PhotoRealmSwiftyJSON.self)
         
-        tokenPhoto = photoFriend?.observe { [weak self] results in
+        tokenPhoto = self.photoFriend?.observe { [weak self] (results: RealmCollectionChange) in
+            guard let collectionView = self?.collectionView else{return}
+            
             switch results {
             case .initial(_):
-                self?.collectionView.reloadData()
-            case .update(_, _, _, _):
-                self?.collectionView.reloadData()
+                collectionView.reloadData()
+            case .update(_, _, _, _): collectionView.reloadData()
             case .error(let error):
                 print(error.localizedDescription)
             }
         }
-    }
-    override func viewDidAppear(_ animated: Bool) {
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -95,7 +100,6 @@ class OneFriendCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FotoFriendCollectionCell else {
             return UICollectionViewCell()
         }
@@ -104,7 +108,6 @@ class OneFriendCollectionViewController: UICollectionViewController {
             return cell
         }
         cell.configure(with: photoFriend[indexPath.row])
-        
         return cell
     }
     
@@ -119,7 +122,5 @@ class OneFriendCollectionViewController: UICollectionViewController {
         // Показываем UIAlertController
         present(alter, animated: true, completion: nil)
     }
-    
-    
     
 }
