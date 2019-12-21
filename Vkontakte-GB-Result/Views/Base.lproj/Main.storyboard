@@ -46,7 +46,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="5fX-0c-ftg"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -65,7 +64,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="S79-6a-fXn"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -209,7 +207,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tyn-Cx-3te">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.79365284280000004" green="0.94805543420000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
@@ -231,13 +229,14 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelNameUser" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvW-xH-fKy">
                                             <rect key="frame" x="85" y="23.666666666666671" width="294" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rW-qB-hKj">
                                             <rect key="frame" x="20" y="69" width="374" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
@@ -250,10 +249,10 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WY1-TP-Ip5">
-                                            <rect key="frame" x="20" y="306.33333333333331" width="178" height="51.666666666666686"/>
+                                            <rect key="frame" x="20" y="306.33333333333331" width="115" height="51.666666666666686"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm6-FN-8Vf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="51.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="51.666666666666664"/>
                                                     <state key="normal" title="222" image="likeIconNotSelected">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
@@ -262,13 +261,13 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXQ-4Y-TSL">
-                                                    <rect key="frame" x="62" y="0.0" width="55" height="51.666666666666664"/>
+                                                    <rect key="frame" x="41" y="0.0" width="34" height="51.666666666666664"/>
                                                     <state key="normal" title="555" image="commentIcon">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FA-Ka-9cB">
-                                                    <rect key="frame" x="125" y="0.0" width="53" height="51.666666666666664"/>
+                                                    <rect key="frame" x="83" y="0.0" width="32" height="51.666666666666664"/>
                                                     <state key="normal" title="777" image="repostsIcon">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
@@ -276,7 +275,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-Fd-MUa">
-                                            <rect key="frame" x="338" y="321.33333333333331" width="56" height="22"/>
+                                            <rect key="frame" x="359" y="321.33333333333331" width="35" height="22"/>
                                             <state key="normal" title="888" image="postViewsIcon">
                                                 <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             </state>
@@ -334,14 +333,15 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelNameUser" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-g3-bve">
                                             <rect key="frame" x="85" y="23.666666666666671" width="294" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xGj-w3-p4b">
-                                            <rect key="frame" x="20" y="98.333333333333329" width="178" height="62.666666666666671"/>
+                                            <rect key="frame" x="20" y="98.333333333333329" width="115" height="62.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXW-fJ-tTk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="62.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="62.666666666666664"/>
                                                     <state key="normal" title="222" image="likeIconNotSelected">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
@@ -350,13 +350,13 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vs8-VD-I9f">
-                                                    <rect key="frame" x="62" y="0.0" width="55" height="62.666666666666664"/>
+                                                    <rect key="frame" x="41" y="0.0" width="34" height="62.666666666666664"/>
                                                     <state key="normal" title="555" image="commentIcon">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTu-tn-VWV">
-                                                    <rect key="frame" x="125" y="0.0" width="53" height="62.666666666666664"/>
+                                                    <rect key="frame" x="83" y="0.0" width="32" height="62.666666666666664"/>
                                                     <state key="normal" title="777" image="repostsIcon">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
@@ -364,7 +364,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhQ-fc-co0">
-                                            <rect key="frame" x="338" y="118.66666666666669" width="56" height="22"/>
+                                            <rect key="frame" x="359" y="118.66666666666669" width="35" height="22"/>
                                             <state key="normal" title="888" image="postViewsIcon">
                                                 <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             </state>
@@ -372,7 +372,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfI-l2-kkK">
                                             <rect key="frame" x="20" y="69" width="374" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
@@ -476,7 +476,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYA-Hq-7Oa">
                                             <rect key="frame" x="59" y="15.666666666666666" width="327" height="28.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -621,7 +621,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28w-0y-77A">
                                             <rect key="frame" x="7" y="7.0000000000000018" width="400" height="29.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -692,7 +692,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdx-Yj-IyB">
                                             <rect key="frame" x="52" y="7" width="355" height="39.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="55C-Gt-Nc8">

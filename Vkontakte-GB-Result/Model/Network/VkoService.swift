@@ -62,9 +62,12 @@ class VkoService {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
+//                    print(json)
                     let friends = json["response"]["items"].arrayValue.map { FriendsRealmSwiftyJSON(json: $0)}
+                    
                     //  при успешности волучам массив друзей и вместо ошибки nil
                     completion?(friends, nil)
+//                    print(friends)
                 case .failure(let error):
                     // иначе получаем ошибку
                     completion?(nil, error)

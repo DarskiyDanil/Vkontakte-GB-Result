@@ -8,14 +8,14 @@
 
 import UIKit
 import Kingfisher
-//делегат FriendsNameLable
+
 protocol FriendsTableViewCellDelegate: class {
     func FriendsNameLable(to name: String?)
 }
 
 class FriendsTableViewCell: UITableViewCell {
     static let friendsTableViewCell = FriendsTableViewCell()
-    // ссылка на делегат
+    
     public weak var delegate: FriendsTableViewCellDelegate?
     
     @IBOutlet weak var avatarFriend: UIImageView! {
@@ -29,13 +29,7 @@ class FriendsTableViewCell: UITableViewCell {
             
         }
     }
-    //    {
-    //        delegate?.FriendsNameLable(to: self.FriendsNameLable.text)
-    //    }
-    
-    //    private var dateFormarter: DateFormatter {
-    //
-    //    }
+
     func configure(with friend: FriendsRealmSwiftyJSON) {
         self.FriendsNameLable.text = String(friend.firstName + " " + friend.lastName)
         

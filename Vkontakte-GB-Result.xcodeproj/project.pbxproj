@@ -108,6 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				839176BE227B538700A31713 /* SessionSingletone.swift */,
+				839176BD227B533E00A31713 /* Network */,
+				83F6E2C122998F3900DEB419 /* RealmProvider */,
+				83C3EF4E22C40DB9002F8553 /* NewsRealmSwiftyJSON */,
+				8311E8FA228B5A5D00344690 /* FriendsRealmSwiftyJSON */,
+				8311E8FB228C9F8D00344690 /* groupssRealmSwiftyJSON */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +134,21 @@
 				83F6E2CA22AD1A3E00DEB419 /* UserInfoFirebase.swift */,
 			);
 			path = groupssRealmSwiftyJSON;
+			sourceTree = "<group>";
+		};
+		83186EEA23AEA5B9003CDB4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				837DD84D225FD90000A9A709 /* FriendsCell */,
+				837DD84C225FD8CE00A9A709 /* GroupCell */,
+				83C3EF4B22C40D86002F8553 /* NewsCell */,
+				83666B5F225509D700B83B4C /* Main.storyboard */,
+				83DCC1252300B472007ACEAA /* CustomColors.swift */,
+				83666B64225509D800B83B4C /* LaunchScreen.storyboard */,
+				839176BB227AE0EB00A31713 /* MyUIView.swift */,
+				83666B6D2258EB6600B83B4C /* Assets.xcassets */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		83666B4F225509D700B83B4C = {
@@ -153,19 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				83666B5B225509D700B83B4C /* AppDelegate.swift */,
-				83666B5D225509D700B83B4C /* VkoViewController.swift */,
-				839176C62284450E00A31713 /* VkoLoginWebViewController.swift */,
-				83F6E2C122998F3900DEB419 /* RealmProvider */,
 				8311E8F722888F3300344690 /* Model */,
-				839176BD227B533E00A31713 /* Network */,
-				83C3EF4822C40267002F8553 /* News */,
-				837DD843225D125A00A9A709 /* Friends */,
-				837DD842225D122100A9A709 /* Group */,
-				83666B5F225509D700B83B4C /* Main.storyboard */,
-				83DCC1252300B472007ACEAA /* CustomColors.swift */,
-				83666B64225509D800B83B4C /* LaunchScreen.storyboard */,
-				839176BB227AE0EB00A31713 /* MyUIView.swift */,
-				83666B6D2258EB6600B83B4C /* Assets.xcassets */,
+				83186EEA23AEA5B9003CDB4D /* Views */,
+				839B3F2723AEA96000B63230 /* Controllers */,
 				83666B67225509D800B83B4C /* Info.plist */,
 				83F6E2C822AC4A4300DEB419 /* GoogleService-Info.plist */,
 			);
@@ -177,8 +187,6 @@
 			children = (
 				837DD83C225BD26D00A9A709 /* GroupsTableViewController.swift */,
 				837DD83E225D118A00A9A709 /* AllGroupsTableViewController.swift */,
-				8311E8FB228C9F8D00344690 /* groupssRealmSwiftyJSON */,
-				837DD84C225FD8CE00A9A709 /* GroupCell */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -188,8 +196,6 @@
 			children = (
 				837DD83A225BD23600A9A709 /* FriendsTableViewController.swift */,
 				837DD840225D120300A9A709 /* OneFriendCollectionViewController.swift */,
-				8311E8FA228B5A5D00344690 /* FriendsRealmSwiftyJSON */,
-				837DD84D225FD90000A9A709 /* FriendsCell */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -221,12 +227,22 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		839B3F2723AEA96000B63230 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				83C3EF4822C40267002F8553 /* News */,
+				837DD843225D125A00A9A709 /* Friends */,
+				837DD842225D122100A9A709 /* Group */,
+				839176C62284450E00A31713 /* VkoLoginWebViewController.swift */,
+				83666B5D225509D700B83B4C /* VkoViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		83C3EF4822C40267002F8553 /* News */ = {
 			isa = PBXGroup;
 			children = (
 				83C3EF4922C40D7C002F8553 /* NewsTableViewController.swift */,
-				83C3EF4E22C40DB9002F8553 /* NewsRealmSwiftyJSON */,
-				83C3EF4B22C40D86002F8553 /* NewsCell */,
 			);
 			path = News;
 			sourceTree = "<group>";

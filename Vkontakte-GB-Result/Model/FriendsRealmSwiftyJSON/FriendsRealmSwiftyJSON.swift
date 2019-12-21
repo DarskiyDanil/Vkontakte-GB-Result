@@ -17,7 +17,6 @@ import RealmSwift
     dynamic var lastName = ""
     dynamic var imageUrl = ""
     
-    
     let photoRealmSwiftyJSON = List<PhotoRealmSwiftyJSON>()
     
     override class func primaryKey() -> String? {
@@ -28,15 +27,11 @@ import RealmSwift
     // если глюканёт то снести , photos: [PhotoRealmSwiftyJSON] = []
     convenience init(json: JSON) {
         self.init()
-        
         self.id = json["id"].intValue
         self.firstName = json["first_name"].stringValue
         self.lastName = json["last_name"].stringValue
         self.imageUrl = json["photo_50"].stringValue
-        
-        
     }
-    //    let photos = LinkingObjects(fromType: PhotoRealmSwiftyJSON.self, property: "friends1")
 }
 
 //MARK: CRUD metods
@@ -79,25 +74,3 @@ extension FriendsRealmSwiftyJSON {
     }
 }
 
-
-
-//extension FriendsSwiftyJSON: CustomStringConvertible {
-//    var description: String {
-//        return "\(firstName) \(lastName)"
-//    }
-//}
-//{
-//    response =     {
-//        count = 20;
-//        items =         (
-//            {
-//                "can_access_closed" = 1;
-//                "first_name" = Alena;
-//                id = 224629563;
-//                "is_closed" = 0;
-//                "last_name" = Starostenko;
-//                nickname = "";
-//                online = 0;
-//                "photo_50" = "https://pp.wVEg/_hd";
-//        },
-//}

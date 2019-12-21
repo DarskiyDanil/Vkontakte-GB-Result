@@ -47,7 +47,7 @@ class NewsTableViewController: UITableViewController {
         
         addRefreshControl()
         requestNewsSession()
-//        pairTableAndRealm()
+        //        pairTableAndRealm()
         
     }
     
@@ -57,7 +57,7 @@ class NewsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-                pairTableAndRealm()
+        pairTableAndRealm()
     }
     
     //        обновление
@@ -66,7 +66,7 @@ class NewsTableViewController: UITableViewController {
         news = realm.objects(NewsRealmSwiftyJsone.self)
         
         notificationNewsToken = self.news?.observe { [weak self] (results: RealmCollectionChange) in
-            guard let tableView = self?.tableView else{return}
+            guard let tableView = self?.tableView else {return}
             
             switch results {
             case .initial(_):
@@ -116,7 +116,7 @@ class NewsTableViewController: UITableViewController {
     //    вывод ошибки
     func showLoginError() {
         // Создаем контроллер
-        let alter = UIAlertController(title: "Ошибка сети", message: "данные неполучены, ковыряй код", preferredStyle: .alert)
+        let alter = UIAlertController(title: "Ошибка сети", message: "данные не получены, ковыряй код", preferredStyle: .alert)
         // Создаем кнопку для UIAlertController
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         // Добавляем кнопку на UIAlertController
@@ -126,9 +126,9 @@ class NewsTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    //    override func numberOfSections(in tableView: UITableView) -> Int {
-    //        return 1
-    //    }
+    //        override func numberOfSections(in tableView: UITableView) -> Int {
+    //            return 1
+    //        }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

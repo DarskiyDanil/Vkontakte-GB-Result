@@ -20,5 +20,4 @@ class SessionSingletone {
     let apiVersion = "5.95"
     let userId = "6646537"
     let baseUrl = "https://api.vk.com"
-    
 }

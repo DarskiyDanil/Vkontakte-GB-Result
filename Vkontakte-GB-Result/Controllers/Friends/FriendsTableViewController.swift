@@ -14,7 +14,7 @@ import FirebaseFirestore
 
 class FriendsTableViewController: UITableViewController {
     var oneFriendCollectionViewController = OneFriendCollectionViewController()
-    
+    let friendsTableViewCell = FriendsTableViewCell()
     @IBOutlet weak var PhotosFriendTableView: UITableView! {
         didSet {
             PhotosFriendTableView.delegate = self
@@ -69,7 +69,9 @@ class FriendsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animatePhoto()
+//        UIView.animate(withDuration: 0.5, animations: {
+//            self.friendsTableViewCell.FriendsNameLable.bounds.origin.x += 2
+//        })
     }
     
     func pairTableAndRealm() {
@@ -134,19 +136,10 @@ class FriendsTableViewController: UITableViewController {
             if let indexPath = PhotosFriendTableView.indexPathForSelectedRow {
                 //                выбранную ячейку сохраняем в переменную
                 let friend = String(allFriend![indexPath.row].firstName + " " + allFriend![indexPath.row].lastName)
-                
                 let idFriend = String(allFriend![indexPath.row].id)
-                
-                //                передаю id в функцию requestUsersPhotosAlamofire
-                //                vkoService.requestUsersPhotosAlamofire(ownerId: idFriend)
                 SessionSingletone.shared.idFRIEND = idFriend
                 //  передаю в пустой массив выбранную ячейку из друзей
                 friendLablePhotoVC.photoFriendLable.append(friend)
-                
-                
-                //                }
-                //               let friendPhotos = String(allFriendPhoto[indexPath.row].imageUrl)
-                //                friendLablePhotoVC.photoFriend.append(friendPhotos)
             }
         }
     }
@@ -161,72 +154,6 @@ class FriendsTableViewController: UITableViewController {
         // Показываем UIAlertController
         present(alter, animated: true, completion: nil)
     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    //}
-    
-    //    let friendsNameLable = FriendsTableViewCell.friendsTableViewCell.FriendsNameLable.self
-    func animatePhoto() {
-        
-        FriendsTableViewCell.friendsTableViewCell.self.FriendsNameLable.self?.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height/2)
-        UIView.animate(withDuration: 3,
-                       delay: 1,
-                       usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 0.5,
-                       options: .curveEaseOut,
-                       animations: {
-                        FriendsTableViewCell.friendsTableViewCell.self.FriendsNameLable.self?.transform = .identity
-        },
-                       completion: nil)
-    }
-    //     в стадии проблемной анимации которая не работает
-    
-    
     
 }
 

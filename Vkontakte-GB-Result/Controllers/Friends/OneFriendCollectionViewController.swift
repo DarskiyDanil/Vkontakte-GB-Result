@@ -67,19 +67,29 @@ class OneFriendCollectionViewController: UICollectionViewController {
     
     //   подписка на уведомления об обновлении!
     func pairTableAndRealm() {
+  
         guard let realm = try? Realm() else {return}
+
         photoFriend = realm.objects(PhotoRealmSwiftyJSON.self)
         
-        tokenPhoto = self.photoFriend?.observe { [weak self] (results: RealmCollectionChange) in
-            guard let collectionView = self?.collectionView else{return}
+        tokenPhoto = self.photoFriend?.observe { [weak self] (changes: RealmCollectionChange) in
             
-            switch results {
-            case .initial(_):
+            guard let collectionView = self?.collectionView else {return}
+            
+            switch changes {
+            case .initial:
                 collectionView.reloadData()
-            case .update(_, _, _, _): collectionView.reloadData()
+                print("инициир")
+            case .update(_, let deletions, let insertions, let modifications):
+                    collectionView.performBatchUpdates({
+                        collectionView.insertItems(at: insertions.map({IndexPath(row: $0, section: 0) }))
+                    collectionView.deleteItems(at: deletions.map({IndexPath(row: $0, section: 0)}))
+                    collectionView.reloadItems(at: modifications.map({IndexPath(row: $0, section: 0) }))
+                }, completion: nil)
+                print("обновился")
             case .error(let error):
-                print(error.localizedDescription)
-            }
+                print("ошибка")
+                fatalError("\(error)") }
         }
     }
     
@@ -90,12 +100,10 @@ class OneFriendCollectionViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return photoFriend?.count ?? 0
     }
     
