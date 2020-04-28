@@ -39,15 +39,12 @@ class OneFriendCollectionViewController: UICollectionViewController {
                 //   передал функцию сообщающую ошибку
                 self?.showLoginError()
             }
-            // в guard можно вместо self? додобавить , let self =self
             guard let photos = photos, let self = self else { return }
             //  сохраняем в хранилище
-            //            RealmProvider.saveToRealm(items: photos)
             PhotoRealmSwiftyJSON.savePhotoRealm(photos, ownerId: String(self.idPhoto))
             //  достаём из хранилища
             do {
                 self.photoFriend = try PhotoRealmSwiftyJSON.gettPhotoFriendRealm(in: String(self.idPhoto))
-                //                self.photoFriend = RealmProvider.get(PhotoRealmSwiftyJSON.self)
                 //  для асинхронности оборачииваем еслии работаем с url session
                 DispatchQueue.main.async {
                     self.collectionView?.reloadData()
@@ -67,11 +64,10 @@ class OneFriendCollectionViewController: UICollectionViewController {
     
     //   подписка на уведомления об обновлении!
     func pairTableAndRealm() {
-  
-        guard let realm = try? Realm() else {return}
-
-        photoFriend = realm.objects(PhotoRealmSwiftyJSON.self)
         
+        guard let realm = try? Realm() else {return}
+        
+        photoFriend = realm.objects(PhotoRealmSwiftyJSON.self)
         tokenPhoto = self.photoFriend?.observe { [weak self] (changes: RealmCollectionChange) in
             
             guard let collectionView = self?.collectionView else {return}
@@ -81,8 +77,8 @@ class OneFriendCollectionViewController: UICollectionViewController {
                 collectionView.reloadData()
                 print("инициир")
             case .update(_, let deletions, let insertions, let modifications):
-                    collectionView.performBatchUpdates({
-                        collectionView.insertItems(at: insertions.map({IndexPath(row: $0, section: 0) }))
+                collectionView.performBatchUpdates({
+                    collectionView.insertItems(at: insertions.map({IndexPath(row: $0, section: 0) }))
                     collectionView.deleteItems(at: deletions.map({IndexPath(row: $0, section: 0)}))
                     collectionView.reloadItems(at: modifications.map({IndexPath(row: $0, section: 0) }))
                 }, completion: nil)
@@ -108,13 +104,8 @@ class OneFriendCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FotoFriendCollectionCell else {
-            return UICollectionViewCell()
-        }
-        // избавился от ?
-        guard let photoFriend = photoFriend else {
-            return cell
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FotoFriendCollectionCell else {return UICollectionViewCell()}
+        guard let photoFriend = photoFriend else {return cell}
         cell.configure(with: photoFriend[indexPath.row])
         return cell
     }
@@ -129,6 +120,31 @@ class OneFriendCollectionViewController: UICollectionViewController {
         alter.addAction(action)
         // Показываем UIAlertController
         present(alter, animated: true, completion: nil)
+    }
+    
+}
+
+extension OneFriendCollectionViewController: UICollectionViewDelegateFlowLayout {
+    //    размер ячеек
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemsCountInRow: CGFloat = 3
+        let fillingWidth: CGFloat = 8 * (itemsCountInRow + 1)
+        let availableWidthForItems: CGFloat = collectionView.frame.width - fillingWidth
+        let widthForItem: CGFloat = availableWidthForItems / itemsCountInRow
+        return CGSize(width: widthForItem, height: widthForItem)
+    }
+    
+    //    отступы ячеек от краёв
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    }
+    //    минимальный межстрочный интервал
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        8
+    }
+    //    минимальный строчный интервал между ячейками
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        8
     }
     
 }

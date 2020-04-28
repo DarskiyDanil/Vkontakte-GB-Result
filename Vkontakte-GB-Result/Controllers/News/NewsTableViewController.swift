@@ -93,12 +93,9 @@ class NewsTableViewController: UITableViewController {
                 //   передал функцию сообщающую ошибку
                 self?.showLoginError()
             }
-            // в guard можно вместо self? додобавить , let self =self
             guard let news = news, let self = self else { return }
-            //            self?.allGroups = groups
             //  сохраняем в хранилище
             NewsRealmSwiftyJsone.saveNewsRealm(news)
-            //            RealmProvider.saveToRealm(items: news)
             // достаём из хранилища
             do {
                 self.news = try NewsRealmSwiftyJsone.getNewsRealm()
@@ -144,6 +141,7 @@ class NewsTableViewController: UITableViewController {
         guard let news = news else {
             return UITableViewCell()
         }
+        
         if news[indexPath.row].imageURL.isEmpty  {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellWithText) as? NewsCellText else { return UITableViewCell() }
             cell.configUser(with: news[indexPath.row])

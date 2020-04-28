@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xhf-ng-fwf">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xhf-ng-fwf">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +30,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  ЛОГИН:  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zz-Qy-Z2k">
-                                        <rect key="frame" x="160" y="403" width="94.333333333333314" height="22"/>
+                                        <rect key="frame" x="160" y="401" width="94.333333333333314" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="f5Q-Mv-nQO"/>
                                         </constraints>
@@ -41,7 +39,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipv-VA-gbQ">
-                                        <rect key="frame" x="92" y="433" width="230" height="30"/>
+                                        <rect key="frame" x="92" y="431" width="230" height="34"/>
                                         <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="5fX-0c-ftg"/>
@@ -50,7 +48,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  ПАРОЛЬ:  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kn3-wS-Y0p">
-                                        <rect key="frame" x="160" y="498" width="94.333333333333314" height="22"/>
+                                        <rect key="frame" x="160" y="500" width="94.333333333333314" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="5uS-6K-Ixi"/>
                                         </constraints>
@@ -59,7 +57,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wIR-hI-21n">
-                                        <rect key="frame" x="92" y="528" width="230" height="30"/>
+                                        <rect key="frame" x="92" y="530" width="230" height="34"/>
                                         <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="S79-6a-fXn"/>
@@ -68,7 +66,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRF-GT-uAP">
-                                        <rect key="frame" x="159.66666666666666" y="578" width="95" height="41"/>
+                                        <rect key="frame" x="159.66666666666666" y="584" width="95" height="41"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="d2f-3X-MQt"/>
@@ -82,7 +80,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="u3s-h8-IlZ">
-                                        <rect key="frame" x="132" y="213" width="150" height="150"/>
+                                        <rect key="frame" x="132" y="211" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="u3s-h8-IlZ" secondAttribute="height" multiplier="1:1" id="RXo-Lw-vHo"/>
                                             <constraint firstAttribute="width" constant="150" id="n1a-5q-Ovz"/>
@@ -205,7 +203,7 @@
             <objects>
                 <tableViewController id="3RS-yR-r1N" customClass="NewsTableViewController" customModule="Vkontakte_GB_Result" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tyn-Cx-3te">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -215,7 +213,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="369"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mr5-JF-97G" id="4uz-Rm-yzk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="368.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="369"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDF-YN-CEX">
@@ -249,10 +247,10 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WY1-TP-Ip5">
-                                            <rect key="frame" x="20" y="306.33333333333331" width="115" height="51.666666666666686"/>
+                                            <rect key="frame" x="20" y="306.33333333333331" width="178" height="51.666666666666686"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm6-FN-8Vf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="51.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="51.666666666666664"/>
                                                     <state key="normal" title="222" image="likeIconNotSelected">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
@@ -261,13 +259,13 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXQ-4Y-TSL">
-                                                    <rect key="frame" x="41" y="0.0" width="34" height="51.666666666666664"/>
+                                                    <rect key="frame" x="62" y="0.0" width="55" height="51.666666666666664"/>
                                                     <state key="normal" title="555" image="commentIcon">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FA-Ka-9cB">
-                                                    <rect key="frame" x="83" y="0.0" width="32" height="51.666666666666664"/>
+                                                    <rect key="frame" x="125" y="0.0" width="53" height="51.666666666666664"/>
                                                     <state key="normal" title="777" image="repostsIcon">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
@@ -275,7 +273,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-Fd-MUa">
-                                            <rect key="frame" x="359" y="321.33333333333331" width="35" height="22"/>
+                                            <rect key="frame" x="338" y="321.33333333333331" width="56" height="22"/>
                                             <state key="normal" title="888" image="postViewsIcon">
                                                 <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             </state>
@@ -319,7 +317,7 @@
                                 <rect key="frame" x="0.0" y="397" width="414" height="172"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sqw-Z8-bWd" id="xT4-Vt-1ak">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="171.66666666666666"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="INB-7U-00h">
@@ -338,10 +336,10 @@
                                             <color key="shadowColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xGj-w3-p4b">
-                                            <rect key="frame" x="20" y="98.333333333333329" width="115" height="62.666666666666671"/>
+                                            <rect key="frame" x="20" y="98.333333333333329" width="178" height="62.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXW-fJ-tTk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="62.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="62.666666666666664"/>
                                                     <state key="normal" title="222" image="likeIconNotSelected">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
@@ -350,13 +348,13 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vs8-VD-I9f">
-                                                    <rect key="frame" x="41" y="0.0" width="34" height="62.666666666666664"/>
+                                                    <rect key="frame" x="62" y="0.0" width="55" height="62.666666666666664"/>
                                                     <state key="normal" title="555" image="commentIcon">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTu-tn-VWV">
-                                                    <rect key="frame" x="83" y="0.0" width="32" height="62.666666666666664"/>
+                                                    <rect key="frame" x="125" y="0.0" width="53" height="62.666666666666664"/>
                                                     <state key="normal" title="777" image="repostsIcon">
                                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     </state>
@@ -364,7 +362,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhQ-fc-co0">
-                                            <rect key="frame" x="359" y="118.66666666666669" width="35" height="22"/>
+                                            <rect key="frame" x="338" y="118.66666666666669" width="56" height="22"/>
                                             <state key="normal" title="888" image="postViewsIcon">
                                                 <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             </state>
@@ -428,7 +426,7 @@
                     <tabBarItem key="tabBarItem" title="ДРУЗЬЯ" image="icons8-myspace-в-круге-filled-100" id="0Jj-3q-mxW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LQI-ln-P0E">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
@@ -452,7 +450,7 @@
             <objects>
                 <tableViewController id="poA-aD-ULl" customClass="FriendsTableViewController" customModule="Vkontakte_GB_Result" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mgZ-9p-KVX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -463,18 +461,18 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F6R-dJ-5lC" id="jj3-j9-Hfc">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k3S-Sc-8ar">
-                                            <rect key="frame" x="8" y="7.3333333333333321" width="45" height="45"/>
+                                            <rect key="frame" x="8" y="7.6666666666666679" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="dC4-cd-eA4"/>
                                                 <constraint firstAttribute="width" constant="45" id="wmi-vw-faf"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYA-Hq-7Oa">
-                                            <rect key="frame" x="59" y="15.666666666666666" width="327" height="28.333333333333336"/>
+                                            <rect key="frame" x="59" y="15.666666666666666" width="327" height="28.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -522,8 +520,8 @@
         <scene sceneID="Qdr-q0-rno">
             <objects>
                 <collectionViewController id="PET-fk-bOw" customClass="OneFriendCollectionViewController" customModule="Vkontakte_GB_Result" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="JQ1-VK-dip">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" id="JQ1-VK-dip">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="ukp-Ra-Rxo"/>
@@ -534,29 +532,24 @@
                             <inset key="sectionInset" minX="17" minY="10" maxX="17" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoFriendCell" id="9L4-P5-ueh" customClass="FotoFriendCollectionCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PhotoFriendCell" id="9L4-P5-ueh" customClass="FotoFriendCollectionCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
                                 <rect key="frame" x="17" y="10" width="180" height="170"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="180" height="170"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pfK-ZL-7Xs">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pfK-ZL-7Xs">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="170"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="180" id="wXT-LA-Z8t"/>
-                                            </constraints>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="pfK-ZL-7Xs" firstAttribute="centerY" secondItem="9L4-P5-ueh" secondAttribute="centerY" id="83j-HO-owf"/>
-                                    <constraint firstItem="pfK-ZL-7Xs" firstAttribute="centerX" secondItem="9L4-P5-ueh" secondAttribute="centerX" id="Bti-nm-cPN"/>
-                                    <constraint firstItem="pfK-ZL-7Xs" firstAttribute="top" secondItem="9L4-P5-ueh" secondAttribute="top" id="KYC-ps-g34"/>
-                                    <constraint firstItem="pfK-ZL-7Xs" firstAttribute="leading" secondItem="9L4-P5-ueh" secondAttribute="leading" id="h7V-b0-92K"/>
-                                    <constraint firstAttribute="trailing" secondItem="pfK-ZL-7Xs" secondAttribute="trailing" id="nv3-fq-bC0"/>
-                                    <constraint firstAttribute="bottom" secondItem="pfK-ZL-7Xs" secondAttribute="bottom" id="tWh-c1-hlq"/>
+                                    <constraint firstAttribute="trailing" secondItem="pfK-ZL-7Xs" secondAttribute="trailing" id="1U3-4d-N6D"/>
+                                    <constraint firstItem="pfK-ZL-7Xs" firstAttribute="leading" secondItem="9L4-P5-ueh" secondAttribute="leading" id="5Qv-xs-N8y"/>
+                                    <constraint firstAttribute="bottom" secondItem="pfK-ZL-7Xs" secondAttribute="bottom" id="bfL-8k-Ops"/>
+                                    <constraint firstItem="pfK-ZL-7Xs" firstAttribute="top" secondItem="9L4-P5-ueh" secondAttribute="top" id="c4F-QK-jf4"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="PhotoImageFriend" destination="pfK-ZL-7Xs" id="Em3-9H-svW"/>
@@ -580,7 +573,7 @@
                     <tabBarItem key="tabBarItem" title="ГРУППЫ" image="icons8-следить-filled-50 (2)" id="24Z-eY-wBY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oul-0m-Fg2">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
@@ -604,7 +597,7 @@
             <objects>
                 <tableViewController id="c7o-4H-cuF" customClass="GroupsTableViewController" customModule="Vkontakte_GB_Result" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rAs-Yh-3zw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -612,14 +605,14 @@
                         <color key="sectionIndexBackgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupsCell" id="b0g-SY-C4J" customClass="GroupsCell" customModule="Vkontakte_GB_Result" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b0g-SY-C4J" id="jol-DV-DSA">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28w-0y-77A">
-                                            <rect key="frame" x="7" y="7.0000000000000018" width="400" height="29.666666666666671"/>
+                                            <rect key="frame" x="7" y="7" width="400" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -669,7 +662,7 @@
             <objects>
                 <tableViewController id="QiO-3Z-Vrc" customClass="AllGroupsTableViewController" customModule="Vkontakte_GB_Result" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gJS-D4-nXy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88675455349999999" green="0.99432896910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.70260132740000003" green="0.88697147620000005" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -686,11 +679,11 @@
                                 <rect key="frame" x="0.0" y="72" width="414" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nbK-a9-Efg" id="ZMR-m3-epN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="53.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdx-Yj-IyB">
-                                            <rect key="frame" x="52" y="7" width="355" height="39.666666666666664"/>
+                                            <rect key="frame" x="52" y="7" width="355" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -751,7 +744,7 @@
                     <tabBarItem key="tabBarItem" title="Новости" image="icons8-vk-в-круге-filled-101" id="RCm-Wv-w1V"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZbT-0H-7ZG">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

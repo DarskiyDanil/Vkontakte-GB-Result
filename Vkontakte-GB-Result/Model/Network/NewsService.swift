@@ -93,23 +93,13 @@ class NewsService {
                     return
                 }
                 do {
-                    //                switch response.result {
-                    //                case .success(let value):
                     let json = try JSON(/*value*/data: data)
                     let like = json["response"]["likes"].intValue
-                    //                    arrayValue.map { NewsRealmSwiftyJsone(json: $0)}
-                    print(json)
-                    //==============================================================================
+//                    print(json)
                     NewsRealmSwiftyJsone.newsRealmSwiftyJsone.saveNumberOfLikes(for: id, newLikesCount: like, action: action)
-                    //==============================================================================
-                    //                    completion?(like, nil)
-                    //  при успешности волучам массив друзей и вместо ошибки nil
                 }
                 catch {
                     print(error.localizedDescription)
-                    //                case .failure(let error):
-                    //                    // иначе получаем ошибку
-                    //                    completion?(nil, error)
                 }
             }
         }

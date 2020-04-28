@@ -13,11 +13,15 @@ class FotoFriendCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var PhotoImageFriend: UIImageView!{
         didSet {
+            PhotoImageFriend.contentMode = .scaleAspectFill
+            PhotoImageFriend.clipsToBounds = true
+//            PhotoImageFriend
+//            contentView.center = PhotoImageFriend.center
             
         }
     }
     
-    @IBOutlet weak var PhotoLableFriend: UILabel! 
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,5 +31,11 @@ class FotoFriendCollectionCell: UICollectionViewCell {
         let url = URL(string: String(photo.imageUrl))
         self.PhotoImageFriend.kf.setImage(with: url)
     }
+    
+    
+//    func setupViews() {
+//        PhotoImageFriend.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0)
+//
+//    }
     
 }

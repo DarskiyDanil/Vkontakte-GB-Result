@@ -55,12 +55,6 @@ class NewsCell: UITableViewCell {
     @IBAction func likesButtonPressed(_ sender: Any) {
         if likesButton.titleColor(for: .normal) == UIColor.likedIconColor {
             NewsService.newsService.changeNumberOfLikesNews(post_id, ownerId: owner_id, action: "delete")
-            //            {
-            //                [weak self] (news, error) in
-            //                if error != nil {
-            //                    //   передал функцию сообщающую ошибку
-            //                    print("error")
-            //                }
             likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
             likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
             
@@ -115,90 +109,6 @@ class NewsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    
-    
-    
-    
-    
-    
-    //    override func setSelected(_ selected: Bool, animated: Bool) {
-    //        super.setSelected(selected, animated: animated)
-    //
-    //        // Configure the view for the selected state
-    //    }
-    
-    //
-    //
-    //    //  переопределяю метод расчёта позиции
-    //    override func layoutSubviews() {
-    //        super.layoutSubviews()
-    //        PhotoProfilFrame()
-    //        NameProfileUserFrame()
-    //        NewsPostFrame()
-    //        NewsImageFrame()
-    //    }
-    //    func setNameProfileUser(text: String) {
-    //        nameProfileUser.text = text
-    //        NameProfileUserFrame()
-    //    }
-    //    func setNewsPost (text: String) {
-    //        newNewsPost.text = text
-    //        NewsPostFrame()
-    //    }
-    //
-    //
-    //
-    //    //    настройка фреймы
-    //    private let inset: CGFloat = 10.0
-    //
-    //    private func PhotoProfilFrame() {
-    //        let photoProfilWidth: CGFloat = 50
-    //        let photoProfilSize = CGSize(width: photoProfilWidth, height: photoProfilWidth)
-    //        let photoProfilOrigin = CGPoint(x: bounds.midX - photoProfilWidth / 2,
-    //                                        y: bounds.midY - photoProfilWidth / 2)
-    //        photoProfil.frame = CGRect(origin: photoProfilOrigin, size: photoProfilSize)
-    //    }
-    //    //    имя публикующего
-    //    private func NameProfileUserFrame() {
-    //        // получаем размер текста, передавая сам текст и шрифт
-    //        let nameProfileUserSize = countLableSize(text: nameProfileUser.text!, font: nameProfileUser.font)
-    //        // координата по оси X
-    //        let nameProfileUserX = (bounds.width - nameProfileUserSize.width) / 2
-    //        // получаем точку верхнего левого угла надписи
-    //        let nameProfileUserFrameOrigin = CGPoint(x: nameProfileUserX, y: inset)
-    //        // получаем фрейм и устанавливаем его UILabel
-    //        nameProfileUser.frame = CGRect(origin: nameProfileUserFrameOrigin, size: nameProfileUserSize)
-    //    }
-    //    //    текст публикации
-    //    private func NewsPostFrame() {
-    //        let newsPostSize = countLableSize(text: newNewsPost.text!, font: newNewsPost.font)
-    //        let newNewsPostX = (bounds.width - newsPostSize.width) / 2
-    //        let newNewsPostY =  bounds.height - newsPostSize.height - inset
-    //
-    //        let newNewsPostFrameOrigin = CGPoint(x: newNewsPostX, y: newNewsPostY)
-    //        newNewsPost.frame = CGRect(origin: newNewsPostFrameOrigin, size: newsPostSize)
-    //    }
-    //
-    //    private func NewsImageFrame() {
-    //        let newsImageWidth: CGFloat = 375
-    //        let newsImageSize = CGSize(width: newsImageWidth, height: newsImageWidth)
-    //        let newsImageOrigin = CGPoint(x: bounds.midX - newsImageWidth / 2,
-    //                                      y: bounds.midY - newsImageWidth / 2)
-    //        newsImage.frame = CGRect(origin: newsImageOrigin, size: newsImageSize)
-    //    }
-    //    //     размер прямогуольника текстом
-    //    private func countLableSize(text: String, font: UIFont)-> CGSize {
-    //        let maxWidth = bounds.width - 2 * inset
-    //        let textBlock = CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude)
-    //        let rect = text.boundingRect(with: textBlock, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : font], context: nil)
-    //        let width = Double(rect.size.width)
-    //        let height = Double(rect.size.height)
-    //        let size = CGSize(width: ceil(width), height: ceil(height))
-    //        return size
-    //    }
-    
-    
     
     
     
